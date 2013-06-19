@@ -140,23 +140,23 @@
 											<table class="form">
 												<tr><h3><?php echo $entry_product_view; ?></h3></tr>
 												<tr>
-													<td><input type="radio" value="grid_8,grid_8,grid_8" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_8,grid_8,grid_8') echo ' checked="checked"'; ?> /> <?php echo $text_extra; ?>
+													<td><input type="radio" value="grid_8,grid_8,grid_8" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_8,grid_8,grid_8') echo ' checked="checked"'; ?> /> <?php echo $text_extra; ?>
 													</td>
 												</tr>
 												<tr>
-													<td><input type="radio" value="grid_6,grid_6,grid_6" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_6,grid_6,grid_6') echo ' checked="checked"'; ?> /> <?php echo $text_large; ?>
+													<td><input type="radio" value="grid_6,grid_6,grid_6" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_6,grid_6,grid_6') echo ' checked="checked"'; ?> /> <?php echo $text_large; ?>
 													</td>
 												</tr>
 												<tr>
-													<td><input type="radio" value="grid_4,grid_5,grid_5" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_4,grid_5,grid_5') echo ' checked="checked"'; ?> /> <?php echo $text_medium1; ?>
+													<td><input type="radio" value="grid_4,grid_5,grid_5" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_4,grid_5,grid_5') echo ' checked="checked"'; ?> /> <?php echo $text_medium1; ?>
 													</td>
 												</tr>
 												<tr>
-													<td><input type="radio" value="grid_4,grid_4,grid_4" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_4,grid_4,grid_4') echo ' checked="checked"'; ?> /> <?php echo $text_medium2; ?>
+													<td><input type="radio" value="grid_4,grid_4,grid_4" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_4,grid_4,grid_4') echo ' checked="checked"'; ?> /> <?php echo $text_medium2; ?>
 													</td>
 												</tr>
 												<tr>
-													<td><input type="radio" value="grid_6,grid_6,grid_3" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_6,grid_6,grid_3') echo ' checked="checked"'; ?> /> <?php echo $text_small; ?>
+													<td><input type="radio" value="grid_6,grid_6,grid_3" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_6,grid_6,grid_3') echo ' checked="checked"'; ?> /> <?php echo $text_small; ?>
 													</td>
 												</tr>
 											</table>

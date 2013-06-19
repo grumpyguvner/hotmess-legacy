@@ -45,13 +45,13 @@ if($data_template){
 			
 			<li><!-- product grid view-->
 				<span class="expand">Product Grid View</span>
-				<?php $b_Layout_Setting = $this->config->get('b_Layout_Setting'); ?>
+				<?php $B_Layout_Setting = $this->config->get('b_Layout_Setting'); ?>
 				<ul class="mode_css"> 
-					<p><input type="radio" id="view_grid_8_grid_8_grid_8" value="grid_8,grid_8,grid_8" onclick="changeProductView('grid_8','grid_8','grid_8')" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_8,grid_8,grid_8') echo ' checked="checked"'; ?> /> Extra</p>
-					<p><input type="radio" id="view_grid_6_grid_6_grid_6" value="grid_6,grid_6,grid_6" onclick="changeProductView('grid_6','grid_6','grid_6')" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_6,grid_6,grid_6')  echo ' checked="checked"'; ?> /> Large</p>
-					<p><input type="radio"  id="view_grid_4_grid_5_grid_5" value="grid_4,grid_5,grid_5" onclick="changeProductView('grid_4','grid_5','grid_5')" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_4,grid_5,grid_5') echo ' checked="checked"'; ?> /> Medium 1</p>
-					<p><input type="radio" id="view_grid_4_grid_4_grid_4" value="grid_4,grid_4,grid_4" onclick="changeProductView('grid_4','grid_4','grid_4')" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_4,grid_4,grid_4') echo ' checked="checked"'; ?> /> Medium 2</p>
-					<p><input type="radio" id="view_grid_6_grid_6_grid_3" value="grid_6,grid_6,grid_3" onclick="changeProductView('grid_6','grid_6','grid_3')" name="b_Layout_Setting" <?php if ($b_Layout_Setting == 'grid_6,grid_6,grid_3') echo ' checked="checked"'; ?> /> Small</p>
+					<p><input type="radio" id="view_grid_8_grid_8_grid_8" value="grid_8,grid_8,grid_8" onclick="changeProductView('grid_8','grid_8','grid_8')" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_8,grid_8,grid_8') echo ' checked="checked"'; ?> /> Extra</p>
+					<p><input type="radio" id="view_grid_6_grid_6_grid_6" value="grid_6,grid_6,grid_6" onclick="changeProductView('grid_6','grid_6','grid_6')" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_6,grid_6,grid_6')  echo ' checked="checked"'; ?> /> Large</p>
+					<p><input type="radio"  id="view_grid_4_grid_5_grid_5" value="grid_4,grid_5,grid_5" onclick="changeProductView('grid_4','grid_5','grid_5')" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_4,grid_5,grid_5') echo ' checked="checked"'; ?> /> Medium 1</p>
+					<p><input type="radio" id="view_grid_4_grid_4_grid_4" value="grid_4,grid_4,grid_4" onclick="changeProductView('grid_4','grid_4','grid_4')" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_4,grid_4,grid_4') echo ' checked="checked"'; ?> /> Medium 2</p>
+					<p><input type="radio" id="view_grid_6_grid_6_grid_3" value="grid_6,grid_6,grid_3" onclick="changeProductView('grid_6','grid_6','grid_3')" name="b_Layout_Setting" <?php if ($B_Layout_Setting == 'grid_6,grid_6,grid_3') echo ' checked="checked"'; ?> /> Small</p>
 				</ul>
 			</li>
 			
@@ -378,11 +378,11 @@ function ResetAll(){
 	changeModeCSS(Mode_class_old);
 	document.getElementById('mode_'+ Mode_class_old).checked=true;
 	<?php
-	$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
+	$B_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
 	?>
-	var class_left = '<?php echo $b_Layout_Settings[0] ; ?>';
-	var class_right = '<?php echo $b_Layout_Settings[1] ; ?>';
-	var class_product = '<?php echo $b_Layout_Settings[2] ; ?>';
+	var class_left = '<?php echo $B_Layout_Settings[0] ; ?>';
+	var class_right = '<?php echo $B_Layout_Settings[1] ; ?>';
+	var class_product = '<?php echo $B_Layout_Settings[2] ; ?>';
 	changeProductView(class_left,class_right,class_product);
 	document.getElementById('view_'+ class_left + '_' + class_right + '_' + class_product).checked=true;
 	$("#temp_setting").val('<?php echo($b_Setting['temp_setting']); ?>')

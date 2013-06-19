@@ -1,7 +1,7 @@
 <?php if ($modules) { ?>
 <?php
-$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
-$column_right = $b_Layout_Settings[1];
+$B_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
+$column_right = $B_Layout_Settings[1];
 ?>
 <div id="column-right" class="<?php echo $column_right; ?> omega">
   <?php foreach ($modules as $module) { ?>
@@ -10,8 +10,8 @@ $column_right = $b_Layout_Settings[1];
   <script type="text/javascript"><!--
 	$(document).ready(function() {
 		<?php
-		$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
-		$column_right = $b_Layout_Settings[1];
+		$B_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
+		$column_right = $B_Layout_Settings[1];
 		?>
 		$id = 'column-left';
 		var class_right = '<?php echo $column_right;?>';

@@ -82,7 +82,7 @@
           </div>
     
 		<?php
-			$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
+			$B_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
 			if(isset($B_Layout_Settings)){
 				$div_product = $B_Layout_Settings[2];
 			}else{

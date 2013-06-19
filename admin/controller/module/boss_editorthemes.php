@@ -288,9 +288,9 @@ class ControllerModuleBossEditorthemes extends Controller {
 		}
 		
 		if (isset($this->request->post['b_Layout_Setting'])) {
-			$b_Layout_Settings = explode(',', $this->request->post['b_Layout_Setting']);
+			$B_Layout_Settings = explode(',', $this->request->post['b_Layout_Setting']);
 		} else {		
-			$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
+			$B_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
 		}
 		
 		$this->data['modules'] = array();

@@ -97,7 +97,7 @@
     </div><div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display('grid');"><?php echo $text_list; ?> <b>/</b><?php echo $text_grid; ?></a></div>
   </div>
   <?php
-	$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
+	$B_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
 	if(isset($B_Layout_Settings)){
 		$div_product = $B_Layout_Settings[2];
 	}else{
