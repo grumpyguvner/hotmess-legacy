@@ -241,7 +241,7 @@ if (view) {
 	display('list');
 	<?php }else { ?>
 	display('grid');
-	<?php } */ ?>
+	<?php } ?>
 }
 //--></script> 
 <script type="text/javascript"><!--
