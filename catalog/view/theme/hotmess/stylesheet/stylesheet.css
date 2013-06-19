@@ -1696,10 +1696,10 @@ ul.box-filter > li ul {
 .product-list .cart  input.button:hover{border:3px solid #202020}
 .product-grid .cart  input.button{border-radius:0;border:3px solid #cbcbcb}
 .product-grid .cart  input.button:hover{border:3px solid #202020}
-.product-list .view  a.button{border-radius:0;border:3px solid #FBDB75; text-tranform:uppercase}
-.product-list .view  a:hover{border:3px solid #b235cb}
-.product-grid .view  a{border-radius:0;border:3px solid #FBDB75;text-tranform:uppercase}
-.product-grid .view  a:hover{border:3px solid #b235cb}
+.product-list .view  a.button{border-radius:0;border:3px solid #FBDB75; text-transform:uppercase; color: #b235cb}
+.product-list .view  a:hover{border:3px solid #b235cb;color:#FBDB75;background:#3E3E3E;}
+.product-grid .view  a{border-radius:0;border:3px solid #FBDB75;text-transform:uppercase; color: #b235cb}
+.product-grid .view  a:hover{border:3px solid #b235cb;color:#FBDB75;background:#3E3E3E;}
 .product-grid .cart,.product-grid .compare,.product-grid .wishlist,.product-grid .name,.product-grid .price,.product-grid .rating{}
 .product-grid .name{margin-top:17px;margin-bottom:6px}
 .wishlist-info .action input.button{border-radius:0;border:3px solid #cbcbcb}
