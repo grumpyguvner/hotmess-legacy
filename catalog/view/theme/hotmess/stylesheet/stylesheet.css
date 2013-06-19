@@ -2540,17 +2540,23 @@ margin-left: 1.5em;
 	clear: both;
 	min-height: 100px;
 	padding: 20px 0;
-	
-	padding-top:52px;
 	padding-bottom:8px;
 }
-#footer .about-des a.read-more:hover{text-decoration:underline}
-#footer .about-des p{overflow:hidden;height:44px;max-height:44px;font-weight:700}
+#footer .block-about-us .about-des a.read-more{color: #B335CB;}
+#footer .about-des a.read-more:hover{text-decoration:underline; color: #B335CB;}
+#footer .about-des p{overflow:hidden;margin: 0;color: #545454;}
+#footer .about-des {background: #fff; box-shadow: none;font-family: 'Conv_AdventPro-Medium';font-size: 14px;color: #545454;}
+#footer .about-des h2 {
+    color: #5FCBCB;
+    font-size: 18px;
+    margin: 0;
+    font-weight: normal;
+}
 #footer h3 {
 	
 	font-size: 18px;
 	margin-top: 3px;
-	margin-bottom: 14px;
+        margin-bottom: 0;
 	font-family:'Conv_AdventPro-Bold';
 	font-weight:400;
 	text-transform:uppercase;
@@ -2561,9 +2567,13 @@ margin-left: 1.5em;
 	min-height: 100px;
 	
 }
-#footer .column ul {}
-#footer .column ul li {
-	margin-bottom: 13px;
+#footer .column ul {margin-bottom: 14px;}
+#footer .column ul li,
+#footer .column ul li a {
+	font-size: 18px;
+	font-family:'Conv_AdventPro-Light';
+	text-transform:uppercase;
+        font-weight: normal;
 }
 
 #footer .column a:hover {
@@ -2586,7 +2596,7 @@ margin-left: 1.5em;
 	margin-right:39px
 	
 }
-.footer-column{overflow:hidden;border-bottom:3px solid #505050;padding-bottom:50px}
+.footer-column{overflow:hidden;}
 .about-des a.footer_logo
 {
 	font-family: 'Conv_AdventPro-Medium';
@@ -2608,9 +2618,24 @@ opacity:100;
 #footer p,#footer a{text-decoration:none}
 #footer a:hover{}
 
+#social-footer {
+    float: left;
+    margin-top: 20px;
+}
+#social-footer .media-links {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+#social-footer .youth {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
 #powered {
 	
-	text-align: center;
+	text-align: right;
 	clear: both;
 	
 }

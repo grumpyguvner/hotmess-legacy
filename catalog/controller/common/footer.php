@@ -26,6 +26,7 @@ class ControllerCommonFooter extends Controller {
 			if ($result['bottom']) {
 				$this->data['informations'][] = array(
 					'title' => $result['title'],
+					'sort_order' => $result['sort_order'],
 					'href'  => $this->url->link('information/information', 'information_id=' . $result['information_id'])
 				);
 			}
