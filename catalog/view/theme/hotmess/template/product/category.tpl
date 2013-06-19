@@ -237,11 +237,11 @@ view = $.totalStorage('display');
 if (view) { 
 	display(view);
 } else {
-	<?php if ($this->config->get('b_General_P_Display') == 'grid') { ?>
-	display('grid');
-	<?php }else { ?>
+	<?php if ($this->config->get('b_General_P_Display') == 'list') { ?>
 	display('list');
-	<?php } ?>
+	<?php }else { ?>
+	display('grid');
+	<?php } */ ?>
 }
 //--></script> 
 <script type="text/javascript"><!--
