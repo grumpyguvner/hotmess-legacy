@@ -11,13 +11,16 @@
 <?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content"><?php echo $content_top; ?>
 <div class="categories_fr">
-	<?php if ($thumb || $description) { ?>
+    <?php if ($thumb) { ?>
+    <img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" />
+        <?php } ?>
+	<?php if ($description) { ?>
   <div class="category-info">
     <?php if ($description) { ?>
     <div class="cate-description">
 	
 	<div class="boss_info">
-	<img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" />
+	
 	<h3><?php echo $heading_title; ?></h3>
 		<?php echo $description; ?>
 		<div class="refine_search"><?php if ($categories) { ?>
