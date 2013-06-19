@@ -179,7 +179,7 @@
       <?php } ?>
 	  
       <div class="cart">
-		<div class="rating"><img src="catalog/view/theme/bt_topwear/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');goToByScroll('tab-review');"><?php echo $reviews; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="write_review" onclick="$('a[href=\'#tab-review\']').trigger('click');goToByScroll('review-title');"><?php echo $text_write; ?></a></div>
+		<div class="rating"><img src="catalog/view/theme/hotmess/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" />&nbsp;&nbsp;<a onclick="$('a[href=\'#tab-review\']').trigger('click');goToByScroll('tab-review');"><?php echo $reviews; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="write_review" onclick="$('a[href=\'#tab-review\']').trigger('click');goToByScroll('review-title');"><?php echo $text_write; ?></a></div>
         
 		<div class="quantily_info"><b><?php echo $text_qty; ?></b>
 		</br><input type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
@@ -330,7 +330,7 @@
 				  <span class="price-old"><?php echo $product['price']; ?></span> <span class="price-new"><?php echo $product['special']; ?></span>
 				  <?php } ?>
 				</div>
-				<div class="rating"><img src="catalog/view/theme/bt_topwear/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
+				<div class="rating"><img src="catalog/view/theme/hotmess/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
 				<?php } ?>
 				<div class="cart">
 				<span class="button-gray"><input type="button" value="<?php echo $button_cart; ?>" onclick="boss_addToCart('<?php echo $product['product_id']; ?>');" class="button" /></span>
@@ -350,8 +350,8 @@
   
 <?php echo $content_bottom; ?></div></div></div>
   
-<?php if (file_exists('catalog/view/theme/bt_topwear/stylesheet/boss_carousel.css')) {
-		echo '<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/boss_carousel.css" media="screen" />';
+<?php if (file_exists('catalog/view/theme/hotmess/stylesheet/boss_carousel.css')) {
+		echo '<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_carousel.css" media="screen" />';
 	} else {
 		echo '<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/boss_carousel.css" media="screen" />';
 	}

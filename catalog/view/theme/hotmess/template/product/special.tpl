@@ -1,5 +1,5 @@
 <?php echo $header; ?>
- <div class="breadcrumb">
+<div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
 	<?php if($breadcrumb == end($breadcrumbs)){ ?>
 		<a class="last" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
@@ -10,7 +10,7 @@
 </div>
 <?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content"><?php echo $content_top; ?>
-
+ <div class="special_fr">
   <h1><?php echo $heading_title; ?></h1>
   <?php if ($products) { ?>
   <div class="product-filter">
@@ -72,7 +72,7 @@
       <?php } ?>
       <div class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
       <?php if ($product['rating']) { ?>
-      <div class="rating"><img src="catalog/view/theme/bt_topwear/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
+      <div class="rating"><img src="catalog/view/theme/hotmess/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
       <?php } ?>
       <div class="description"><?php echo $product['description']; ?></div>
       <?php if ($product['price']) { ?>
@@ -97,11 +97,8 @@
   <div class="pagination"><?php echo $pagination; ?></div>
   <?php } else { ?>
   <div class="content"><?php echo $text_empty; ?></div>
-  <div class="buttons">
-    <div class="right"><a href="<?php echo $continue; ?>" class="button cst"><span class="button_fr"><?php echo $button_continue; ?></span></a></div>
-  </div>
   <?php }?>
-  <?php echo $content_bottom; ?></div>
+  <?php echo $content_bottom; ?></div></div>
 <script type="text/javascript"><!--
 function display(view) {
 	if (view == 'list') {
@@ -128,7 +125,7 @@ function display(view) {
 			}
 				
 			html += '  <div class="description">' + $(element).find('.description').html() + '</div>';
-						
+			
 			var price = $(element).find('.price').html();
 			
 			if (price != null) {
@@ -166,7 +163,7 @@ function display(view) {
 			html += '</div>';
 			html += '<div class="name">' + $(element).find('.name').html() + '</div>';
 			html += '<div class="description">' + $(element).find('.description').html() + '</div>';
-						
+			
 			var price = $(element).find('.price').html();
 			
 			if (price != null) {

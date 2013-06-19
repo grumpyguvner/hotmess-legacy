@@ -175,7 +175,7 @@
       <?php } ?>
 	  
       <div class="cart">
-		<div class="rating"><img src="catalog/view/theme/bt_topwear/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" /></div>
+		<div class="rating"><img src="catalog/view/theme/hotmess/image/stars-<?php echo $rating; ?>.png" alt="<?php echo $reviews; ?>" /></div>
 		<div class="quantily_info"><b><?php echo $text_qty; ?></b>
 		</br><input type="text" name="quantity" size="2" value="<?php echo $minimum; ?>" />
 		<input type="hidden" name="product_id" size="2" value="<?php echo $product_id; ?>" />	

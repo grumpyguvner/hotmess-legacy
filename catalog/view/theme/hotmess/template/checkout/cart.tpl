@@ -69,11 +69,11 @@
             <td class="price"><?php echo $product['price']; ?></td>
             <td class="quantity"><input type="text" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" />
                      
-			<td class="update"><input type="image" src="catalog/view/theme/bt_topwear/image/update.png" alt="<?php echo $button_update; ?>" title="<?php echo $button_update; ?>" />
+			<td class="update"><input type="image" src="catalog/view/theme/hotmess/image/update.png" alt="<?php echo $button_update; ?>" title="<?php echo $button_update; ?>" />
               </td></td>
 			  
             <td class="total price"><?php echo $product['total']; ?></td>
-			<td class="remove<?php echo ($product==end($products) ? ' last' : ''); ?>"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/bt_topwear/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
+			<td class="remove<?php echo ($product==end($products) ? ' last' : ''); ?>"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/hotmess/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
 			
           </tr>
           <?php } ?>
@@ -86,7 +86,7 @@
 			  <td class="quantity vouchers"><input type="text" name="" value="1" size="1" disabled="disabled" /></td>
 			  <td class="update"></td>
 			   <td class="total"><?php echo $vouchers['amount']; ?></td>
-			<td class="remove vouchers"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/bt_topwear/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
+			<td class="remove vouchers"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/hotmess/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
            
            
            

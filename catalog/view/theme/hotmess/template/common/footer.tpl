@@ -4,7 +4,7 @@
 <div class="container_24">
 <div class="footer-column">
   <?php /******************FOOTER SETTINGS*********************/ ?>
-<?php include "catalog/view/theme/bt_topwear/template/bossthemes/Boss_footer_setting.php"; ?>
+<?php include "catalog/view/theme/hotmess/template/bossthemes/Boss_footer_setting.php"; ?>
   <?php if ($informations) { ?>
   <div class="column">
 	<div class="column_content">

@@ -17,14 +17,14 @@
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/boss_menu.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/1200.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/boss_add_cart.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/jquery.selectbox.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/unsemantic-grid-responsive-tablet.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/stylesheet.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_menu.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/1200.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_add_cart.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/jquery.selectbox.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/unsemantic-grid-responsive-tablet.css" />
 <?php if ($this->config->get('b_General_Respon')) { ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/responsive.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/responsive.css" />
 <?php } ?>
 <?php foreach ($styles as $style) { ?>
 <link rel="<?php echo $style['rel']; ?>" type="text/css" href="<?php echo $style['href']; ?>" media="<?php echo $style['media']; ?>" />
@@ -41,16 +41,16 @@
 <script type="text/javascript" src="<?php echo $script; ?>"></script>
 <?php } ?>
 <!--[if IE 8]>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/ie8.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/ie8.css" />
 <![endif]-->
 <!--[if IE 9]>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/ie9.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/ie9.css" />
 <![endif]-->
 <!--[if IE 7]> 
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/ie7.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/ie7.css" />
 <![endif]-->
 <!--[if lt IE 7]>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/ie6.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/ie6.css" />
 <script type="text/javascript" src="catalog/view/javascript/DD_belatedPNG_0.0.8a-min.js"></script>
 <script type="text/javascript">
 DD_belatedPNG.fix('#logo img');
@@ -73,10 +73,10 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php } ?>
 
 <?php /********************THEME COLOR SETTINGS******************/ ?>
-<?php include "catalog/view/theme/bt_topwear/template/bossthemes/Boss_color_setting.php";?>
+<?php include "catalog/view/theme/hotmess/template/bossthemes/Boss_color_setting.php";?>
 
 <?php /******************THEME FONTS SETTINGS*********************/ ?>
-<?php include "catalog/view/theme/bt_topwear/template/bossthemes/Boss_font_setting.php"; ?>
+<?php include "catalog/view/theme/hotmess/template/bossthemes/Boss_font_setting.php"; ?>
 
 <?php echo $google_analytics; ?>
 </head>

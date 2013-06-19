@@ -177,8 +177,8 @@
         </div>
   <?php echo $content_bottom; ?></div></div>
 
-<?php if (file_exists('catalog/view/theme/bt_topwear/stylesheet/boss_carousel.css')) {
-		echo '<link rel="stylesheet" type="text/css" href="catalog/view/theme/bt_topwear/stylesheet/boss_carousel.css" media="screen" />';
+<?php if (file_exists('catalog/view/theme/hotmess/stylesheet/boss_carousel.css')) {
+		echo '<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_carousel.css" media="screen" />';
 	} else {
 		echo '<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/boss_carousel.css" media="screen" />';
 	}

@@ -1,5 +1,5 @@
-<?php echo $header; ?>  
-<div class="breadcrumb">
+<?php echo $header; ?>
+ <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
 	<?php if($breadcrumb == end($breadcrumbs)){ ?>
 		<a class="last" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
@@ -10,45 +10,8 @@
 </div>
 <?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content"><?php echo $content_top; ?>
-<div class="categories_fr">
-	<?php if ($thumb || $description) { ?>
-  <div class="category-info">
-    <?php if ($description) { ?>
-    <div class="cate-description">
-	
-	<div class="boss_info">
-	<img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" />
-	<h3><?php echo $heading_title; ?></h3>
-		<?php echo $description; ?>
-		<div class="refine_search"><?php if ($categories) { ?>
-	  <h2><?php echo $text_refine; ?></h2>
-	  <div class="category-list">
-		<?php if (count($categories) <= 5) { ?>
-		<ul>
-		  <?php foreach ($categories as $category) { ?>
-		  <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-		  <?php } ?>
-		</ul>
-		<?php } else { ?>
-		<?php for ($i = 0; $i < count($categories);) { ?>
-		<ul>
-		  <?php $j = $i + ceil(count($categories) / 4); ?>
-		  <?php for (; $i < $j; $i++) { ?>
-		  <?php if (isset($categories[$i])) { ?>
-		  <li><a href="<?php echo $categories[$i]['href']; ?>"><?php echo $categories[$i]['name']; ?></a></li>
-		  <?php } ?>
-		  <?php } ?>
-		</ul>
-		<?php } ?>
-		<?php } ?>
-	  </div>
-	  <?php } ?></div>
-	</div>
-	  	
-	</div>
-    <?php } ?>
-  </div>
-  <?php } ?>
+
+  <h1><?php echo $heading_title; ?></h1>
   <?php if ($products) { ?>
   <div class="product-filter">
   <div class="product-compare"><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></div>
@@ -100,20 +63,19 @@
     <?php foreach ($products as $product) { ?><div class="<?php echo $div_product; ?>">
       <?php if ($product['thumb']) { ?>
       <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" /></a>
-      <?php if ($product['price']) { ?>
+		<?php if ($product['price']) { ?>
 			<?php if ($product['special']) { ?>
 			<div class="discount boss_label">
 				<p>sale</p>
 			</div>
-		<?php }} ?>	
-	  </div>
+		<?php }} ?>	</div>
       <?php } ?>
       <div class="name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
       <?php if ($product['rating']) { ?>
-      <div class="rating"><img src="catalog/view/theme/bt_topwear/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
+      <div class="rating"><img src="catalog/view/theme/hotmess/image/stars-<?php echo $product['rating']; ?>.png" alt="<?php echo $product['reviews']; ?>" /></div>
       <?php } ?>
       <div class="description"><?php echo $product['description']; ?></div>
-	  <?php if ($product['price']) { ?>
+      <?php if ($product['price']) { ?>
       <div class="price">
         <?php if (!$product['special']) { ?>
         <?php echo $product['price']; ?>
@@ -133,14 +95,13 @@
     </div><?php } ?>
   </div>
   <div class="pagination"><?php echo $pagination; ?></div>
-  <?php } ?>
-  <?php if (!$categories && !$products) { ?>
+  <?php } else { ?>
   <div class="content"><?php echo $text_empty; ?></div>
   <div class="buttons">
-    <div class="right"><a href="<?php echo $continue; ?>" class="button"><?php echo $button_continue; ?></a></div>
+    <div class="right"><a href="<?php echo $continue; ?>" class="button cst"><span class="button_fr"><?php echo $button_continue; ?></span></a></div>
   </div>
-  <?php } ?>
-  <?php echo $content_bottom; ?></div></div>
+  <?php }?>
+  <?php echo $content_bottom; ?></div>
 <script type="text/javascript"><!--
 function display(view) {
 	if (view == 'list') {
@@ -167,7 +128,7 @@ function display(view) {
 			}
 				
 			html += '  <div class="description">' + $(element).find('.description').html() + '</div>';
-			
+						
 			var price = $(element).find('.price').html();
 			
 			if (price != null) {
@@ -205,7 +166,7 @@ function display(view) {
 			html += '</div>';
 			html += '<div class="name">' + $(element).find('.name').html() + '</div>';
 			html += '<div class="description">' + $(element).find('.description').html() + '</div>';
-			
+						
 			var price = $(element).find('.price').html();
 			
 			if (price != null) {
@@ -253,10 +214,10 @@ if (view) {
 		}
 	}
 //--></script> 
-<script type="text/javascript"><!--
+<script type="text/javascript">
 $(function () {
 	$("#limit_select").selectbox();
 	$("#sort_select").selectbox();
 });
-//--></script>
+</script>
 <?php echo $footer; ?>

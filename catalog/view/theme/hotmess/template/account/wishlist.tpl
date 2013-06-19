@@ -51,7 +51,7 @@
             <?php } ?></td>
           <td class="stock"><?php echo $product['stock']; ?></td>
           <td class="action<?php echo ($product==end($products) ? ' last' : ''); ?>"><input type="button" class="button" onclick="boss_addToCart('<?php echo $product['product_id']; ?>');" value="<?php echo $button_cart; ?>"></td>
-          <td class="remove<?php echo ($product==end($products) ? ' last' : ''); ?>"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/bt_topwear/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
+          <td class="remove<?php echo ($product==end($products) ? ' last' : ''); ?>"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/hotmess/image/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
         </tr>
       </tbody>
       <?php } ?>
