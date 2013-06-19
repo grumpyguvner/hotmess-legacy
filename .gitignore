@@ -16,3 +16,5 @@ redirects.php
 /nbproject
 
 /vqmod/vqcache/*
+/vqmod/mods.cache
+/vqmod/logs/*
