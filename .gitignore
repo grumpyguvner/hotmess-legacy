@@ -1,0 +1,16 @@
+/.htaccess
+
+config*.php
+admin/config*.php
+
+redirects.php
+
+!index.html
+
+/download/*
+/image/*
+/system/cache/*
+/system/logs/*
+
+.DS_Store
+/nbproject
