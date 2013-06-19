@@ -68,7 +68,7 @@ class ModelCheckoutVoucher extends Model {
 		if ($order_info) {
 			$this->load->model('localisation/language');
 			
-			$language = new Language($order_info['language_directory']);
+			$language = new Language($order_info['language_directory'], $this->registry);
 			$language->load($order_info['language_filename']);	
 			$language->load('mail/voucher');
 			

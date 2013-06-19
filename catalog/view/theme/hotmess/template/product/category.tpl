@@ -51,7 +51,7 @@
   <?php } ?>
   <?php if ($products) { ?>
   <div class="product-filter">
-  <div class="product-compare"><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></div>
+<!--  <div class="product-compare"><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></div>-->
     <div class="sort"><b><?php echo $text_sort; ?></b>
       <div class="boss_select">
 	  <div class="catg_styled-select">
@@ -81,7 +81,7 @@
       </select>
 	  </div>
 	  </div>
-    </div><div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display('grid');"><?php echo $text_list; ?> <b>/</b><?php echo $text_grid; ?></a></div>
+</div><!-- <div class="display"><b><?php echo $text_display; ?></b> <?php echo $text_list; ?> <b>/</b> <a onclick="display('grid');"><?php echo $text_list; ?> <b>/</b><?php echo $text_grid; ?></a></div>-->
   </div>
   <?php
 	$b_Layout_Settings = explode(',', $this->config->get('b_Layout_Setting'));
@@ -125,11 +125,14 @@
         <?php } ?>
       </div>
       <?php } ?>
-      <div class="cart">
+      <div class="view">
+          <a class="button" href="<?php echo $product['href']; ?>"><span><?php echo $button_view; ?></span></a>
+      </div>
+      <!--    <div class="cart">
         <span class="button"><input type="button" value="<?php echo $button_cart; ?>" onclick="boss_addToCart('<?php echo $product['product_id']; ?>');" class="button" /></span>
       </div>
-      <div class="compare"><a title="<?php echo $button_compare; ?>" class="action-button" onclick="boss_addToCompare('<?php echo $product['product_id']; ?>');"><span><?php echo $button_compare; ?></span></a></div>
-      <div class="wishlist"><a title="<?php echo $button_wishlist; ?>" class="action-button" onclick="boss_addToWishList('<?php echo $product['product_id']; ?>');"><span><?php echo $button_wishlist; ?></span></a></div>
+  <div class="compare"><a title="<?php echo $button_compare; ?>" class="action-button" onclick="boss_addToCompare('<?php echo $product['product_id']; ?>');"><span><?php echo $button_compare; ?></span></a></div>
+      <div class="wishlist"><a title="<?php echo $button_wishlist; ?>" class="action-button" onclick="boss_addToWishList('<?php echo $product['product_id']; ?>');"><span><?php echo $button_wishlist; ?></span></a></div>-->
     </div><?php } ?>
   </div>
   <div class="pagination"><?php echo $pagination; ?></div>
@@ -173,9 +176,10 @@ function display(view) {
 			if (price != null) {
 				html += '<div class="price">' + price  + '</div>';
 			}
-			html += '  <div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';
-			html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
+			html += '<div class="view">' + $(element).find('.view').html() + '</div>';
+			//html += '  <div class="cart">' + $(element).find('.cart').html() + '</div>';
+//			html += '  <div class="compare">' + $(element).find('.compare').html() + '</div>';
+//			html += '  <div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
 			html += '</div>';	
 						
 			$(element).html(html);
@@ -198,9 +202,10 @@ function display(view) {
 			
 			html += '<div class="grid_bt">';
 			html += '<div class="boss_bt">'
-			html += '<div class="cart">' + $(element).find('.cart').html() + '</div>';
-			html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';
-			html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
+			html += '<div class="view">' + $(element).find('.view').html() + '</div>';
+			//html += '<div class="cart">' + $(element).find('.cart').html() + '</div>';
+			//html += '<div class="compare">' + $(element).find('.compare').html() + '</div>';
+			//html += '<div class="wishlist">' + $(element).find('.wishlist').html() + '</div>';
 			html += '</div>';
 			html += '</div>';
 			html += '<div class="name">' + $(element).find('.name').html() + '</div>';

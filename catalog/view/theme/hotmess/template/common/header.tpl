@@ -89,9 +89,14 @@ if(!isset($b_Mode_CSS)){
 ?>
 <div id="container" class="<?php echo $b_Mode_CSS; ?>">
 
+<div id="inner_container">
+    
 <div id="header">
-<div class="container_24">	
+<div class="container_24">
+    
 <div class="grid_24 omega alpha">
+    
+    <div id="tayla-blue"><img src="/image/data/HEADER/Tayla-Blue-image.png" alt="" ></div>
   <div class="top_header">
   <div id="welcome">
     <?php if (!$logged) { ?>
@@ -100,20 +105,22 @@ if(!isset($b_Mode_CSS)){
     <?php echo $text_logged; ?>
     <?php } ?>
   </div>
-  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></div>
+  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></div>
   </div>
   <div class="bottom_header">
-  <?php if ($logo) { ?>
-  <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
-  <?php } ?>
-  
-  <?php echo $cart; ?>
-   <?php echo $currency; ?>
-  <?php echo $language; ?>
+      
   <div id="search">
     <div class="button-search" title="<?php echo $text_search; ?>"></div>
     <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
   </div>
+      
+  <?php echo $cart; ?>
+  <?php if ($logo) { ?>
+  <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
+  <?php } ?>
+  
+   <?php echo $currency; ?>
+  <?php echo $language; ?>
   
   </div>
 </div>

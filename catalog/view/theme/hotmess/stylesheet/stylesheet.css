@@ -243,9 +243,10 @@ p {
 	color:#202020;
 }
 a, a:visited, a b {
-	color: #202020;
+	color: #b235cb;
 	cursor: pointer;
-	text-decoration:none
+	text-decoration:none;
+        font-weight: bold;
 }
 a:hover{color:#F46253}
 a img {
@@ -298,6 +299,7 @@ input:focus{outline:none;}
 #column-left {
 	float: left; margin-right:40px;
 	border-bottom:1px solid #dcdcdc;
+        background: #fff;
 	margin-top:9px;
 	margin-bottom:60px
 }
@@ -323,11 +325,10 @@ h1.h1margin{margin-top:29px}
 	position: relative;
 	z-index: 99;
 	padding:7px 0;
-	
-	
-	
 }
-#header #logo {float:left;margin-right:20px}
+#tayla-blue {float:right;margin-left: 10px;position: relative;width: 180px; height: 150px;}
+#tayla-blue img {width: 100%;position: absolute;}
+#header #logo {text-align: center;}
 #language .title,#currency .title{color:#707070;padding-left:10px;padding-top:7px}
 #language img {}
 #currency {	float:right;border:1px solid #dcdcdc; border-left:none;margin-top:2px;padding-bottom:6px;z-index:200;position:relative}
@@ -348,14 +349,27 @@ h1.h1margin{margin-top:29px}
 	float:right;
 	margin-left:20px;
 	position:relative;
+        background: #B7B2B2;
 	background-image:url(../image/cart_img.png);
 	height:52px;
 	min-width:180px;
 	padding-left:12px;
 	padding-top:8px;
 	padding-right:12px;
-	margin-top:2px;
+	margin-top:30px;
 	
+}
+#header #cart .madeuk {
+	position: absolute;
+        color: #E90609;
+        background-image: url(/image/data/HEADER/Shopping-Bag.png);
+        background-repeat: no-repeat;
+        padding-left: 38px;
+        padding-top: 4px;
+        height: 35px;
+        line-height: 35px;
+        top: -34px;
+        font-weight: bold;
 }
 #header #cart .heading { display: block;   position: relative;   z-index: 100;}
 #header #cart .heading h4 {font-weight:400}
@@ -520,19 +534,19 @@ h1.h1margin{margin-top:29px}
 	text-align: center;
 }
 #header #search {
-	float:right;
+	float:left;
 	background:url(../image/search_bg1.png) no-repeat;
 	position:relative;
-	margin-left:10px;
+	margin-left:0;
 	margin-top:2px;
 	margin-right:20px;
 	width: 252px;
 	height:60px;
-	padding:0 8px 0 60px;
+	padding:0 60px 0 8px;
 }
 #header .button-search {
 	position: absolute;
-	left: 20px;
+	right: 20px;
 	top:18px;
 	background: url('../image/search_03.png') center center no-repeat;
 	background-color: #f46253;
@@ -552,7 +566,7 @@ h1.h1margin{margin-top:29px}
 	font-weight:normal!important
 }
 #header #search input:focus{box-shadow:none;border:none}
-.top_header{overflow:hidden;margin-bottom:38px;overflow:hidden}
+.top_header{overflow:hidden;margin-bottom:15px;overflow:hidden}
 #header #welcome {
 	clear:both; text-align:right; float:left;color:#505050;
 }
@@ -563,7 +577,6 @@ h1.h1margin{margin-top:29px}
 {
 	float:right;
 }
-.bottom_header{height:81px}
 #header .links a {
 	display: inline;
 	padding: 0px 0px 0px 10px;
@@ -1364,7 +1377,7 @@ a.sft_quickshop_icon:hover{background:#202020;border:3px solid #202020}
 /******************************************** Category *********************************/
 .box .box-heading{font-size:20px;font-family:'Conv_AdventPro-Bold';font-weight:400;padding:6px 15px 9px}
 
-.box .box-content {padding: 20px 15px 23px;}
+.box .box-content {padding: 20px 15px 23px; background: #fff}
 #column-left .box .box-content {border:1px solid #dcdcdc;border-bottom:none;border-top:none}
 #column-left .banner{border:1px solid #dcdcdc;border-top:none;border-bottom:none}
 #column-right .box .box-content {border:1px solid #dcdcdc;border-bottom:none}
@@ -1682,6 +1695,10 @@ ul.box-filter > li ul {
 .product-list .cart  input.button:hover{border:3px solid #202020}
 .product-grid .cart  input.button{border-radius:0;border:3px solid #cbcbcb}
 .product-grid .cart  input.button:hover{border:3px solid #202020}
+.product-list .view  a.button{border-radius:0;border:3px solid #cbcbcb}
+.product-list .view  a:hover{border:3px solid #202020}
+.product-grid .view  a{border-radius:0;border:3px solid #cbcbcb}
+.product-grid .view  a:hover{border:3px solid #202020}
 .product-grid .cart,.product-grid .compare,.product-grid .wishlist,.product-grid .name,.product-grid .price,.product-grid .rating{}
 .product-grid .name{margin-top:17px;margin-bottom:6px}
 .wishlist-info .action input.button{border-radius:0;border:3px solid #cbcbcb}
@@ -2464,7 +2481,6 @@ ul.box-filter > li ul {
 	
 	padding-top:52px;
 	padding-bottom:8px;
-	margin-top:20px
 }
 #footer .about-des a.read-more:hover{text-decoration:underline}
 #footer .about-des p{overflow:hidden;height:44px;max-height:44px;font-weight:700}
@@ -2519,7 +2535,7 @@ ul.box-filter > li ul {
 	text-align:center;
 	margin-bottom:13px
 }
-.about-des{width:300px;height:157px;padding:29px;padding-top:14px;box-shadow:0 6px 25px #000000 inset}
+.about-des{width:300px;height:157px;padding:29px;padding-top:14px;background:#fff;}
 .about-des a.read-more{float:right}
 #footer .column a  img:hover {
 opacity:100;
@@ -2573,6 +2589,16 @@ opacity:100;
 	margin:0 10px
 }
 #container.box #footer {margin:0 10px;margin-top:20px}
+
+
+#inner_container {
+	width:1180px;
+        padding: 0 10px;
+	margin:0 auto;
+        background: #fff;
+        background: rgba(255,255,255,.9);
+        overflow:auto;
+}
 
 #container { overflow:auto}
 /************************************* home fillter*************************************/

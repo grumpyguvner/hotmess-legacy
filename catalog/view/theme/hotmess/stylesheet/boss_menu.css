@@ -9,12 +9,12 @@
 	
 /* menu */
 .boss_menu {	margin-bottom: 10px;position:relative;z-index:70 }
-#boss_menu { border-bottom: 3px solid;height:60px;margin-bottom:8px}
+#boss_menu { border-bottom: 3px solid;height:40px;margin-bottom:8px}
 #boss_menu > ul {	list-style: none;margin: 0;padding: 0;}
 #boss_menu > ul > li 
 {
 	z-index: 20;
-	padding: 14px 40px 10px 0;
+	padding: 0 40px 10px 0;
 	display: inline-block;
 	position: relative;
 	text-align: center;
@@ -35,7 +35,7 @@
 	padding-right:0;
 	text-transform:uppercase;
 	font-family:'Conv_AdventPro-Regular';
-	height:46px;
+	height:40px;
 	transition-duration:0.2s;
 	line-height:29px
 	
@@ -52,7 +52,7 @@
 	z-index:10;	
 	border:1px solid #dcdcdc; 
 	text-align:left; 
-	top:73px; 
+	top:53px; 
 	left:0;
 	padding-bottom:10px;
 	
@@ -64,13 +64,15 @@
 	padding: 4px 10px 4px 20px;
 	
 	display:inline-block;
-	
+	font-family: 'Conv_AdventPro-Bold';
+        text-transform: uppercase;
+        font-size: 1.1em;
 	
 }
 
 #boss_menu > ul > li > div.dropdown ul.manufacturer li a{}
 #boss_menu > ul > li > div.dropdown ul.product img{padding-top:20px}
-#boss_menu > ul > li > div.dropdown ul.category{padding-bottom:20px}
+#boss_menu > ul > li > div.dropdown ul.category{padding-top:20px;padding-bottom:20px;}
 #boss_menu > ul > li > div.dropdown  a:hover { text-decoration:none;}
 #boss_menu > ul > li > div.dropdown  a img { padding:2px;display:block;padding-top:20px }
 
@@ -83,6 +85,9 @@
     text-transform: uppercase;
 	
 	}
+        
+        
+        
 #boss_menu > ul > li > div.dropdown a.parent:hover{ }
 #boss_menu > ul > li > div.dropdown a.parent img{margin-right:10px; margin-bottom:10px}
 

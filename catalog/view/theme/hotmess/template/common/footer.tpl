@@ -1,4 +1,6 @@
 </div>
+<div class="clearfix"></div>
+</div>
 <div id="container_footer">
 <div id="footer">
 <div class="container_24">

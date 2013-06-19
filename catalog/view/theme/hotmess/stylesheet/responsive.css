@@ -1,12 +1,14 @@
 	/* Bigger then standard 960px (1280px) */
 	@media only screen and (min-width: 1200px) {
 		#container.box{}
+                #inner_container {padding: 0 20px;}
 
 	}
 	/*********************************************** ipad 2 ngang***************************************/
 	/* Bigger then standard 960 */
 	@media only screen and (min-width:1024px) and (max-width: 1279px) {
 		#container.box{width:960px}
+                #inner_container {width:960px; padding: none}
 		body{-webkit-text-size-adjust: none;}
 		#header #cart,#currency,#language{margin-top:16px;}
 		#header #cart,#currency,#language{margin-bottom:5px}
@@ -113,11 +115,14 @@
 	/* Smaller than standard 960 (devices and browsers) */
 	@media only screen and (max-width: 1023px) {
 		#container.box{}
+                #inner_container {width:auto}
 	}
 	/************************************** IPAD 2 DOC************************************************/
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 1023px) {
 		#container.box{width:748px}
+                
+                #inner_container {width:748px; padding: 0 10px;}
 		/* category - product */
 		#column-left + #column-right + #content .product-filter .sort { clear:right; margin-top:5px}
 		#header{height:225px}
@@ -214,6 +219,7 @@
 	/* Small Tablet Portrait size max width:767 (devices and browsers) */
 	@media only screen and (max-width: 767px) {	
 		#container.box{}
+                #inner_container {width:auto; padding: none;}
 		.cpanelContainer { display:none}
 		input[type="text"], input[type="password"], textarea{width:96%}
 		select { width:100%}
@@ -557,6 +563,7 @@
 	@media only screen and (min-width: 480px) and (max-width: 767px) {
 		body{-webkit-text-size-adjust: none;}
 		#container.box{width:420px;}
+                #inner_container {width:auto; padding: none;}
 		#header #cart{float:left;width:240px}
 		#header #cart .heading a span{font-size:21px;padding-right:12px}
 		#language .sbHolder, #language .sbOptions,#currency .sbHolder, #currency .sbOptions{width:75px}
@@ -618,6 +625,7 @@
 	/* All Mobile Sizes (devices and browser) */
 	@media only screen and (max-width: 479px) {
 		#container.box{width: 300px;}
+                #inner_container {width:auto; padding: none;}
 		.column_content { padding:0 0 20px 0}
 	}
 

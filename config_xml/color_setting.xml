@@ -59,7 +59,7 @@
 			<text>Link/Welcome</text>
 			<item>
 				<name>h_color_1_normal</name>
-				<class>#header .links a,#header #welcome</class>
+				<class>#header .links a.notused,#header #welcome</class>
 				<style>color</style>
 			</item>	
 		</color_1>
@@ -74,7 +74,7 @@
 			<item>
 				<text>Background</text>
 				<name>h_color_2_bg</name>
-				<class>#header .button-search,#header #cart,#megamenu-responsive-root li.menu-toggle</class>
+				<class>#header .button-search,#header #cart.notused,#megamenu-responsive-root li.menu-toggle</class>
 				<style>background-color</style>
 			</item>
 		</color_2>
