@@ -124,6 +124,7 @@ img {
   font-size: 0;
   vertical-align: middle;
   -ms-interpolation-mode: bicubic;
+  max-width: 100%;
 }
 
 ul,
@@ -2689,6 +2690,9 @@ opacity:100;
 
 #container { overflow:auto}
 /************************************* home fillter*************************************/
+.home_filter_content {
+    clear: both;
+}
 .home_filter_content .box .box-content{padding:0;border:none;padding-left:2px}
 .home_filter_content .list_carousel{}
 .home_filter_content .box .box-heading
@@ -2703,7 +2707,7 @@ opacity:100;
 .home_filter_content .list_carousel li{padding-left:3px}
 .home_filter_content .list_carousel .box-product .image{width:180px;margin-bottom:16px;margin-right:0}
 .home_filter_content .list_carousel .box-product .name{margin-bottom:7px}
-].home_filter_content .list_carousel .box-product .price{margin-bottom:5px}
+.home_filter_content .list_carousel .box-product .price{margin-bottom:5px}
 .home_filter_content .list_carousel .box-product .name,.home_filter_content .list_carousel .box-product .price,.home_filter_content .list_carousel .box-product .rating{padding-left:5px;opacity:0.3;transition-duration:0.3s;-webkit-transition-duration:0.3s;-moz-transition-duration:0.3s;}
 .home_filter_content .list_carousel .box-product .rating {margin-top:6px}
 .home_filter_content .list_carousel .hover_img:hover{box-shadow:0 0 5px #a5a4a4}
@@ -2714,6 +2718,23 @@ opacity:100;
 .home_filter_content .list_carousel .hover_img:hover .name{opacity:1}
 .home_filter_content .list_carousel .hover_img:hover .price{opacity:1}
 .home_filter_content .list_carousel .hover_img:hover .rating{opacity:1}
+
+#home_week_love.home_filter_content  .box .box-heading {
+    text-align: center;
+}
+#home_week_love.home_filter_content .box .box-content {
+    background: none;
+}
+#home_week_love.home_filter_content .box .box-content .week-element {
+    float: left;
+    width: 30%;
+    text-align: center;
+    padding: 0 1.66%;
+}
+#home_week_love.home_filter_content .box .box-content .week-element a + h2 {
+    margin-top: 1em;
+}
+
 /******************************* block *******************************************/
 .static-home-banner-2 ul li {float:left;padding-left:20px}
 .static-home-banner-2 ul li:first-child{padding-left:0}
