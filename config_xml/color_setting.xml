@@ -169,7 +169,7 @@
 			<text>Product Name</text>
 			<item>
 				<name>p_name_color</name>
-				<class>.box-product .name a, .product-list .name a, .product-grid .name a,.name a,.mini-cart-info td.name a,.wishlist-info tbody .name a,.cart-info tbody .name a,.article-name a, #productRelated .box-product .name a,.blogsearch_fr .article-title h2 a,.compare-info .name a,tbody .name a,.ui-notify .boss_text h3 a,.article-list .boss_article-item .article-name a,#boss_menu > ul > li > div.dropdown ul.product a,.product-info h1,.cate-description .boss_info h3</class>
+				<class>.box-product .name a, .product-list .name a, .product-grid .name a,.name a,.mini-cart-info td.name a,.wishlist-info tbody .name a,.cart-info tbody .name a,.article-name a, #productRelated .box-product .name a,.blogsearch_fr .article-title h2 a,.compare-info .name a,tbody .name a,.ui-notify .boss_text h3 a,.article-list .boss_article-item .article-name a,#boss_menu > ul > li > div.dropdown ul.product a,.cate-description .boss_info h3</class>
 				<style>color</style>
 			</item>
 			
@@ -186,7 +186,7 @@
 			<text>Price color</text>
 			<item>
 				<name>p_price_color</name>
-				<class>.box-product .price-old, .product-grid .price-old, .product-info .price-old, .product-info .price,.box-product .price, .product-list .price, .product-grid .price,#productRelated .box-product .price, tbody td.price,#boss_menu > ul > li > div.dropdown ul.product span.price-old,#boss_menu > ul > li > div.dropdown ul.product span.price</class>
+				<class>.box-product .price-old, .product-grid .price-old, .product-info .price-old, .box-product .price, .product-list .price, .product-grid .price,#productRelated .box-product .price, tbody td.price,#boss_menu > ul > li > div.dropdown ul.product span.price-old,#boss_menu > ul > li > div.dropdown ul.product span.price</class>
 				<style>color</style>
 			</item>
 		</price>

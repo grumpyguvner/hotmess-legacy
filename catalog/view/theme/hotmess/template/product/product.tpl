@@ -38,7 +38,7 @@
         </div>
       <?php if ($options) { ?>
       <div class="options">
-        <h2><?php echo $text_option; ?></h2>
+<!--        <h2><?php echo $text_option; ?></h2>-->
         <?php foreach ($options as $option) { ?>
         <?php if ($option['type'] == 'select') { ?>
         <div id="option-<?php echo $option['product_option_id']; ?>" class="option">
@@ -188,6 +188,7 @@
 	   
 		
 		<div class="price">
+			<div class="wishlist"><a title="<?php echo $button_wishlist; ?>"onclick="boss_addToWishList('<?php echo $product_id; ?>');"><?php echo $button_wishlist; ?></a></div>
 			<?php if ($price) { ?>
 			<?php if (!$special) { ?>
 			<?php echo $price; ?>
@@ -195,9 +196,9 @@
 			<span class="price-old"><?php echo $price; ?></span> <span class="price-new"><?php echo $special; ?></span>
 			<?php } ?>
 			<?php } ?>
-			<?php if ($tax) { ?>
+			<?php /* if ($tax) { ?>
 			</br><span class="price-tax"><?php echo $text_tax; ?> <?php echo $tax; ?></span>
-			<?php } ?>
+			<?php } */ ?>
 			<?php if ($points) { ?>
 			<span class="reward"><small><?php echo $text_points; ?> <?php echo $points; ?></small></span>
 			<?php } ?>
@@ -209,8 +210,7 @@
 			</div>
 			<?php } ?>
 			<div class="action">
-			<div class="compare"><a title="<?php echo $button_compare; ?>" onclick="boss_addToCompare('<?php echo $product_id; ?>');"><?php echo $button_compare; ?></a></div>
-			<div class="wishlist"><a title="<?php echo $button_wishlist; ?>"onclick="boss_addToWishList('<?php echo $product_id; ?>');"><?php echo $button_wishlist; ?></a></div>
+<!--			<div class="compare"><a title="<?php echo $button_compare; ?>" onclick="boss_addToCompare('<?php echo $product_id; ?>');"><?php echo $button_compare; ?></a></div>-->
 			</div>
 		</div>
 		<span class="button-gray"><input type="button" value="<?php echo $button_cart; ?>" id="button-cart" class="button" title="<?php echo $button_cart; ?>" /></span>

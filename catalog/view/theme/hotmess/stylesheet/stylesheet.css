@@ -521,7 +521,7 @@ h1.h1margin{margin-top:29px}
     font-weight: 400;
     padding:3px 15px 4px;
 	height:27px;
-	line-height:22px;
+	line-height:27px;
 	color:#202020;
 	margin-top:0
 	
@@ -1709,15 +1709,24 @@ ul.box-filter > li ul {
 	float:left
 }
 .product-grid .name a{display:inline}
+.product-info .wishlist {
+    float: right;
+}
 .product-list .wishlist a,.product-grid .wishlist a,.product-info .wishlist a  {
 	text-decoration: none;
 	display: block;
-	background: url('../image/wishlist.jpg') left center no-repeat;
-	text-indent:-9999px;
-	height:30px;
-	width:40px
+	background: #fff url('../image/wishlist.png') left center no-repeat;
+	height:24px;
+        border-radius:0;
+	border:3px solid #cbcbcb;
+	font-family:'adventprosemibold';
+	text-transform:uppercase;
+	font-weight:400;
+	font-size:15px;
+        line-height: 24px;
+	padding:2px 9px 3px 30px;
 }
-.product-list .wishlist a:hover,.product-grid .wishlist a:hover,.product-info .wishlist a:hover{background: url('../image/wishlist_hover.jpg') left center no-repeat;}
+.product-list .wishlist a:hover,.product-grid .wishlist a:hover,.product-info .wishlist a:hover{background: #000 url('../image/wishlist_hover.png') left center no-repeat;color: #fff;}
 .product-list .compare{margin-right:5px;}
 .product-list .compare a,.product-grid .compare a,.product-info .compare a   {
 	text-decoration: none;
@@ -1826,7 +1835,7 @@ ul.box-filter > li ul {
 /* Product */
 
 .product-info {overflow: hidden;margin-bottom: 10px;}
-.product-info h1{margin-bottom:10px}
+.product-info h1{margin-bottom:10px; color: #B335CB}
 .product-info > .left {float: left;margin-right: 30px;}
 .product-info > .left + .right {display:block;overflow:hidden;}
 .product-info .image { margin-bottom:31px;margin-top:9px;text-align:center;padding-left:1px}
@@ -1879,7 +1888,7 @@ ul.box-filter > li ul {
     overflow: hidden;
     padding: 3px 1px;
 	box-shadow:8px -4px 8px 2px #E3E3E3 inset;
-	width:137px;
+	width:140px;
 	margin-top:17px
 }
 .product-info .share a{}
@@ -1891,8 +1900,10 @@ ul.box-filter > li ul {
 
 .product-info .price {
 	overflow: hidden;
-	margin-bottom:17px;
-	
+        margin-bottom: 10px;
+        color: #B335CB;
+        
+	font-size: 30px;
 }
 
 .product-info .price-old {text-decoration: line-through;}
