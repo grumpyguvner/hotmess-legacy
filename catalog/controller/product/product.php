@@ -14,7 +14,7 @@ class ControllerProductProduct extends Controller {
 		);
 		
 		$this->load->model('catalog/category');	
-		
+                
 		if (isset($this->request->get['path'])) {
 			$path = '';
 			
@@ -452,6 +452,16 @@ class ControllerProductProduct extends Controller {
 			}
 			
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
+                        
+                        if (!isset($this->request->get['path'])) {
+                            
+                            $categories = $this->model_catalog_product->getCategories($this->request->get['product_id']);
+                            
+                            if ($categories)
+                            {
+                                $this->request->get['path'] = $categories[0]['category_id'];
+                            }
+                        }
 			
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/product/product.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/product/product.tpl';

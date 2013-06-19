@@ -96,7 +96,7 @@ if(!isset($b_Mode_CSS)){
     
 <div class="grid_24 omega alpha">
     
-    <div id="tayla-blue"><img src="/image/data/HEADER/Tayla-Blue-image.png" alt="" ></div>
+    <div id="tayla-blue"><a href="http://taylablue.com" target="_blank"><img src="/image/data/HEADER/Tayla-Blue-image.png" alt="" ></a></div>
   <div class="top_header">
   <div id="welcome">
     <?php if (!$logged) { ?>

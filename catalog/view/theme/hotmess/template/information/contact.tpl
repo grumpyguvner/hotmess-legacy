@@ -11,7 +11,7 @@
 <?php echo $column_left; ?><?php echo $column_right; ?>
 <div id="content"><?php echo $content_top; ?>
 <div class="contact_fr">
-  <h1><?php echo $heading_title; ?></h1>
+  <h1 class="heading_title"><?php echo $heading_title; ?></h1>
   <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
     <h2><?php echo $text_location; ?></h2>
     <div class="contact-info">
@@ -63,9 +63,9 @@
     <span class="error"><?php echo $error_captcha; ?></span>
     <?php } ?>
     </div>
-    <div class="buttons">
+<!--    <div class="buttons">
       <div class="left"><span class="button_fr_ip"><input type="submit" value="<?php echo $button_continue; ?>" class="button cst" /></span></div>
-    </div>
+    </div>-->
   </form>
   <?php echo $content_bottom; ?></div></div>
 <?php echo $footer; ?>
