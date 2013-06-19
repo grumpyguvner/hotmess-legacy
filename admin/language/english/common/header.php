@@ -30,6 +30,7 @@ $_['text_geo_zone']                    = 'Geo Zones';
 $_['text_help']                        = 'Help';
 $_['text_information']                 = 'Information';
 $_['text_language']                    = 'Languages';
+$_['text_language_manager']            = 'Language Manager';
 $_['text_layout']                      = 'Layouts';
 $_['text_localisation']                = 'Localisation';
 $_['text_logged']                      = 'You are logged in as <span>%s</span>';
