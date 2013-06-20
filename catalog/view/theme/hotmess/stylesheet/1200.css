@@ -101,7 +101,7 @@
 
 /*PC min 960px max < 1200*/
 /* Note: Design for a width of 980px*/
-
+/*
 	@media only screen and (min-width: 1024px) and (max-width: 1279px) {
 		.container_24 ,#page{	width: 940px;}
 				
@@ -130,14 +130,14 @@
 		
 	}
 
-/* #Tablet (Portrait)
-================================================== */
+ #Tablet (Portrait)
+================================================== 
 
-    /* Note: Design for a width of 768px*/
+     Note: Design for a width of 768px
 
     @media only screen and (min-width: 768px) and (max-width: 1023px) {
-		/* Containers
-		------------------------------------------------------------*/
+		 Containers
+		------------------------------------------------------------
 		.container_24,#page {width: 748px;}
 
 		.container_24 .grid_3,
@@ -161,13 +161,13 @@
 		
     }
 
-/* Small tablet portrait
-================================================== */
+ Small tablet portrait
+================================================== 
   
-/* #Mobile (Landscape)
-================================================== */
+ #Mobile (Landscape)
+================================================== 
 
-    /* Note: Design for a width of 480px */
+     Note: Design for a width of 480px 
 
     @media only screen and (min-width: 480px) and (max-width: 767px)  {
         .container_24,#page {width:420px;}
@@ -201,7 +201,7 @@
 		.container_24 .grid_24{width:420px;}
     }
 	
-  /* Note: Design for a width of 320px */
+   Note: Design for a width of 320px 
 
     @media only screen and (max-width: 479px) {
         .container_24,#page {width: 300px;}
@@ -236,7 +236,7 @@
 		.container_24 .grid_24{width:300px;}
 
 
-    }
+    }*/
 	
 	
 .clear {
