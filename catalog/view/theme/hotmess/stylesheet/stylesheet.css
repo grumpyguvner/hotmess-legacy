@@ -359,6 +359,7 @@ h1.h1margin{margin-top:29px}
 	padding-top:8px;
 	padding-right:12px;
 	margin-top:30px;
+	margin-bottom:15px;
 	
 }
 #header #cart .madeuk {
@@ -535,39 +536,6 @@ h1.h1margin{margin-top:29px}
 	padding-top: 24px;
 	text-align: center;
 }
-#header #search {
-	float:left;
-	background:url(../image/search_bg1.png) no-repeat;
-	position:relative;
-	margin-left:0;
-	margin-top:2px;
-	margin-right:20px;
-	width: 252px;
-	height:60px;
-	padding:0 60px 0 8px;
-}
-#header .button-search {
-	position: absolute;
-	right: 20px;
-	top:18px;
-	background: url('../image/search_03.png') center center no-repeat;
-	background-color: #f46253;
-	width: 24px;
-	height: 24px;
-	cursor: pointer;
-}
-#header #search input {
-	background:none;
-	padding:0px 0px 0px 0px;
-	width: 252px;
-	height: 57px;
-	border: none;
-	font-family:'Conv_AdventPro-ExtraLight';
-	font-size:24px;
-	color:#202020;
-	font-weight:normal!important
-}
-#header #search input:focus{box-shadow:none;border:none}
 .top_header{overflow:hidden;margin-bottom:15px;overflow:hidden}
 #header #welcome {
 	clear:both; text-align:right; float:left;color:#505050;
@@ -2969,8 +2937,8 @@ opacity:100;
 
 #menu > ul > li > div.dropdown .manufacturer  a img{margin-bottom:10px}
 
-#menu > ul > li > div.dropdown ul { display:inline-block}
-#menu > ul > li > div.dropdown ul.product a{ display:inline-block;font-weight:700;padding-right:0}
+#menu > ul > li > div.dropdown ul { display: inline-block;zoom: 1;*display: inline;}
+#menu > ul > li > div.dropdown ul.product a{ font-weight:700;padding-right:0;display: inline-block;}
 #menu > ul > li > div.dropdown ul.product span { padding-left:20px}
 #menu > ul > li > div.dropdown ul.product span.price-old 
 {
@@ -3088,8 +3056,56 @@ h1.h1success{margin-top:30px}
 #payment-address .buttons .left input[type="checkbox"] {margin-right:6px}
 .product-info .error{margin-bottom:10px;clear:both}
 
+#header #headerInputs {
+    float:left;
+    width: 312px;
+	position:relative;
+	margin-right:20px;
+}
+.inputContainer {
+	background:url(../image/input_bg.png) no-repeat;
+	position:relative;
+	margin:0;
+	width: 252px;
+	height:45px;
+	padding:0 60px 0 8px;
+}
+.inputContainer .button-search,
+.inputContainer .button-enter {
+	position: absolute;
+	right: 20px;
+	top:10px;
+	background: url('../image/search_03.png') center center no-repeat;
+	background-color: #f46253;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+.inputContainer .button-enter {
+	background: url('../image/sign-up-go.png') center center no-repeat;
+}
+.inputContainer input {
+	background:none;
+	padding:0px 0px 0px 0px;
+	width: 252px;
+	height: 42px;
+	border: none;
+	font-family:'Conv_AdventPro-ExtraLight';
+	font-size:24px;
+	color:#202020;
+	font-weight:normal!important
+}
+.inputContainer input:focus{box-shadow:none;border:none}
 
+#header #headerInputs #newsletter {
+    margin-top: 15px;
+}
 
+#newsletter_footer {
+  vertical-align: middle;
+    display: inline-block;zoom: 1;*display: inline;
+  
+}
 
 /********************** ie 10 *******************************/
 .ie10 .search_fr input.button.cst{padding-top:6px!important;padding-bottom:6px!important}
@@ -3099,7 +3115,7 @@ h1.h1success{margin-top:30px}
 .ie10 .blogsearch_fr input.button.cst{padding-top:6px;padding-bottom:6px}
 .ie10 .compare_fr a.button.cst{padding-top:5px;padding-bottom:7px}
 .ie10 #language .sbHolder,.ie10 #currency .sbHolder{height:31px}
-.ie10 #header #search input{height:30px;padding-top:13px}
+.ie10 .inputContainer input{height:30px;padding-top:13px}
 .ie10 .box-product .image{margin-top:1px}
 .ie10 .boss-alphabet ul li a{line-height:22px}
 

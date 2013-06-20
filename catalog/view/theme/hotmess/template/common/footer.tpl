@@ -91,14 +91,10 @@
                     <a href="uk-youth-charity"><img src="/image/data/FOOTER/UK-Youth.png" ></a>
                     </div>
 
-<!--                    <form action="/index.php" method="get" class="newsletter-form" target="_blank">
-                        <input type="hidden" name="route" value="module/newsletter/callback">
-                        <input type="hidden" name="subscribe" value="1">
-                        <div class="newsletter_input input-container">
-                            <a class="button-submit submit" href="#"></a>
-                            <input type="email" name="email" placeholder="Email Address">
-                        </div>
-                    </form>-->
+<!--                    <div id="newsletter_footer" class="inputContainer">
+                        <div class="button-enter" title="sign up"></div>
+                        <input type="text" name="text" placeholder="enter your email here for the latest" value="" />
+                      </div>-->
                 </div>
             </div>
 

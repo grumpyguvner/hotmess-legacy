@@ -107,14 +107,20 @@ if(!isset($b_Mode_CSS)){
   </div>
   <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></div>
   </div>
-  <div class="bottom_header">
-      
-  <div id="search">
-    <div class="button-search" title="<?php echo $text_search; ?>"></div>
-    <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
-  </div>
-      
+  <div class="bottom_header"><div id="headerInputs">
+            <div id="search" class="inputContainer">
+              <div class="button-search" title="<?php echo $text_search; ?>"></div>
+              <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
+            </div>
+          
+<!--           <div id="newsletter" class="inputContainer">
+              <div class="button-enter" title="sign up"></div>
+              <input type="text" name="text" placeholder="enter your email here for the latest" value="" />
+            </div>-->
+      </div>
   <?php echo $cart; ?>
+      
+      
   <?php if ($logo) { ?>
   <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
   <?php } ?>
@@ -181,7 +187,6 @@ if(!isset($b_Mode_CSS)){
 					  <?php } ?>
 					</li>
 				<?php } ?>
-				<li><a href="index.php?route=bossblog/bossblog">Blog</a></li>
 				</ul>
 			</li>
 		</ul>
