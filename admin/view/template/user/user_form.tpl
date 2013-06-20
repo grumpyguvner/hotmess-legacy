@@ -11,11 +11,16 @@
   <div class="box">
     <div class="heading">
       <h1><img src="view/image/user.png" alt="" /> <?php echo $heading_title; ?></h1>
-      <div class="buttons"><a onclick="$('#form').submit();" class="button"><?php echo $button_save; ?></a><a href="<?php echo $cancel; ?>" class="button"><?php echo $button_cancel; ?></a></div>
+      <div class="buttons"><?php
+          echo (!$is_superuser || $this->user->isSuperuser()) ? '<a onclick="$(\'#form\').submit();" class="button">' . $button_save . '</a> <a onclick="location = \'' . $cancel . '\'" class="button">' . $button_cancel . '</a>' : '<a onclick="location = \'' . $cancel . '\'" class="button">' . $button_back . '</a>'; ?></div>
     </div>
     <div class="content">
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
         <table class="form">
+          <?php
+          if (!$is_superuser || $this->user->isSuperuser())
+          {
+          ?>
           <tr>
             <td><span class="required">*</span> <?php echo $entry_username; ?></td>
             <td><input type="text" name="username" value="<?php echo $username; ?>" />
@@ -79,6 +84,32 @@
                 <?php } ?>
               </select></td>
           </tr>
+          <?php
+          } else {
+          ?>
+          <tr>
+            <td><?php echo $entry_firstname; ?></td>
+            <td><strong><?php echo $firstname; ?></strong></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_lastname; ?></td>
+            <td><strong><?php echo $lastname; ?></strong></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_email; ?></td>
+            <td><strong><?php echo $email; ?></strong></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_user_group; ?></td>
+            <td><strong><?php echo $user_group_name; ?></strong></td>
+          </tr>
+          <tr>
+            <td><?php echo $entry_status; ?></td>
+            <td><strong><?php echo ($status) ? $text_enabled : $text_disabled; ?></strong></td>
+          </tr>
+          <?php
+          }
+          ?>
         </table>
       </form>
     </div>

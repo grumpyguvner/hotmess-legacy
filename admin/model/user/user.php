@@ -2,6 +2,7 @@
 class ModelUserUser extends Model {
 	public function addUser($data) {
 		$this->db->query("INSERT INTO `" . DB_PREFIX . "user` SET username = '" . $this->db->escape($data['username']) . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', user_group_id = '" . (int)$data['user_group_id'] . "', status = '" . (int)$data['status'] . "', date_added = NOW()");
+		return $this->db->getLastId();
 	}
 	
 	public function editUser($user_id, $data) {
@@ -17,7 +18,7 @@ class ModelUserUser extends Model {
 	}
 
 	public function editCode($email, $code) {
-		$this->db->query("UPDATE `" . DB_PREFIX . "user` SET code = '" . $this->db->escape($code) . "' WHERE LCASE(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+		$this->db->query("UPDATE `" . DB_PREFIX . "user` SET code = '" . $this->db->escape($code) . "' WHERE email = '" . $this->db->escape($email) . "'");
 	}
 			
 	public function deleteUser($user_id) {
@@ -43,10 +44,13 @@ class ModelUserUser extends Model {
 	}
 		
 	public function getUsers($data = array()) {
-		$sql = "SELECT * FROM `" . DB_PREFIX . "user`";
+		$sql = "SELECT u.*, ug.name as user_group, ug.superuser "
+             . "FROM `" . DB_PREFIX . "user` u "
+             . "LEFT JOIN `" . DB_PREFIX . "user_group` ug ON ug.user_group_id = u.user_group_id ";
 			
 		$sort_data = array(
 			'username',
+			'user_group',
 			'status',
 			'date_added'
 		);	
@@ -93,7 +97,7 @@ class ModelUserUser extends Model {
 	}
 	
 	public function getTotalUsersByEmail($email) {
-      	$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "user` WHERE LCASE(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+      	$query = $this->db->query("SELECT COUNT(*) AS total FROM `" . DB_PREFIX . "user` WHERE email = '" . $this->db->escape($email) . "'");
 		
 		return $query->row['total'];
 	}	

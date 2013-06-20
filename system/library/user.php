@@ -2,7 +2,11 @@
 class User {
 	private $user_id;
 	private $username;
+	private $name;
+	private $email;
   	private $permission = array();
+	private $user_group_id;
+	private $superuser;
 
   	public function __construct($registry) {
 		$this->db = $registry->get('db');
@@ -15,8 +19,15 @@ class User {
 			if ($user_query->num_rows) {
 				$this->user_id = $user_query->row['user_id'];
 				$this->username = $user_query->row['username'];
+				$this->name = $user_query->row['firstname'] . ' ' . $user_query->row['lastname'];
+                                $this->email = $user_query->row['email'];
+				$this->user_group_id = $user_query->row['user_group_id'];
 				
       			$this->db->query("UPDATE " . DB_PREFIX . "user SET ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE user_id = '" . (int)$this->session->data['user_id'] . "'");
+                        
+                        $user_group_query = $this->db->query("SELECT superuser, permission FROM " . DB_PREFIX . "user_group WHERE user_group_id = '" . (int)$user_query->row['user_group_id'] . "'");
+				
+				$this->superuser = (bool)$user_group_query->row['superuser'];
 
       			$user_group_query = $this->db->query("SELECT permission FROM " . DB_PREFIX . "user_group WHERE user_group_id = '" . (int)$user_query->row['user_group_id'] . "'");
 				
@@ -40,7 +51,13 @@ class User {
 			$this->session->data['user_id'] = $user_query->row['user_id'];
 			
 			$this->user_id = $user_query->row['user_id'];
-			$this->username = $user_query->row['username'];			
+			$this->username = $user_query->row['username'];	
+			$this->name = $user_query->row['firstname'] . ' ' . $user_query->row['lastname'];
+            $this->email = $user_query->row['email'];
+            
+      			$user_group_query = $this->db->query("SELECT superuser, permission FROM " . DB_PREFIX . "user_group WHERE user_group_id = '" . (int)$user_query->row['user_group_id'] . "'");
+				
+				$this->superuser = (bool)$user_group_query->row['superuser'];
 
       		$user_group_query = $this->db->query("SELECT permission FROM " . DB_PREFIX . "user_group WHERE user_group_id = '" . (int)$user_query->row['user_group_id'] . "'");
 
@@ -66,13 +83,19 @@ class User {
 		
 		session_destroy();
   	}
+  
+  	public function isSuperuser() {
+    	return (bool)$this->superuser;
+  	}
 
   	public function hasPermission($key, $value) {
-    	if (isset($this->permission[$key])) {
+        if ($this->isSuperuser())
+            return true;
+        
+    	if (isset($this->permission[$key]))
 	  		return in_array($value, $this->permission[$key]);
-		} else {
-	  		return false;
-		}
+		
+	  	return false;
   	}
   
   	public function isLogged() {
@@ -86,5 +109,17 @@ class User {
   	public function getUserName() {
     	return $this->username;
   	}	
+	
+  	public function getName() {
+    	return $this->name;
+  	}	
+	
+  	public function getEmail() {
+    	return $this->email;
+  	}	
+  
+  	public function getUserGroupId() {
+    	return $this->user_group_id;
+  	}
 }
 ?>

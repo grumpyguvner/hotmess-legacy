@@ -1,3 +1,25 @@
+<?php
+function fixMenu($menu) {
+    $menu = preg_replace('%\s+%m', ' ', $menu);
+
+    $regex_array = array('%<li([^>]*)>\s*<a([^>]*)href=""(.*?)</a>\s*</li>%i',
+                         '%<ul([^>]*)>\s*</ul>%i',
+                         '%<li([^>]*)>\s*<a class="(parent|top)">([^<]*)</a>\s*</li>%i'
+                        );
+
+    do {
+        $change = false;
+        foreach ($regex_array as $regex) {
+            if (preg_match($regex, $menu)) {
+                $change = true;
+                $menu = preg_replace($regex, '', $menu);
+            }
+        }
+    } while ($change);
+
+    return $menu;
+}
+?>
 <!DOCTYPE html>
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <head>
@@ -63,6 +85,9 @@ $(document).ready(function(){
   </div>
   <?php if ($logged) { ?>
   <div id="menu">
+<?php
+ob_start("fixMenu");
+?>
     <ul class="left" style="display: none;">
       <li id="dashboard"><a href="<?php echo $home; ?>" class="top"><?php echo $text_dashboard; ?></a></li>
       <li id="catalog"><a class="top"><?php echo $text_catalog; ?></a>
@@ -200,6 +225,9 @@ $(document).ready(function(){
         </ul>
       </li>
     </ul>
+<?php
+ob_end_flush();
+?>
     <ul class="right" style="display: none;">
       <li id="store"><a href="<?php echo $store; ?>" target="_blank" class="top"><?php echo $text_front; ?></a>
         <ul>

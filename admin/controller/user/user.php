@@ -175,7 +175,8 @@ class ControllerUserUser extends Controller {
     	
 		foreach ($results as $result) {
 			$action = array();
-			
+			            if (!$result['superuser'] || $this->user->isSuperuser()) {
+
 			$action[] = array(
 				'text' => $this->language->get('text_edit'),
 				'href' => $this->url->link('user/user/update', 'token=' . $this->session->data['token'] . '&user_id=' . $result['user_id'] . $url, 'SSL')
@@ -184,18 +185,24 @@ class ControllerUserUser extends Controller {
       		$this->data['users'][] = array(
 				'user_id'    => $result['user_id'],
 				'username'   => $result['username'],
+                                'user_group'   => $result['user_group'],
+
+                                'superuser'   => $result['superuser'],
+
 				'status'     => ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
 				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'selected'   => isset($this->request->post['selected']) && in_array($result['user_id'], $this->request->post['selected']),
 				'action'     => $action
 			);
 		}	
+}
 			
 		$this->data['heading_title'] = $this->language->get('heading_title');
 		
 		$this->data['text_no_results'] = $this->language->get('text_no_results');
 
 		$this->data['column_username'] = $this->language->get('column_username');
+		$this->data['column_user_group'] = $this->language->get('column_user_group');
 		$this->data['column_status'] = $this->language->get('column_status');
 		$this->data['column_date_added'] = $this->language->get('column_date_added');
 		$this->data['column_action'] = $this->language->get('column_action');
@@ -230,6 +237,7 @@ class ControllerUserUser extends Controller {
 		}
 					
 		$this->data['sort_username'] = $this->url->link('user/user', 'token=' . $this->session->data['token'] . '&sort=username' . $url, 'SSL');
+		$this->data['sort_user_group'] = $this->url->link('user/user', 'token=' . $this->session->data['token'] . '&sort=user_group' . $url, 'SSL');
 		$this->data['sort_status'] = $this->url->link('user/user', 'token=' . $this->session->data['token'] . '&sort=status' . $url, 'SSL');
 		$this->data['sort_date_added'] = $this->url->link('user/user', 'token=' . $this->session->data['token'] . '&sort=date_added' . $url, 'SSL');
 		
@@ -281,6 +289,7 @@ class ControllerUserUser extends Controller {
 		$this->data['entry_captcha'] = $this->language->get('entry_captcha');
 
     	$this->data['button_save'] = $this->language->get('button_save');
+		$this->data['button_back'] = $this->language->get('button_back');
     	$this->data['button_cancel'] = $this->language->get('button_cancel');
     
  		if (isset($this->error['warning'])) {
@@ -412,9 +421,22 @@ class ControllerUserUser extends Controller {
     	}
 		
 		$this->load->model('user/user_group');
+        $data = Array('superuser' => $this->user->isSuperuser());
 		
     	$this->data['user_groups'] = $this->model_user_user_group->getUserGroups();
  
+        if (!empty($user_info)) {
+            $user_group_info = $this->model_user_user_group->getUserGroup($user_info['user_group_id']);
+            $this->data['user_group_name'] = $user_group_info['name'];
+            $this->data['is_superuser'] = (bool)$user_group_info['superuser'];
+            
+            if ($this->data['is_superuser'] && !$this->user->isSuperuser()) {
+                $this->data['user_group_id'] = $user_info['user_group_id'];
+            }
+        } else {
+            $this->data['user_group_name'] = '';
+            $this->data['is_superuser'] = false;
+        }
      	if (isset($this->request->post['status'])) {
       		$this->data['status'] = $this->request->post['status'];
     	} elseif (!empty($user_info)) {

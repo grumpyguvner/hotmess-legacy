@@ -69,29 +69,38 @@ class ControllerExtensionShipping extends Controller {
 	
 				$action = array();
 				
-				if (!in_array($extension, $extensions)) {
-					$action[] = array(
-						'text' => $this->language->get('text_install'),
-						'href' => $this->url->link('extension/shipping/install', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
-					);
-				} else {
-					$action[] = array(
-						'text' => $this->language->get('text_edit'),
-						'href' => $this->url->link('shipping/' . $extension . '', 'token=' . $this->session->data['token'], 'SSL')
-					);
-								
-					$action[] = array(
-						'text' => $this->language->get('text_uninstall'),
-						'href' => $this->url->link('extension/shipping/uninstall', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
-					);
-				}
-										
-				$this->data['extensions'][] = array(
-					'name'       => $this->language->get('heading_title'),
-					'status'     => $this->config->get($extension . '_status') ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
-					'sort_order' => $this->config->get($extension . '_sort_order'),
-					'action'     => $action
-				);
+                                if ($this->user->isSuperuser() || $this->user->hasPermission('access', 'shipping/' . $extension)) {
+                                    if (!in_array($extension, $extensions)) {
+                                        if ($this->user->isSuperuser()) {
+                                            $action[] = array(
+                                                    'text' => $this->language->get('text_install'),
+                                                    'href' => $this->url->link('extension/shipping/install', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
+                                            );
+                                        }
+                                    } else {
+                                            $action[] = array(
+                                                    'text' => $this->language->get('text_edit'),
+                                                    'href' => $this->url->link('shipping/' . $extension . '', 'token=' . $this->session->data['token'], 'SSL')
+                                            );
+
+                                            if ($this->user->isSuperuser()) {
+                                            $action[] = array(
+                                                    'text' => $this->language->get('text_uninstall'),
+                                                    'href' => $this->url->link('extension/shipping/uninstall', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
+                                            );
+                                            }
+                                    }
+                                }
+					
+                                if (!empty($action))
+                                {
+                                    $this->data['extensions'][] = array(
+                                            'name'       => $this->language->get('heading_title'),
+                                            'status'     => $this->config->get($extension . '_status') ? $this->language->get('text_enabled') : $this->language->get('text_disabled'),
+                                            'sort_order' => $this->config->get($extension . '_sort_order'),
+                                            'action'     => $action
+                                    );
+                                }
 			}
 		}
 

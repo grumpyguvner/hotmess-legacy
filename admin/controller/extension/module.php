@@ -67,27 +67,37 @@ class ControllerExtensionModule extends Controller {
 	
 				$action = array();
 				
-				if (!in_array($extension, $extensions)) {
-					$action[] = array(
-						'text' => $this->language->get('text_install'),
-						'href' => $this->url->link('extension/module/install', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
-					);
-				} else {
-					$action[] = array(
-						'text' => $this->language->get('text_edit'),
-						'href' => $this->url->link('module/' . $extension . '', 'token=' . $this->session->data['token'], 'SSL')
-					);
-								
-					$action[] = array(
-						'text' => $this->language->get('text_uninstall'),
-						'href' => $this->url->link('extension/module/uninstall', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
-					);
-				}
-												
-				$this->data['extensions'][] = array(
-					'name'   => $this->language->get('heading_title'),
-					'action' => $action
-				);
+                                if ($this->user->isSuperuser() || $this->user->hasPermission('access', 'module/' . $extension)) {
+                                    if (!in_array($extension, $extensions)) {
+                                        if ($this->user->isSuperuser()) {
+                                            $action[] = array(
+                                                    'text' => $this->language->get('text_install'),
+                                                    'href' => $this->url->link('extension/module/install', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
+                                            );
+                                        }
+                                    } else {
+
+                                        $action[] = array(
+                                                'text' => $this->language->get('text_edit'),
+                                                'href' => $this->url->link('module/' . $extension . '', 'token=' . $this->session->data['token'], 'SSL')
+                                        );
+
+                                        if ($this->user->isSuperuser()) {			
+                                            $action[] = array(
+                                                    'text' => $this->language->get('text_uninstall'),
+                                                    'href' => $this->url->link('extension/module/uninstall', 'token=' . $this->session->data['token'] . '&extension=' . $extension, 'SSL')
+                                            );
+                                        }
+                                    }
+                                }
+                                
+                                if (!empty($action))
+                                {
+                                    $this->data['extensions'][] = array(
+                                            'name'   => $this->language->get('heading_title'),
+                                            'action' => $action
+                                    );
+                                }
 			}
 		}
 

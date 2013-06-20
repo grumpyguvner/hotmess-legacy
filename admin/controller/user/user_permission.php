@@ -163,6 +163,7 @@ class ControllerUserUserPermission extends Controller {
 		$this->data['user_groups'] = array();
 
 		$data = array(
+            'superuser' => $this->user->isSuperuser(),
 			'sort'  => $sort,
 			'order' => $order,
 			'start' => ($page - 1) * $this->config->get('config_admin_limit'),
@@ -259,12 +260,15 @@ class ControllerUserUserPermission extends Controller {
  	}
 
 	protected function getForm() {
+		$this->data['text_yes'] = $this->language->get('text_yes');
+		$this->data['text_no'] = $this->language->get('text_no');
 		$this->data['heading_title'] = $this->language->get('heading_title');
 		
 		$this->data['text_select_all'] = $this->language->get('text_select_all');
 		$this->data['text_unselect_all'] = $this->language->get('text_unselect_all');
 				
 		$this->data['entry_name'] = $this->language->get('entry_name');
+		$this->data['entry_superuser'] = $this->language->get('entry_superuser');
 		$this->data['entry_access'] = $this->language->get('entry_access');
 		$this->data['entry_modify'] = $this->language->get('entry_modify');
 		
@@ -329,6 +333,18 @@ class ControllerUserUserPermission extends Controller {
 			$this->data['name'] = $user_group_info['name'];
 		} else {
 			$this->data['name'] = '';
+		}
+        
+        if (!$this->user->isSuperuser())
+        {
+			$this->data['superuser'] = !empty($user_group_info) ? $user_group_info['superuser'] : 0;
+        }
+		if (isset($this->request->post['superuser'])) {
+			$this->data['superuser'] = $this->request->post['superuser'];
+		} elseif (!empty($user_group_info)) {
+			$this->data['superuser'] = $user_group_info['superuser'];
+		} else {
+			$this->data['superuser'] = '0';
 		}
 		
 		$ignore = array(

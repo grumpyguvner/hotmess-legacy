@@ -14,7 +14,7 @@
   <div class="box">
     <div class="heading">
       <h1><img src="view/image/user.png" alt="" /> <?php echo $heading_title; ?></h1>
-      <div class="buttons"><a href="<?php echo $insert; ?>" class="button"><?php echo $button_insert; ?></a><a onclick="$('form').submit();" class="button"><?php echo $button_delete; ?></a></div>
+      <div class="buttons"><a onclick="location = '<?php echo $insert; ?>'" class="button"><?php echo $button_insert; ?></a><a onclick="$('form').submit();" class="button"><?php echo $button_delete; ?></a></div>
     </div>
     <div class="content">
       <form action="<?php echo $delete; ?>" method="post" enctype="multipart/form-data" id="form">
@@ -26,6 +26,11 @@
                 <a href="<?php echo $sort_username; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_username; ?></a>
                 <?php } else { ?>
                 <a href="<?php echo $sort_username; ?>"><?php echo $column_username; ?></a>
+                <?php } ?></td>
+              <td class="left"><?php if ($sort == 'user_group') { ?>
+                <a href="<?php echo $sort_user_group; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_user_group; ?></a>
+                <?php } else { ?>
+                <a href="<?php echo $sort_user_group; ?>"><?php echo $column_user_group; ?></a>
                 <?php } ?></td>
               <td class="left"><?php if ($sort == 'status') { ?>
                 <a href="<?php echo $sort_status; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_status; ?></a>
@@ -44,12 +49,15 @@
             <?php if ($users) { ?>
             <?php foreach ($users as $user) { ?>
             <tr>
-              <td style="text-align: center;"><?php if ($user['selected']) { ?>
+              <td style="text-align: center;"><?php if ($user['superuser'] && !$this->user->isSuperuser()) { ?>
+                &nbsp;
+                <?php } elseif ($user['selected']) { ?>
                 <input type="checkbox" name="selected[]" value="<?php echo $user['user_id']; ?>" checked="checked" />
                 <?php } else { ?>
                 <input type="checkbox" name="selected[]" value="<?php echo $user['user_id']; ?>" />
                 <?php } ?></td>
               <td class="left"><?php echo $user['username']; ?></td>
+              <td class="left"><?php echo $user['user_group']; ?></td>
               <td class="left"><?php echo $user['status']; ?></td>
               <td class="left"><?php echo $user['date_added']; ?></td>
               <td class="right"><?php foreach ($user['action'] as $action) { ?>
@@ -59,7 +67,7 @@
             <?php } ?>
             <?php } else { ?>
             <tr>
-              <td class="center" colspan="5"><?php echo $text_no_results; ?></td>
+              <td class="center" colspan="6"><?php echo $text_no_results; ?></td>
             </tr>
             <?php } ?>
           </tbody>

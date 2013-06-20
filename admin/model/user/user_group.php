@@ -1,11 +1,11 @@
 <?php
 class ModelUserUserGroup extends Model {
 	public function addUserGroup($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "user_group SET name = '" . $this->db->escape($data['name']) . "', permission = '" . (isset($data['permission']) ? serialize($data['permission']) : '') . "'");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "user_group SET name = '" . $this->db->escape($data['name']) . "', permission = '" . (isset($data['permission']) ? serialize($data['permission']) : '') . "', superuser = '" . $this->db->escape($data['superuser']) . "'");
 	}
 	
 	public function editUserGroup($user_group_id, $data) {
-		$this->db->query("UPDATE " . DB_PREFIX . "user_group SET name = '" . $this->db->escape($data['name']) . "', permission = '" . (isset($data['permission']) ? serialize($data['permission']) : '') . "' WHERE user_group_id = '" . (int)$user_group_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "user_group SET name = '" . $this->db->escape($data['name']) . "', permission = '" . (isset($data['permission']) ? serialize($data['permission']) : '') . "', superuser = '" . $this->db->escape($data['superuser']) . "' WHERE user_group_id = '" . (int)$user_group_id . "'");
 	}
 	
 	public function deleteUserGroup($user_group_id) {
@@ -33,7 +33,8 @@ class ModelUserUserGroup extends Model {
 		
 		$user_group = array(
 			'name'       => $query->row['name'],
-			'permission' => unserialize($query->row['permission'])
+			'permission' => unserialize($query->row['permission']),
+			'superuser' => (bool)$query->row['superuser']
 		);
 		
 		return $user_group;
@@ -41,6 +42,10 @@ class ModelUserUserGroup extends Model {
 	
 	public function getUserGroups($data = array()) {
 		$sql = "SELECT * FROM " . DB_PREFIX . "user_group";
+        
+		if (!isset($data['superuser']) || !$data['superuser']) {
+			$sql .= " WHERE superuser = 0";
+		}
 		
 		$sql .= " ORDER BY name";	
 			
@@ -68,7 +73,13 @@ class ModelUserUserGroup extends Model {
 	}
 	
 	public function getTotalUserGroups() {
-      	$query = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "user_group");
+        $sql = "SELECT COUNT(*) AS total FROM " . DB_PREFIX . "user_group";
+        
+		if (!isset($data['superuser']) || !$data['superuser']) {
+			$sql .= " WHERE superuser = 0";
+		}
+        
+      	$query = $this->db->query($sql);
 		
 		return $query->row['total'];
 	}	
