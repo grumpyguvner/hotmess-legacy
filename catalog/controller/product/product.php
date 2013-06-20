@@ -395,7 +395,30 @@ class ControllerProductProduct extends Controller {
 			$this->data['reviews'] = sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']);
 			$this->data['rating'] = (int)$product_info['rating'];
 			$this->data['description'] = html_entity_decode($product_info['description'], ENT_QUOTES, 'UTF-8');
-			$this->data['attribute_groups'] = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
+                        
+                        $attGroups = $this->model_catalog_product->getProductAttributes($this->request->get['product_id']);
+                        $this->data['attribute_groups'] = array();
+                        $this->data['product_tabs'] = array();
+                        foreach ($attGroups as $attGroup){
+                            switch ($attGroup['name']){
+                                case "Product Tabs":
+                                    foreach ($attGroup['attribute'] as $tab)
+                                    {
+                                        if (preg_match('%^information_id=(\d+)%', $tab['text'])) {
+                                            $this->load->model('catalog/information');
+                                            $information_id = preg_replace('%^information_id=(\d+)%', '\\1', $tab['text']);
+                                            $information_data = $this->model_catalog_information->getInformation($information_id);
+                                            $text = $information_data['description'];
+                                        } else {
+                                            $text = $tab['text'];
+                                        }
+                                        $this->data['product_tabs'][] = array('name'=>$tab['name'],'text'=>html_entity_decode($text));
+                                    }
+                                    break;
+                                default:
+                                    $this->data['attribute_groups'][$attGroup['name']][] = $attGroup;
+                            }
+                        }
 			
 			$this->data['products'] = array();
 			

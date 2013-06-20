@@ -230,9 +230,14 @@
   <div id="tabs" class="htabs"><a class="left-htab" href="#tab-description"><span class="right-htab"><span class="text-tab"><?php echo $tab_description; ?></span></span></a>
     <?php if ($attribute_groups) { ?>
     <a class="left-htab" href="#tab-attribute"><span class="right-htab"><span class="text-tab"><?php echo $tab_attribute; ?></span></span></a>
-    <?php } ?>
-    <?php if ($review_status) { ?>
-    <a class="left-htab" href="#tab-review"><span class="right-htab"><span class="text-tab"><?php echo $tab_review; ?></a></span></span>
+    <?php } 
+    if ($product_tabs) {
+        foreach ($product_tabs as $key => $tab) {
+            echo '<a class="left-htab" href="#productTabAttr' . $key . '"><span class="right-htab"><span class="text-tab">' . $tab['name'] . '</span></span></a>';
+        }
+    }
+    if ($review_status) { ?>
+    <a class="left-htab" href="#tab-review"><span class="right-htab"><span class="text-tab"><?php echo $tab_review; ?></span></span></a>
     <?php } ?>
   </div>
   <h2 class="ta-header"><span><?php echo $tab_description; ?></span></h2>
@@ -259,6 +264,18 @@
     </table>
   </div>
   <?php } ?>
+    <?php
+    if ($product_tabs) {
+        foreach ($product_tabs as $key => $tab) {
+            ?>
+            <h2 class="ta-header"><span><?php echo $tab['name']; ?></span></h2>
+            <div id="productTabAttr<?php echo $key; ?>" class="tab-content">
+                <?php echo $tab['text']; ?>
+            </div>
+            <?php
+        }
+    }
+    ?>
   <?php if ($review_status) { ?>
    <h2 class="ta-header"><span><?php echo $tab_review; ?></span></h2>
   <div id="tab-review" class="tab-content">
