@@ -3094,7 +3094,8 @@ h1.h1success{margin-top:30px}
 	height: 42px;
 	border: none;
 	font-family:'Conv_AdventPro-ExtraLight';
-	font-size:24px;
+	line-height:24px;
+	font-size:18px;
 	color:#202020;
 	font-weight:normal!important
 }

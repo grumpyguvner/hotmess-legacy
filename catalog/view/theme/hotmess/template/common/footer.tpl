@@ -91,10 +91,10 @@
                     <a href="uk-youth-charity"><img src="/image/data/FOOTER/UK-Youth.png" ></a>
                     </div>
 
-<!--                    <div id="newsletter_footer" class="inputContainer">
+                      <div id="newsletter_footer" class="inputContainer">
                         <div class="button-enter" title="sign up"></div>
-                        <input type="text" name="text" placeholder="enter your email here for the latest" value="" />
-                      </div>-->
+                        <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
+                      </div>
                 </div>
             </div>
 

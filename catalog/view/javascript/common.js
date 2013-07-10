@@ -69,6 +69,51 @@ $(document).ready(function() {
 			$('#newsletter .button-enter').trigger('click');
 		}
 	});
+        
+        
+        $('#newsletter_footer .button-enter').bind('click', function() {
+            $('.success, .warning, .attention, .information, .error').remove();
+
+            $.ajax({
+                url: 'index.php?route=module/newsletter/callback',
+                type: 'get',
+                data: {email: $('#newsletter_footer input[name=email]').val(), ajax: 1},
+                dataType: 'json',
+                success: function(json) {
+
+                    if (json['redirect']) {
+                        location = json['redirect'];
+                    }
+
+                    if (json['success']) {
+                        $('#notification').html('<div class="success" style="display: none;">' + json['success'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                        $('.success').fadeIn('slow');
+
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 'slow'); 
+                    }	
+
+                    if (json['error']) {
+                        $('#notification').html('<div class="warning" style="display: none;">' + json['error'] + '<img src="catalog/view/theme/default/image/close.png" alt="" class="close" /></div>');
+
+                        $('.warning').fadeIn('slow');
+
+                        $('html, body').animate({
+                            scrollTop: 0
+                        }, 'slow'); 
+                    }
+                }
+            });
+            return false;
+        });
+	
+	$('#newsletter_footer input[name=email]').bind('keydown', function(e) {
+		if (e.keyCode == 13) {
+			$('#newsletter_footer .button-enter').trigger('click');
+		}
+	});
 	
 	/* Ajax Cart */
 	$('#cart > .heading a').live('click', function() {
