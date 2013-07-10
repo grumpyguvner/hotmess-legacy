@@ -298,6 +298,9 @@ input:focus{outline:none;}
 	text-align: left;
         background-attachment: fixed;
 }
+html #container {
+        background-color: #FFF;
+}
 #column-left {
 	float: left; margin-right:40px;
 	border-bottom:1px solid #dcdcdc;
@@ -2430,7 +2433,7 @@ ul.box-filter > li ul {
     font-size: 10em;
     text-align: center;
     color: #fff;
-    background: #B436CA url(../image/bgStripes.png) repeat top left;
+    background: #333 url(../image/bgStripes.png) repeat top left;
     font-weight: bold;
     
 }
@@ -2456,7 +2459,7 @@ margin-left: 1.5em;
     font-size: 10em;
     text-align: center;
     color: #fff;
-    background: #B436CA url(../image/bgStripes.png) repeat top left;
+    background: #333 url(../image/bgStripes.png) repeat top left;
     font-weight: bold;
     
 }

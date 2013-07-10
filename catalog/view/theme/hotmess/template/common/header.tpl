@@ -113,10 +113,10 @@ if(!isset($b_Mode_CSS)){
               <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
             </div>
           
-<!--           <div id="newsletter" class="inputContainer">
+            <div id="newsletter" class="inputContainer">
               <div class="button-enter" title="sign up"></div>
-              <input type="text" name="text" placeholder="enter your email here for the latest" value="" />
-            </div>-->
+              <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
+            </div>
       </div>
   <?php echo $cart; ?>
       
