@@ -1,4 +1,10 @@
 </div>
+<?php
+    if ($login_required)
+    {
+        echo '<script>$.colorbox({href:"' . $newsletter_modal . '",opacity: 0.5,overlayClose: false, escKey :false, closeButton: false});</script>';
+    }
+?>
 <div class="clearfix"></div>
 </div>
 <div id="container_footer">
