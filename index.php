@@ -191,6 +191,9 @@ $registry->set('language', $language);
 // Document
 $registry->set('document', new Document()); 		
 
+// Extensions
+$registry->set('extensions', new Extensions($registry));
+
 // Customer
 $registry->set('customer', new Customer($registry));
 
