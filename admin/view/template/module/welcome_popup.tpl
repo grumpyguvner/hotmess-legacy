@@ -48,9 +48,32 @@
                 <td><?php echo $entry_content; ?></td>
                 <td><textarea name="welcome_popup_content[<?php echo $language['language_id']; ?>][content]" id="content<?php echo $language['language_id']; ?>"><?php echo isset($welcome_popup_content[$language['language_id']]) ? $welcome_popup_content[$language['language_id']]['content'] : ''; ?></textarea></td>
               </tr>
+             
             </table>
           </div>
           <?php } ?>
+            <table class="form">
+                 <tr>
+                    <td><?php echo $entry_reset_cookie; ?></td>
+                    <td><select name="welcome_popup_reset_cookie">
+                            <?php
+                            if ($welcome_popup_reset_cookie) {
+                                ?>
+                                <option value="1" selected="selected"><?php echo $text_yes; ?></option>
+                                <option value="0"><?php echo $text_no; ?></option>
+                                <?php
+                            } else {
+                                ?>
+                                <option value="1"><?php echo $text_yes; ?></option>
+                                <option value="0" selected="selected"><?php echo $text_no; ?></option>
+                                <?php
+                            } // end if 
+                            ?>
+                        </select>
+                    </td>
+                    <input type="hidden" name="welcome_popup_timestamp" value="<?php echo time(); ?>" />
+                </tr>
+            </table>
         </form>
     </div>
   </div>

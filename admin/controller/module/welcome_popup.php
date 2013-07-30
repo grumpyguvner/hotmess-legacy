@@ -23,10 +23,13 @@ class ControllerModuleWelcomePopup extends Controller {
 
         $this->data['text_enabled'] = $this->language->get('text_enabled');
         $this->data['text_disabled'] = $this->language->get('text_disabled');
+        $this->data['text_yes'] = $this->language->get('text_yes');
+        $this->data['text_no'] = $this->language->get('text_no');
         
 
         $this->data['entry_status'] = $this->language->get('entry_status');
         $this->data['entry_content'] = $this->language->get('entry_content');
+        $this->data['entry_reset_cookie'] = $this->language->get('entry_reset_cookie');
 
         $this->data['button_save'] = $this->language->get('button_save');
         $this->data['button_cancel'] = $this->language->get('button_cancel');
@@ -78,6 +81,12 @@ class ControllerModuleWelcomePopup extends Controller {
             $this->data['welcome_popup_content'] = $this->config->get('welcome_popup_content');
         } else {
             $this->data['welcome_popup_content'] = '';
+        }
+        
+        if (isset($this->request->post['welcome_popup_reset_cookie'])) {
+            $this->data['welcome_popup_reset_cookie'] = $this->request->post['welcome_popup_reset_cookie'];
+        } else {
+            $this->data['welcome_popup_reset_cookie'] = '';
         }
 
         $this->template = 'module/welcome_popup.tpl';

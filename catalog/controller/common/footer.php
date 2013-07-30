@@ -46,9 +46,7 @@ class ControllerCommonFooter extends Controller {
 
 		$this->data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 		
-                $this->data['login_required'] = (!$this->customer->isLogged()) ? true : false;
-                $this->data['newsletter_modal'] = $this->url->link('module/login');
-                
+                                
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {
 			$this->load->model('tool/online');

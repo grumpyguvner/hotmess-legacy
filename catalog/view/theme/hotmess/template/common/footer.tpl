@@ -1,10 +1,5 @@
 </div>
-<?php
-    if ($login_required)
-    {
-        echo '<script>$.colorbox({href:"' . $newsletter_modal . '",opacity: 0.5,overlayClose: false, escKey :false, closeButton: false});</script>';
-    }
-?>
+
 <div class="clearfix"></div>
 </div>
 <div id="container_footer">
@@ -110,14 +105,7 @@
         <div id="powered"><div class="container_24"><div class="powered-1"><?php echo $powered; ?></div></div></div>
     </div>
 </div>
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
 
-<!--
-OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
-Please donate via PayPal to donate@opencart.com
-//-->
 </div>
+<?php echo $welcome_popup; ?>
 </body></html>
