@@ -1,5 +1,4 @@
 <div id="cart">
-  <div class="madeuk">MADE IN THE UK</div>
   <div class="heading">
     <h4><?php echo $heading_title; ?></h4>
     <a><span id="cart-total"><?php echo $text_items; ?></span></a></div>

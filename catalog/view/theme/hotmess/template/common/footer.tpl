@@ -81,28 +81,33 @@
                         </div>
                     </div>
 <?php } ?>
-                <div id="social-footer">
+                
+                <div id="newsletter_footer" class="inputContainer" style="float: right;margin-top: 20px;">
+                  <div class="button-enter" title="sign up"></div>
+                  <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
+                </div>
+                <div id="social-footer" style="display: inline-block;margin-top: 20px;float: none">
                     <div class="media-links">
-                        <a href="http://twitter.com/hotmessclothes"><img src="/image/data/FOOTER/Twitter.png" ></a>
-                        <a href="http://www.facebook.com/pages/Hotmess/467402680008369"><img src="/image/data/FOOTER/Facebook.png" ></a>
-                        <a href="#"><img src="/image/data/FOOTER/youtube.png" ></a>
-                        <a href="#"><img src="/image/data/FOOTER/linkedin.png" ></a>
+                        <a href="http://twitter.com/hotmessclothes" target="_blank"><img src="/image/data/FOOTER/Twitter.png" ></a>
+                        <a href="http://www.facebook.com/pages/Hotmess/467402680008369" target="_blank"><img src="/image/data/FOOTER/Facebook.png" ></a>
+                        <a href="http://www.youtube.com/channel/UC_0MRGFFNu7z7GByJwXqnQA" target="_blank"><img src="/image/data/FOOTER/youtube.png" ></a>
+                        <a href="http://instagram.com/HOTMESSCLOTHING" target="_blank"><img src="/image/data/FOOTER/instagram.png" ></a>
                     </div>
                     <div class="youth">
                     <a href="uk-youth-charity"><img src="/image/data/FOOTER/UK-Youth.png" ></a>
                     </div>
 
-                      <div id="newsletter_footer" class="inputContainer">
-                        <div class="button-enter" title="sign up"></div>
-                        <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
-                      </div>
+                </div><br />
+                <div class="powered-1" style="float: right;margin-top: 20px;color: #fff"><?php echo $powered; ?></div>
+                <div style="display: inline-block;margin-top: 20px;">
+                <img src="/image/data/FOOTER/payment.png" >
                 </div>
             </div>
 
 
 
         </div>
-        <div id="powered"><div class="container_24"><div class="powered-1"><?php echo $powered; ?></div></div></div>
+<!--        <div id="powered"><div class="container_24"><div class="powered-1"><?php echo $powered; ?></div></div></div>-->
     </div>
 </div>
 

@@ -37,7 +37,10 @@
 	font-family:'Conv_AdventPro-Regular';
 	height:40px;
 	transition-duration:0.2s;
-	line-height:29px
+	line-height:29px;
+            
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: normal;
 	
 }
 
@@ -67,6 +70,8 @@
 	font-family: 'Conv_AdventPro-Bold';
         text-transform: uppercase;
         font-size: 1.1em;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: bold;
 	
 }
 
@@ -101,6 +106,8 @@
 	font-family:'Conv_AdventPro-Bold';
 	font-weight:400;
 	font-size:17px;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: bold;
 }
 #boss_menu  > ul > li > div .staticblock p { padding:0 4px 0 20px;color:#505050;margin-bottom:17px}
 
@@ -117,6 +124,8 @@
     font-size: 24px;
     font-weight: 400;
 	margin-bottom:36px;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: bold;
  }
 #boss_menu > ul > li > div.dropdown ul.product span.price-new 
 { 
@@ -125,6 +134,8 @@
     font-size: 24px;
     font-weight: 400;
 	margin-bottom:36px;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: bold;
 }
 #boss_menu > ul > li > div.dropdown ul.product span.price{display:inline;float:left}
 #boss_menu > ul > li > div.dropdown ul.product li{overflow:hidden;margin-bottom:15px}

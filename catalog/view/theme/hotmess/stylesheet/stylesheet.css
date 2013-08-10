@@ -188,9 +188,9 @@ html {
 	padding: 0;
 }
 body {
-	background-color: #ffffff;
+	background-color: #000;
 	color: #202020;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Tahoma, Geneva, sans-serif;
 	margin: 0px;
 	padding: 0px;
 }
@@ -225,6 +225,7 @@ h1
 {
 	color: #202020;
 	font-family:'Conv_AdventPro-Medium';
+        font-family: Tahoma, Geneva, sans-serif;
 	margin-top:0px;
 	margin-bottom:20px;
 	font-size:30px;
@@ -264,6 +265,8 @@ input[type='text'], input[type='password'] {
 	padding: 2px 3px 4px 7px;
 	
 	font-family:arial;
+        
+        font-family: Tahoma, Geneva, sans-serif;
 }
  textarea{width:296px}
 select {
@@ -322,7 +325,8 @@ html #container {
 h1.h1margin{margin-top:29px}
 #banner1.banner{margin-top:9px}
 /*price*/
-.price{color:#202020;font-family:'Conv_AdventPro-Bold';font-weight:400;font-size:24px}
+.price{color:#202020;font-family:'Conv_AdventPro-Bold';font-weight:400;font-size:24px;
+        font-family: Tahoma, Geneva, sans-serif;}
 .name{font-weight:700}
 /* header */
 #header {
@@ -361,21 +365,20 @@ h1.h1margin{margin-top:29px}
 	padding-left:12px;
 	padding-top:8px;
 	padding-right:12px;
-	margin-top:30px;
+	margin-top:10px;
 	margin-bottom:15px;
 	
 }
-#header #cart .madeuk {
-	position: absolute;
+#header .madeuk {
         color: #E90609;
         background-image: url(/image/data/HEADER/Shopping-Bag.png);
         background-repeat: no-repeat;
         padding-left: 38px;
-        padding-top: 4px;
         height: 35px;
         line-height: 35px;
-        top: -34px;
         font-weight: bold;
+        float: right;
+        margin: 0 50px 0;
 }
 #header #cart .heading { display: block;   position: relative;   z-index: 100;}
 #header #cart .heading h4 {font-weight:400}
@@ -384,6 +387,7 @@ h1.h1margin{margin-top:29px}
 	background: url('../image/cart_dropdown.png') 100% 61% no-repeat;
 	padding-right: 32px;
 	font-family:'Conv_AdventPro-Medium';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-size:24px;
 	position:relative;
 	display:block
@@ -394,6 +398,7 @@ h1.h1margin{margin-top:29px}
 	cursor:pointer;
 	border:1px solid transparent;
 	font-family:'Conv_AdventPro-Light';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-size:24px;
 	height:36px;
 	background:transparent;
@@ -458,6 +463,7 @@ h1.h1margin{margin-top:29px}
 	display:block; 
 	margin-bottom:11px;
 	font-family: 'Conv_AdventPro-Bold';
+        font-family: Tahoma, Geneva, sans-serif;
     font-size: 24px;
     font-weight: 400;
 	color:#333;
@@ -508,7 +514,8 @@ h1.h1margin{margin-top:29px}
 }
 .mini-cart-total td{padding-bottom:4px}
 .mini-cart-total td.right.last{color:#0899f8}
-.mini-cart-total tr.last td.right{color:#F46253;font-size:24px;font-family:'Conv_AdventPro-Bold';font-weight:400}
+.mini-cart-total tr.last td.right{color:#F46253;font-size:24px;font-family:'Conv_AdventPro-Bold';font-weight:400;
+        font-family: Tahoma, Geneva, sans-serif;}
 #header #cart .checkout {
 	  clear: both;
     display: block;
@@ -522,6 +529,7 @@ h1.h1margin{margin-top:29px}
 	border: 3px solid #CBCBCB;
     border-radius: 0 0 0 0;
     font-family: 'Conv_AdventPro-ExtraLight';
+        font-family: Tahoma, Geneva, sans-serif;
     font-size: 24px;
     font-weight: 400;
     padding:3px 15px 4px;
@@ -691,6 +699,7 @@ h1.h1margin{margin-top:29px}
 	font-size: 10px;
 	font-weight: normal;
 	font-family: Verdana, Geneva, sans-serif;
+        font-family: Tahoma, Geneva, sans-serif;
 	display: block;
 }
 table.form {
@@ -846,11 +855,13 @@ table.radio tr.highlight:hover td {
 
 
 /*******************************************************CHECK OUT*************************************/
-.checkout-content h2.block_pass{margin-top:31px;font-family:'Conv_Bitter-Bold';font-weight:400}
+.checkout-content h2.block_pass{margin-top:31px;font-family:'Conv_Bitter-Bold';font-weight:400;
+        font-family: Tahoma, Geneva, sans-serif;}
 .checkout-content h2{margin-bottom:13px}
 .checkout-heading {
     background: #b235cb url(../image/cart_img.png) repeat scroll 0 0;
    font-family:'Conv_AdventPro-Regular';
+        font-family: Tahoma, Geneva, sans-serif;
     color: #fff;
     font-size: 20px;
     margin-bottom: 16px;
@@ -949,13 +960,15 @@ p.checkoutp{height:41px}
 	text-align: right;
 	border-bottom: 1px solid #DDDDDD;
 }
-.checkout-product tfoot td.price{font-size:12px;font-family:Arial}
+.checkout-product tfoot td.price{font-size:12px;font-family:Arial;
+        font-family: Tahoma, Geneva, sans-serif;}
 .checkout-content {
     display: none;
     overflow: auto;
     padding: 0 0 15px;
 }
-.checkout-product tbody .price{font-size:12px;font-family:Arial;}
+.checkout-product tbody .price{font-size:12px;font-family:Arial;
+        font-family: Tahoma, Geneva, sans-serif;}
 #shipping-method input[type="radio"],#payment-method input[type="radio"],#payment-method input[type="checkbox"]{margin-right:4px;margin-bottom:0}
 /******************************************** shopping cart *************************************/
 .cart-info tbody .name .price{display:none}
@@ -966,7 +979,8 @@ p.checkoutp{height:41px}
 .account_fr li{margin-bottom:13px}
 .account_fr h1{margin-bottom:25px}
 .account_fr h2{margin-bottom:12px}
-.box.account ul li a{font-family:'HelveticaBold';font-weight:400;}
+.box.account ul li a{font-family:'HelveticaBold';font-weight:400;
+        font-family: Tahoma, Geneva, sans-serif;}
 
 
 .box.account ul li + li{border-top:1px solid #dedede;}
@@ -1101,6 +1115,7 @@ p.checkoutp{height:41px}
 	font-weight: normal;
 	color: #808080;
 	font-family:arial;
+        font-family: Tahoma, Geneva, sans-serif;
 	display:block;
 }
 .product-info .discount{margin-top:10px;color:#202020;float:left;}
@@ -1204,6 +1219,7 @@ input.button {
 	border-radius:14px;
 	background:#fff;
 	font-family:Arial;
+        font-family: Tahoma, Geneva, sans-serif;
 }
 .ie10 input.button.cst{padding-left:27px;padding-right:26px;padding-bottom:6px;padding-top:5px}
 .ie10 .login-content input.button.cst{padding-left:27px;padding-right:26px;padding-bottom:7px;padding-top:5px}
@@ -1223,7 +1239,8 @@ a.button {
 	font-size:14px;
 	text-decoration:none;
 	border-radius:14px;
-	font-family:Arial
+	font-family:Arial;
+        font-family: Tahoma, Geneva, sans-serif;
 	
 }
 .ie10 a.button{padding-left:25px;padding-right:25px}
@@ -1279,13 +1296,15 @@ a.sft_quickshop_icon:hover{background:#202020;border:3px solid #202020}
 #tab-review textarea{width:297px!important;display:block}
 
 .productdetail .htabs {background: #F0ABFB url(../image/bgStripes.png) repeat top left}
-.productdetail .tags b{font-family:'adventprosemibold';font-weight:400;font-size:20px;opacity:0.7}
+.productdetail .tags b{font-family:'adventprosemibold';font-weight:400;font-size:20px;opacity:0.7;
+        font-family: Tahoma, Geneva, sans-serif;}
 .productdetail .tags a{color:#02979b;font-weight:700;transition-duration:0.2s;-webkit-transition-duration:0.2s;
 -moz-transition-duration:0.2s;}
 .productdetail .tags a:hover{font-size:15px;transition-duration:0.2s;-webkit-transition-duration:0.2s;
 -moz-transition-duration:0.2s;}
 #tab-related.tab-content{margin-top:55px;margin-bottom:55px}
-#tab-related h2{font-family:'adventprosemibold';font-weight:400;font-size:20px;color:#505050;border:1px solid #dcdcdc;padding:5px 0 8px 18px; background: #A4F9FB url(../image/bgStripes.png) repeat top left}
+#tab-related h2{font-family:'adventprosemibold';font-weight:400;font-size:20px;color:#505050;border:1px solid #dcdcdc;padding:5px 0 8px 18px; background: #A4F9FB url(../image/bgStripes.png) repeat top left;
+        font-family: Tahoma, Geneva, sans-serif;}
 
 #tab-related .list_carousel .next,.article_fr .list_carousel .next
 {
@@ -1323,6 +1342,7 @@ a.sft_quickshop_icon:hover{background:#202020;border:3px solid #202020}
 .htabs a {
 	padding:6px 16px 9px;
 	font-family:'adventprosemibold';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-size: 20px;
 	font-weight: 400;
 	text-align: center;
@@ -1350,7 +1370,8 @@ a.sft_quickshop_icon:hover{background:#202020;border:3px solid #202020}
 	/*overflow: auto;*/
 }
 /******************************************** Category *********************************/
-.box .box-heading{font-size:20px;font-family:'Conv_AdventPro-Bold';font-weight:400;padding:6px 15px 9px}
+.box .box-heading{font-size:20px;font-family:'Conv_AdventPro-Bold';font-weight:400;padding:6px 15px 9px;
+        font-family: Tahoma, Geneva, sans-serif;}
 
 .box .box-content {padding: 20px 15px 23px; background: #fff}
 #column-left .box .box-content {border:1px solid #dcdcdc;border-bottom:none;border-top:none}
@@ -1485,7 +1506,8 @@ ul.box-filter > li ul {
 .category-list ul li a:hover{font-weight:700}
 #banner1.banner img{margin-bottom:0}
 .cate-description .boss_info{overflow:hidden;padding-top:21px;padding-left:29px;padding-right:20px}
-.cate-description .boss_info h3{font-family:'Conv_AdventPro-Medium';font-size:30px;margin-bottom:9px;overflow:hidden;font-weight:400}
+.cate-description .boss_info h3{font-family:'Conv_AdventPro-Medium';font-size:30px;margin-bottom:9px;overflow:hidden;font-weight:400;
+        font-family: Tahoma, Geneva, sans-serif;}
 .cate-description .boss_info p{overflow:hidden;margin-bottom:24px}
 .category-info .image {
 	float: left;
@@ -1644,6 +1666,7 @@ ul.box-filter > li ul {
 	border-radius:0;
 	border:3px solid #cbcbcb;
 	font-family:'adventprosemibold';
+        font-family: Tahoma, Geneva, sans-serif;
 	text-transform:uppercase;
 	font-weight:400;
 	font-size:16px;
@@ -1659,6 +1682,7 @@ ul.box-filter > li ul {
 	border-radius:0;
 	border:3px solid #cbcbcb;
 	font-family:'adventprosemibold';
+        font-family: Tahoma, Geneva, sans-serif;
 	text-transform:uppercase;
 	font-weight:400;
 	font-size:16px;
@@ -1694,6 +1718,7 @@ ul.box-filter > li ul {
         border-radius:0;
 	border:3px solid #cbcbcb;
 	font-family:'adventprosemibold';
+        font-family: Tahoma, Geneva, sans-serif;
 	text-transform:uppercase;
 	font-weight:400;
 	font-size:15px;
@@ -1867,7 +1892,8 @@ ul.box-filter > li ul {
 }
 .product-info .share a{}
 .product-info .price-tax{display:block}
-.product-info h2{text-transform:uppercase;font-size:16px;font-family:'adventprosemibold';font-weight:400;margin-bottom:8px}
+.product-info h2{text-transform:uppercase;font-size:16px;font-family:'adventprosemibold';font-weight:400;margin-bottom:8px;
+        font-family: Tahoma, Geneva, sans-serif;}
 .product-info .description span {color: #202020;}
 .product-info .description span.stock{color:#63bf00;}
 .product-info .description span.stock span{color:#202020;}
@@ -2412,7 +2438,8 @@ ul.box-filter > li ul {
 .cart-total table {float: right;}
 .cart-total td.left {	padding: 3px;text-align: left;font-weight:700;font-size:14px;}
 .cart-total td.right{text-align: right;font-weight:700;font-size:14px;width:58%;padding-top:3px}
-.cart-total td.right.last{font-family:'Conv_AdventPro-Bold';color:#f46253;font-size:24px;font-weight:400}
+.cart-total td.right.last{font-family:'Conv_AdventPro-Bold';color:#f46253;font-size:24px;font-weight:400;
+        font-family: Tahoma, Geneva, sans-serif;}
 .cart-total td.left.last{padding-top:13px}
 .shoppingcart_fr .success,.wishlist-fr .success,.compare_fr .success{margin-top:-7px;margin-bottom:10px}
 .shoppingcart_fr h2
@@ -2420,6 +2447,7 @@ ul.box-filter > li ul {
 	border:1px solid #e2e2e2;
 	
 	font-family:'Conv_AdventPro-Bold';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-weight:400;
 	font-size:20px;
 	padding:5px 0px 8px 19px
@@ -2429,12 +2457,18 @@ ul.box-filter > li ul {
 .shoppingcart_fr table.radio td{padding-left:0}
 /**********infomation_fr*********/
 .infomation_fr .heading_title {
-    text-transform: uppercase;
-    font-size: 10em;
+    
     text-align: center;
-    color: #fff;
-    background: #333 url(../image/bgStripes.png) repeat top left;
-    font-weight: bold;
+    background-color: #ffffff;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-family: 'Conv_AdventPro-Medium';
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 5px 15px 8px;
+    margin-bottom: 27px;
     
 }
 .infomation_fr {
@@ -2455,12 +2489,18 @@ margin-left: 1.5em;
 .infomation_fr .buttons{overflow:hidden;margin-top:23px}
 /* checkout */
 .contact_fr .heading_title {
-    text-transform: uppercase;
-    font-size: 10em;
+    
     text-align: center;
-    color: #fff;
-    background: #333 url(../image/bgStripes.png) repeat top left;
-    font-weight: bold;
+    background-color: #ffffff;
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+    font-family: 'Conv_AdventPro-Medium';
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 5px 15px 8px;
+    margin-bottom: 27px;
     
 }
 .contact_fr {
@@ -2517,7 +2557,8 @@ margin-left: 1.5em;
 #footer .block-about-us .about-des a.read-more{color: #B335CB;}
 #footer .about-des a.read-more:hover{text-decoration:underline; color: #B335CB;}
 #footer .about-des p{overflow:hidden;margin: 0;color: #545454;}
-#footer .about-des {background: #fff; box-shadow: none;font-family: 'Conv_AdventPro-Medium';font-size: 14px;color: #545454;}
+#footer .about-des {background: #fff; box-shadow: none;font-family: 'Conv_AdventPro-Medium';font-size: 14px;color: #545454;
+        font-family: Tahoma, Geneva, sans-serif;}
 #footer .about-des h2 {
     color: #5FCBCB;
     font-size: 18px;
@@ -2530,6 +2571,7 @@ margin-left: 1.5em;
 	margin-top: 3px;
         margin-bottom: 0;
 	font-family:'Conv_AdventPro-Bold';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-weight:400;
 	text-transform:uppercase;
 }
@@ -2544,6 +2586,7 @@ margin-left: 1.5em;
 #footer .column ul li a {
 	font-size: 18px;
 	font-family:'Conv_AdventPro-Light';
+        font-family: Tahoma, Geneva, sans-serif;
 	text-transform:uppercase;
         font-weight: normal;
 }
@@ -2572,6 +2615,7 @@ margin-left: 1.5em;
 .about-des a.footer_logo
 {
 	font-family: 'Conv_AdventPro-Medium';
+        font-family: Tahoma, Geneva, sans-serif;
     font-size: 62px;
     font-weight: 700;
     text-transform: uppercase;
@@ -2668,8 +2712,11 @@ opacity:100;
 .home_filter_content .list_carousel{}
 .home_filter_content .box .box-heading
 {
-	background-image:url(../image/repeat.png);
+	background: #fff;
+        border: 1px solid #000;
+        color: #000;
 	font-family:'Conv_AdventPro-Medium';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-size:30px;
 	text-transform:uppercase;
 	padding:5px 15px 8px;
@@ -2878,6 +2925,7 @@ opacity:100;
 	padding-right:0;
 	text-transform:uppercase;
 	font-family:'Conv_AdventPro-Regular';
+        font-family: Tahoma, Geneva, sans-serif;
 	height:46px;
 	transition-duration:0.2s;
 	-webkit-transition-duration:0.2s;
@@ -2933,6 +2981,7 @@ opacity:100;
 	font:bold 14px Arial;
 	text-transform:uppercase;
 	font-family:'Conv_AdventPro-Bold';
+        font-family: Tahoma, Geneva, sans-serif;
 	font-weight:400;
 	font-size:17px;
 }
@@ -2948,6 +2997,7 @@ opacity:100;
 	 text-decoration:line-through ; 
 	 color: #202020;
     font-family: 'Conv_AdventPro-Bold';
+        font-family: Tahoma, Geneva, sans-serif;
     font-size: 24px;
     font-weight: 400;
 	margin-bottom:36px;
@@ -2956,6 +3006,7 @@ opacity:100;
 { 
 	padding-left:10px;
 	font-family: 'Conv_AdventPro-Bold';
+        font-family: Tahoma, Geneva, sans-serif;
     font-size: 24px;
     font-weight: 400;
 	margin-bottom:36px;
@@ -2975,7 +3026,8 @@ opacity:100;
 #menu ul li ul li:hover > div.sub_menu, #boss_menu ul li:hover > div{display:block;}
 .right.bt_right{margin-top:15px}
 .cart-info tbody .quantity.vouchers input[type="text"]{background:#fff}
-.order_info .price{font-size:12px;font-family:Arial}
+.order_info .price{font-size:12px;font-family:Arial;
+        font-family: Tahoma, Geneva, sans-serif;}
 
 /*.boss_article-item #productRelated .relProduct .name,.boss_article-item #productRelated .relProduct .price{opacity:0.3}*/
 .boss_article-item  .relProduct .boss_hover:hover{}
@@ -3014,12 +3066,14 @@ h1.h1success{margin-top:30px}
 #boss-image-additional li img:hover{border:1px solid #808080}
 
 .product-grid .grid_5 .grid_hover .name,.product-grid .grid_4 .grid_hover .name,.product-grid .grid_3 .grid_hover .name{margin-top:6px}
-.price-tax{font-family:arial}
+.price-tax{font-family:arial;
+        font-family: Tahoma, Geneva, sans-serif;}
 .cpanelContainer #bt_category input{padding-bottom:2px}
 .shoppingcart_fr .cart-info tbody .quantity,.shoppingcart_fr .cart-info tbody .update{padding-top:8px!important}
 
 .shoppingcart_fr .cart-info tbody tr.first .quantity, .shoppingcart_fr .cart-info tbody tr.first .update{padding-top:23px!important}
-.discount.boss_label{font-family:'Conv_AdventPro-Medium';font-size:20px;font-weight:400;width:50px;height:30px;text-align:center;position:absolute;top:0;right:0}
+.discount.boss_label{font-family:'Conv_AdventPro-Medium';font-size:20px;font-weight:400;width:50px;height:30px;text-align:center;position:absolute;top:0;right:0;
+        font-family: Tahoma, Geneva, sans-serif;}
 .product-grid .discount.boss_label{top:2px}
 
 .categories_fr .pagination{margin-bottom:21px}
@@ -3073,6 +3127,13 @@ h1.h1success{margin-top:30px}
 	height:45px;
 	padding:0 60px 0 8px;
 }
+#header .inputContainer {
+	background-image:url(../image/input_header_bg.png);
+	width: 152px;
+}
+#header .inputContainer input {
+	width: 152px;
+}
 .inputContainer .button-search,
 .inputContainer .button-enter {
 	position: absolute;
@@ -3094,6 +3155,7 @@ h1.h1success{margin-top:30px}
 	height: 42px;
 	border: none;
 	font-family:'Conv_AdventPro-ExtraLight';
+        font-family: Tahoma, Geneva, sans-serif;
 	line-height:24px;
 	font-size:18px;
 	color:#202020;

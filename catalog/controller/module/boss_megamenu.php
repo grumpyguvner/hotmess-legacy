@@ -175,6 +175,11 @@ class ControllerModuleBossMegaMenu extends Controller {
 							if ($option['opt'] == 'linkto') {
 								if (isset($option['opt_linkto_link'])) {
 									$href = $option['opt_linkto_link'];
+                                                                        
+                                                                        if (preg_match('%^http(s?)\://%', $href) && !stristr($href, $this->request->server['HTTP_HOST']))
+                                                                        {
+                                                                              $target = '_blank';
+                                                                        }
 								}
 							}
 						}
@@ -183,6 +188,7 @@ class ControllerModuleBossMegaMenu extends Controller {
 					$this->data['menus'][] = array(
 						'title'	 			=> $menu['title'][$this->config->get('config_language_id')],
 						'href'				=> $href,
+						'target'			=> isset($target) ? $target : false,
 						'dropdown_width'	=> $menu['dropdown_width'],
 						'column_width'		=> $menu['dropdown_width']/ ($menu['dropdown_column'] ? $menu['dropdown_column'] : 1),
 						'options'			=> $options

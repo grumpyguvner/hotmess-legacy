@@ -14,7 +14,7 @@ function showSubmenu($category) {
 <div id="boss_menu" class="mega-menu hide-on-mobile">
   <ul>
   <?php foreach ($menus as $menu) { ?>
-	<li><a href="<?php echo $menu['href']; ?>"><?php echo $menu['title'] ?></a>
+	<li><a href="<?php echo $menu['href']; ?>"<?php if ($menu['target']) echo ' target="' . $menu['target'] . '"' ?>><?php echo $menu['title'] ?></a>
 		<?php if (count($menu['options']) > 0) { ?>
 		<div style="width: <?php echo $menu['dropdown_width']; ?>px; color: white;" class="dropdown">
 			<?php foreach ($menu['options'] as $option) { ?>
