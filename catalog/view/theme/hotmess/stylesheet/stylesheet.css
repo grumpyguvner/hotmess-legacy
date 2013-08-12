@@ -3173,6 +3173,48 @@ h1.h1success{margin-top:30px}
   
 }
 
+#welcomeSplash {
+    
+    background: #000;
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    
+}
+#welcomeSplash img {
+    
+    max-width: 100%;
+    max-height: 100%;
+}
+#welcomeSplash .topElement {
+    
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+}
+#welcomeSplash .middleElement {
+    height: 100%;
+}
+#welcomeSplash .bottomElement {
+    height: 60px;
+    padding: 10px;
+    text-align: center;
+    color: #FFF; 
+    font-weight: bold;
+    font-size: 14px;
+}
+#welcomeSplash .bottomElement div {
+    margin-bottom: 10px;
+}
+#welcomeSplash #ytplayer {
+    width: 100%;
+    height: 100%;
+}
+
 /********************** ie 10 *******************************/
 .ie10 .search_fr input.button.cst{padding-top:6px!important;padding-bottom:6px!important}
 .ie10 .product-info .cart input.button{padding-top:2px}

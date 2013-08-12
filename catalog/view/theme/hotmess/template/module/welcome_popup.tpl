@@ -1,5 +1,8 @@
-<div id="welcome_popup"><?php echo $content; ?></div>
-
+<?php echo $content; ?>
 <script>
-    $.colorbox({inline:true, href:"#welcome_popup"});
+   
+   $(window).resize(function() {
+    $('#welcomeSplash .middleElement').css('height', ($(window).height()-160) + 'px');
+  }).trigger('resize');
+   $('#welcomeSplash').show(); 
 </script>
