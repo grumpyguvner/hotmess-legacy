@@ -8,6 +8,7 @@
 <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>
 <!--<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">-->
+<meta name="viewport" content="width=1180">
 <?php if ($keywords) { ?>
 <meta name="keywords" content="<?php echo $keywords; ?>" />
 <?php } ?>
