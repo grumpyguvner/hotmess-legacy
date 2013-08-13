@@ -8,6 +8,7 @@
 <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>
 <!--<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">-->
+<meta name="viewport" content="width=1200">
 <?php if ($keywords) { ?>
 <meta name="keywords" content="<?php echo $keywords; ?>" />
 <?php } ?>
@@ -97,8 +98,6 @@ if(!isset($b_Mode_CSS)){
 <div class="container_24">
     
 <div class="grid_24 omega alpha">
-    
-    <div id="tayla-blue"><a href="http://taylablue.com" target="_blank"><img src="/image/data/HEADER/Tayla-Blue-image.png" alt="" ></a></div>
   <div class="top_header">
   <div id="welcome">
     <?php if (!$logged) { ?>
@@ -107,7 +106,9 @@ if(!isset($b_Mode_CSS)){
     <?php echo $text_logged; ?>
     <?php } ?>
   </div>
+      <div class="madeuk">MADE IN THE UK</div>
   <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></div>
+  
   </div>
   <div class="bottom_header"><div id="headerInputs">
             <div id="search" class="inputContainer">
@@ -115,16 +116,16 @@ if(!isset($b_Mode_CSS)){
               <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
             </div>
           
-            <div id="newsletter" class="inputContainer">
+<!--            <div id="newsletter" class="inputContainer">
               <div class="button-enter" title="sign up"></div>
               <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
-            </div>
+            </div>-->
       </div>
   <?php echo $cart; ?>
       
       
   <?php if ($logo) { ?>
-  <div id="logo"><a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
+  <div id="logo"><a href="<?php echo $home; ?>" style="display: inline-block;position: relative; top: -20px;"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
   <?php } ?>
   
    <?php echo $currency; ?>
@@ -134,6 +135,7 @@ if(!isset($b_Mode_CSS)){
 </div>
 </div>
 </div>
+
 <div class="boss_menu">	
 <div class="container_24">		
 	<?php if ($this->config->get('b_General_Menu')) { ?>	
@@ -223,6 +225,12 @@ if(!isset($b_Mode_CSS)){
 			});*/
 	</script>
 </div>
+        <div class="media-links" style="position: absolute; right: 0;bottom: 13px;">
+                        <a href="http://twitter.com/hotmessclothes" target="_blank"><img src="/image/data/FOOTER/Twitter.png" ></a> &nbsp;
+                        <a href="http://www.facebook.com/pages/Hotmess/467402680008369" target="_blank"><img src="/image/data/FOOTER/Facebook.png" ></a> &nbsp;
+                        <a href="http://www.youtube.com/channel/UC_0MRGFFNu7z7GByJwXqnQA" target="_blank"><img src="/image/data/FOOTER/youtube.png" ></a> &nbsp;
+                        <a href="http://instagram.com/HOTMESSCLOTHING" target="_blank"><img src="/image/data/FOOTER/instagram.png" ></a> &nbsp;
+                    </div>
 </div>
 <?php 
 if(isset($boss_editorthemes)){

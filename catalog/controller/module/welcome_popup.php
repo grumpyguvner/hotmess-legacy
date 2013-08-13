@@ -11,7 +11,8 @@ class ControllerModuleWelcomePopup extends Controller {
 
                     $this->data['heading_title'] = $this->language->get('heading_title');
 
-                    $this->data['content'] = html_entity_decode($this->config->get('welcome_popup_content')[$this->config->get('config_language_id')]['content'], ENT_QUOTES, 'UTF-8');
+                    $content = $this->config->get('welcome_popup_content');
+                    $this->data['content'] = html_entity_decode($content[$this->config->get('config_language_id')]['content'], ENT_QUOTES, 'UTF-8');
 
                     $this->data['newsletter_modal'] = $this->url->link('module/welcome_popup');
 

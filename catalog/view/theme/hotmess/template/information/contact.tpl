@@ -28,6 +28,8 @@
         <b><?php echo $text_fax; ?></b><br />
         <?php echo $fax; ?>
         <?php } ?>
+        <b><?php echo $text_email; ?></b><br />
+        <a href="mailto:<?php echo $company_email; ?>"><?php echo $company_email; ?></a>
       </div>
     </div>
     </div>
