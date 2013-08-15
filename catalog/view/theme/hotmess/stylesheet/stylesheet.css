@@ -2645,7 +2645,7 @@ opacity:100;
 #social-footer .media-links {
     vertical-align: middle;
     margin-right: 20px;
-    display: inline-block;zoom: 1;*display: inline;
+    display: inline;
 }
 #social-footer .youth {
     display: inline;
