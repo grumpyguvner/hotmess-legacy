@@ -2634,12 +2634,19 @@ opacity:100;
 #footer p,#footer a{text-decoration:none}
 #footer a:hover{}
 
+.media-links {
+    display: inline-block;zoom: 1;*display: inline;
+}
+.media-links a {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 8px;
+}
 #social-footer {
     float: left;
     margin-top: 20px;
 }
 #social-footer .media-links {
-    display: inline;
     vertical-align: middle;
     margin-right: 20px;
 }
@@ -2647,6 +2654,10 @@ opacity:100;
     display: inline;
     vertical-align: middle;
     margin-right: 20px;
+}
+
+.boss_menu .media-links {
+    position: absolute; right: 0;bottom: 13px;
 }
 
 #powered {
