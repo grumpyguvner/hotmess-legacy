@@ -5,7 +5,12 @@
 
 /* menu */
 
-
+.media-links {
+    position: absolute; right: 0;bottom: 13px;
+}
+.media-links a {
+    display: inline-block;margin-right: 8px;
+}
 	
 /* menu */
 .boss_menu {	margin-bottom: 10px;position:relative;z-index:70 }
