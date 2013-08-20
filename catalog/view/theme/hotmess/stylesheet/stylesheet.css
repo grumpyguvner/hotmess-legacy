@@ -3377,3 +3377,28 @@ a.button.cst:hover span.button_fr{background:url(../image/left_button_hover1.png
 	-moz-border-radius: 0 ;
 	-khtml-border-radius: 0 ;
 	border-radius: 0 ; }
+.product-info .image > a, .product-info .image > a:hover {
+        color: #514f4f;
+}
+.product-info .image-additional {
+	margin-left: -6px;
+        margin-bottom: 9px;
+	clear: both;
+	overflow: hidden;
+}
+.product-info .image-additional a {
+	float: left;
+	margin-left: 7px;
+	margin-bottom: 0;
+        display: block;
+        position: relative;
+}
+.product-info .image-additional a .play-button {
+        background: url("../image/play_icon.png") no-repeat scroll center center rgba(255, 255, 255, 0.2);
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        border: 1px solid #B9BDBD;
+        z-index: 2;
+}

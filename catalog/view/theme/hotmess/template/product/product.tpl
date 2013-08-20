@@ -15,13 +15,37 @@
   <div class="product-info">
     <?php if ($thumb || $images) { ?>
     <div class="left">
-      <?php if ($thumb) { ?>
-      <div class="image"><a href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" /></a></div>
-      <?php } ?>
-      <?php if ($images) { ?>
-	  <div class="list_carousel responsive"><ul id="boss-image-additional"><?php foreach ($images as $image) { ?><li><a href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" class="colorbox"><img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li><?php } ?></ul>  
-      </div>
-      <?php } ?>	  
+      <div class="product-img">
+            <?php if ($thumb || $images) { ?>
+                <div class="image" id="wrap-image">
+                    <?php if ($thumb) { ?>
+                        <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" id="image" data-colorbox="" />
+                    <?php } ?>
+                </div>
+                
+                <div class="image-additional">
+                    <?php
+                    if ($additional) {
+                        ?><a href="<?php echo $popup; ?>" target="_blank" class="colorbox imageAdditional" id="mainImage" rel="colorbox" data-main="<?php echo $thumb; ?>"><img src="<?php echo $additional; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" class="imageAdditional"/><?php
+
+                    }
+
+                    if ($images) {
+                      for ($i = 0; $i < count($images); $i++)  {
+
+                          if (empty($images[$i]['video'])) {
+                                        ?><a href="<?php echo $images[$i]['popup']; ?>" target="_blank" class="colorbox imageAdditional" rel="colorbox" data-main="<?php echo $images[$i]['main']; ?>" <?php if ($i > 1) echo 'style="display: none;"' ?>><img src="<?php echo $images[$i]['thumb']; ?>" alt="" /></a><?php
+                        } else {
+                                        ?><a href="http://www.youtube.com/v/<?php echo $images[$i]['video']; ?>?rel=0&wmode=transparent" class="colorbox videoAdditional" rel="colorbox" data-video="<?php echo $images[$i]['video']; ?>" target="_blank" style="<?php if ($i > 1) echo "display: none;" ?>line-height:<?php echo $additionalHeight; ?>px;height:<?php echo $additionalHeight; ?>px;width:<?php echo $additionalWidth; ?>px;"><img src="http://img.youtube.com/vi/<?php echo $images[$i]['video']; ?>/0.jpg" alt="" /><span class="play-button" style="height:<?php echo $additionalHeight; ?>px;width:<?php echo $additionalWidth; ?>px;"></span></a><?php
+                            }
+                      }
+
+                        }
+                    ?>
+                </div>
+                
+            <?php } ?>
+        </div>	  
     </div>
     <?php } ?>
     <div class="right">
@@ -485,11 +509,36 @@ $(document).ready(function() {
 		width: '95%', 
 		height: '95%',
 		maxWidth: <?php echo $this->config->get('config_image_popup_width') ?>,
-        maxHeight: <?php echo ($this->config->get('config_image_popup_height') + 15); ?>
+                maxHeight: <?php echo ($this->config->get('config_image_popup_height') + 15); ?>        
 	});
 });
 //--></script> 
-
+<script type="text/javascript">
+        
+    $(document).ready(function () {
+            
+        $('.image-additional').delegate('a.videoAdditional','click', function(){
+            $('.product-img .image').html('<iframe id="playingMovie" width="500" height="613" src="http://www.youtube.com/embed/' + $(this).data('video') + '?autoplay=1&rel=0&theme=light&autohide=1" frameborder="0" allowfullscreen></iframe>');
+            return false;
+        });
+            
+        $('.image-additional').delegate('a.imageAdditional','click', function(){
+            $('.product-img .image').html('<img src="' + $(this).data('main') + '" alt="" />');
+            return false;
+        });
+            
+        $('.product-img .image').delegate('img','click', function(){
+            $('.colorbox, .videoAdditional').colorbox({
+                overlayClose: true,
+                opacity: 0.5,
+                open: true
+            });
+            $('.videoAdditional').colorbox({iframe:true, innerWidth:'640', innerHeight:'390'});
+        });
+        
+    });
+        
+</script>
 <?php if ($options) { ?>
 <script type="text/javascript" src="catalog/view/javascript/jquery/ajaxupload.js"></script>
 <?php foreach ($options as $option) { ?>
