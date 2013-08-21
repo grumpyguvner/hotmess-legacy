@@ -1094,7 +1094,7 @@ p.checkoutp{height:41px}
 }
 
 .product-info .image-additional {
-	width: 260px;
+	width: 500px;
 	margin-left: -10px;
 	clear: both;
 	overflow: hidden;
@@ -1840,7 +1840,7 @@ ul.box-filter > li ul {
 .product-info .image { margin-bottom:31px;margin-top:9px;text-align:center;padding-left:1px}
 .product-info .image img {max-width:100% }
 .product-info .image-additional {
-	width: 260px;
+	width: 500px;
 	margin-left: -10px;
 	clear: both;
 	overflow: hidden;

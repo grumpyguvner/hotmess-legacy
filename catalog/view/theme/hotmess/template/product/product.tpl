@@ -36,7 +36,7 @@
                           if (empty($images[$i]['video'])) {
                                         ?><a href="<?php echo $images[$i]['popup']; ?>" target="_blank" class="colorbox imageAdditional" rel="colorbox" data-main="<?php echo $images[$i]['main']; ?>" <?php if ($i > 1) echo 'style="display: none;"' ?>><img src="<?php echo $images[$i]['thumb']; ?>" alt="" /></a><?php
                         } else {
-                                        ?><a href="http://www.youtube.com/v/<?php echo $images[$i]['video']; ?>?rel=0&wmode=transparent" class="colorbox videoAdditional" rel="colorbox" data-video="<?php echo $images[$i]['video']; ?>" target="_blank" style="<?php if ($i > 1) echo "display: none;" ?>line-height:<?php echo $additionalHeight; ?>px;height:<?php echo $additionalHeight; ?>px;width:<?php echo $additionalWidth; ?>px;"><img src="http://img.youtube.com/vi/<?php echo $images[$i]['video']; ?>/0.jpg" alt="" /><span class="play-button" style="height:<?php echo $additionalHeight; ?>px;width:<?php echo $additionalWidth; ?>px;"></span></a><?php
+                                        ?><a href="http://www.youtube.com/v/<?php echo $images[$i]['video']; ?>?rel=0&wmode=transparent" class="colorbox videoAdditional" rel="colorbox" data-video="<?php echo $images[$i]['video']; ?>" target="_blank" style="line-height:<?php echo $additionalHeight; ?>px;height:<?php echo $additionalHeight; ?>px;width:<?php echo $additionalWidth; ?>px;"><img src="http://img.youtube.com/vi/<?php echo $images[$i]['video']; ?>/0.jpg" alt="" /><span class="play-button" style="height:<?php echo $additionalHeight; ?>px;width:<?php echo $additionalWidth; ?>px;"></span></a><?php
                             }
                       }
 
@@ -505,7 +505,7 @@ $(document).ready(function() {
 		overlayClose: true,
 		opacity: 0.5,
 		rel: "colorbox",
-		slideshow: "false",
+		slideshow: false,
 		width: '95%', 
 		height: '95%',
 		maxWidth: <?php echo $this->config->get('config_image_popup_width') ?>,
