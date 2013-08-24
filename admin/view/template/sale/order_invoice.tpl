@@ -9,10 +9,19 @@
 <body>
 <?php foreach ($orders as $order) { ?>
 <div style="page-break-after: always;">
-  <h1><?php echo $text_invoice; ?></h1>
+  <h1><?php
+    if (!empty($order['store_logo'])) {
+    ?><span><img src="<?php echo $order['store_logo']; ?>" alt="<?php echo $order['store_name']; ?>" /></span>
+    <?php
+    } else {
+    ?><span><?php echo $order['store_name']; ?></span>
+    <?php
+    } // end if
+    ?><?php echo $text_invoice; ?></h1>
   <table class="store">
     <tr>
-      <td><?php echo $order['store_name']; ?><br />
+      <td>
+        <?php if ($order['store_owner']) echo $order['store_owner'] . '<br />'; ?>
         <?php echo $order['store_address']; ?><br />
         <?php echo $text_telephone; ?> <?php echo $order['store_telephone']; ?><br />
         <?php if ($order['store_fax']) { ?>
@@ -117,6 +126,7 @@
   </table>
   <?php } ?>
 </div>
+    <div style="text-align: center"><small>“Hot!Mess” is a brand licensed to Kamani Design Limited. VAT Registration Number 941 0524 54</small></div>
 <?php } ?>
 </body>
 </html>

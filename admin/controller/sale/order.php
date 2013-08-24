@@ -2372,6 +2372,12 @@ class ControllerSaleOrder extends Controller {
 		$this->data['column_price'] = $this->language->get('column_price');
 		$this->data['column_total'] = $this->language->get('column_total');
 		$this->data['column_comment'] = $this->language->get('column_comment');
+                
+		if (isset($this->request->server['HTTPS']) && (($this->request->server['HTTPS'] == 'on') || ($this->request->server['HTTPS'] == '1'))) {
+			$server = HTTPS_IMAGE;
+		} else {
+			$server = HTTP_IMAGE;
+		}
 
 		$this->load->model('sale/order');
 
@@ -2391,18 +2397,33 @@ class ControllerSaleOrder extends Controller {
 			$order_info = $this->model_sale_order->getOrder($order_id);
 
 			if ($order_info) {
+                            
 				$store_info = $this->model_setting_setting->getSetting('config', $order_info['store_id']);
 				
 				if ($store_info) {
+					$store_owner = $store_info['config_owner'];
 					$store_address = $store_info['config_address'];
 					$store_email = $store_info['config_email'];
 					$store_telephone = $store_info['config_telephone'];
 					$store_fax = $store_info['config_fax'];
+
+                                        if ($store_info['config_logo'] && file_exists(DIR_IMAGE . $store_info['config_logo'])) {
+                                                $store_logo = $server . $store_info['config_logo'];
+                                        } else {
+                                                $store_logo = '';
+                                        }
 				} else {
+					$store_owner = $this->config->get('config_owner');
 					$store_address = $this->config->get('config_address');
 					$store_email = $this->config->get('config_email');
 					$store_telephone = $this->config->get('config_telephone');
 					$store_fax = $this->config->get('config_fax');
+
+                                        if ($this->config->get('config_logo') && file_exists(DIR_IMAGE . $this->config->get('config_logo'))) {
+                                                $store_logo = $server . $this->config->get('config_logo');
+                                        } else {
+                                                $store_logo = '';
+                                        }
 				}
 				
 				if ($order_info['invoice_no']) {
@@ -2528,6 +2549,8 @@ class ControllerSaleOrder extends Controller {
 					'order_id'	         => $order_id,
 					'invoice_no'         => $invoice_no,
 					'date_added'         => date($this->language->get('date_format_short'), strtotime($order_info['date_added'])),
+					'store_logo'         => $store_logo,
+					'store_owner'        => $store_owner,
 					'store_name'         => $order_info['store_name'],
 					'store_url'          => rtrim($order_info['store_url'], '/'),
 					'store_address'      => nl2br($store_address),
