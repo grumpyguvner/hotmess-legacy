@@ -125,8 +125,8 @@
     </tr>
   </table>
   <?php } ?>
-</div>
     <div style="text-align: center"><small>“Hot!Mess” is a brand licensed to Kamani Design Limited. VAT Registration Number 941 0524 54</small></div>
+</div>
 <?php } ?>
 </body>
 </html>
