@@ -29,7 +29,7 @@ $_['entry_sort_order']                       = 'Sort Order:';
 
 // Tab
 $_['tab_1st_class_standard']                 = 'First Class Standard Post';
-$_['tab_1st_class_recorded']                 = 'First Class Recorded Post';
+$_['tab_1st_class_recorded']                 = 'First Class Shipping';
 $_['tab_2nd_class_standard']                 = 'Second Class Standard Post';
 $_['tab_2nd_class_recorded']                 = 'Second Class Recorded Post';
 $_['tab_special_delivery_500']               = 'Special Delivery Next Day (&pound;500)';
