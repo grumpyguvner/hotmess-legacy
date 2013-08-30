@@ -65,9 +65,9 @@
     <span class="error"><?php echo $error_captcha; ?></span>
     <?php } ?>
     </div>
-<!--    <div class="buttons">
+    <div class="buttons">
       <div class="left"><span class="button_fr_ip"><input type="submit" value="<?php echo $button_continue; ?>" class="button cst" /></span></div>
-    </div>-->
+    </div>
   </form>
   <?php echo $content_bottom; ?></div></div>
 <?php echo $footer; ?>
