@@ -1,6 +1,11 @@
 <?php
 class ControllerCheckoutSuccess extends Controller { 
-	public function index() { 	
+	public function index() { 
+            
+             if (isset($this->session->data['order_id']) && (!empty($this->session->data['order_id']))) {
+                    $this->session->data['last_order_id'] = $this->session->data['order_id'];
+                }
+            
 		if (isset($this->session->data['order_id'])) {
 			$this->cart->clear();
 
@@ -54,15 +59,29 @@ class ControllerCheckoutSuccess extends Controller {
 		} else {
     		$this->data['text_message'] = sprintf($this->language->get('text_guest'), $this->url->link('information/contact'));
 		}
+                
+                $this->data['order_value'] = 0;
+                
+                if (!empty($this->session->data['last_order_id'])) {
+
+                    $this->load->model('account/order');
+                    $order_info = $this->model_account_order->getOrder($this->session->data['last_order_id']);
+
+                    if ($order_info) {
+                        $this->data['order_value'] = $order_info['total'];
+                    }
+                    
+                    unset($this->session->data['last_order_id']);
+                }
 		
     	$this->data['button_continue'] = $this->language->get('button_continue');
 
     	$this->data['continue'] = $this->url->link('common/home');
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/success.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/common/success.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/success.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/checkout/success.tpl';
 		} else {
-			$this->template = 'default/template/common/success.tpl';
+			$this->template = 'default/template/checkout/success.tpl';
 		}
 		
 		$this->children = array(
