@@ -266,6 +266,19 @@ class ModelCheckoutOrder extends Model {
 			$template->data['title'] = sprintf($language->get('text_new_subject'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'), $order_id);
 			
 			$template->data['text_greeting'] = sprintf($language->get('text_new_greeting'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'));
+                        
+                        $find = array(
+				'{firstname}',
+				'{lastname}'
+			);
+		
+			$replace = array(
+				'firstname' => $order_info['firstname'],
+				'lastname'  => $order_info['lastname']
+			);
+                        
+                        $template->data['text_greeting'] = trim(str_replace($find, $replace, $template->data['text_greeting']));
+                        
 			$template->data['text_link'] = $language->get('text_new_link');
 			$template->data['text_download'] = $language->get('text_new_download');
 			$template->data['text_order_detail'] = $language->get('text_new_order_detail');
