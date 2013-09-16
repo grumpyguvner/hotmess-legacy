@@ -26,6 +26,12 @@ class ModelCheckoutOrder extends Model {
 		foreach ($data['totals'] as $total) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "order_total SET order_id = '" . (int)$order_id . "', code = '" . $this->db->escape($total['code']) . "', title = '" . $this->db->escape($total['title']) . "', text = '" . $this->db->escape($total['text']) . "', `value` = '" . (float)$total['value'] . "', sort_order = '" . (int)$total['sort_order'] . "'");
 		}	
+                
+                if ($this->config->get('newsletter_mailcampaign_checkout_optin'))
+                {
+                    $this->load->model('account/newsletter');
+                    $this->model_account_newsletter->subscribe($data['email'], $data['firstname'], $data['lastname'], 'checkout');
+                }
 
 		return $order_id;
 	}
