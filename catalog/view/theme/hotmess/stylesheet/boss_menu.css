@@ -7,8 +7,8 @@
 
 	
 /* menu */
-.boss_menu {	margin-bottom: 10px;position:relative;z-index:70 }
-#boss_menu { border-bottom: 3px solid;height:40px;margin-bottom:8px}
+.boss_menu { margin-bottom: 10px;position:relative;z-index:70 }
+#boss_menu { height: 40px; background-color: #000; }
 #boss_menu > ul {	list-style: none;margin: 0;padding: 0;}
 #boss_menu > ul > li 
 {
@@ -24,7 +24,6 @@
 #boss_menu > ul > li > a 
 { 
 	font-size: 24px;
-	
 	text-decoration: none;
 	display: block;
 	padding: 0px 0px 0px 0px; 
@@ -44,7 +43,7 @@
 }
 
 #boss_menu > ul > li:first-child> a{padding-left:0}
-#boss_menu > ul > li:hover > a { border-bottom:3px solid;}
+#boss_menu > ul > li:hover > a {}
 #boss_menu > ul > li > div.dropdown
 {
 	

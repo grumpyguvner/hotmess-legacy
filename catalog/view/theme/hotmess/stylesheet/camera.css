@@ -436,10 +436,11 @@
 }
 .camera_pag
 {
-	bottom:0px;
+    top: 600px;
+    bottom:0px;
     position: absolute;
-    right: 23px;
-	z-index:9999;
+    right: 520px;
+    z-index:9999;
 }
 .camera_wrap .camera_pag .camera_pag_ul li {
 	

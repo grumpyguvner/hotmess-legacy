@@ -226,8 +226,8 @@ if(!isset($b_Mode_CSS)){
 	</script>
 </div>
         <div class="media-links">
-                        <a href="http://twitter.com/hotmessclothes" target="_blank"><img src="/image/data/FOOTER/Twitter.png" ></a>
-                        <a href="http://www.facebook.com/pages/Hotmess/467402680008369" target="_blank"><img src="/image/data/FOOTER/Facebook.png" ></a>
+                        <a href="http://twitter.com/hotmessclothes" target="_blank"><img src="/image/data/FOOTER/twitter.png" ></a>
+                        <a href="http://www.facebook.com/pages/Hotmess/467402680008369" target="_blank"><img src="/image/data/FOOTER/facebook.png" ></a>
                         <a href="http://www.youtube.com/channel/UC_0MRGFFNu7z7GByJwXqnQA" target="_blank"><img src="/image/data/FOOTER/youtube.png" ></a>
                         <a href="http://instagram.com/HOTMESSCLOTHING" target="_blank"><img src="/image/data/FOOTER/instagram.png" ></a>
                     </div>
