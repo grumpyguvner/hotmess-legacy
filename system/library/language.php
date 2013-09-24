@@ -1,6 +1,7 @@
 <?php
 class Language {
     private $default = 'english';
+    private $application;
     private $directory;
     private $theme = array('default');
     private $data = array();
@@ -31,6 +32,7 @@ class Language {
         }
         
         $this->directory = $directory;
+        $this->application = str_replace($_SERVER['DOCUMENT_ROOT'], '', DIR_APPLICATION);
     }
 
     public function get($key) {
@@ -81,18 +83,27 @@ class Language {
         if ($this->language_manager) {
             $sql = "SELECT value "
                     . "FROM `" . DB_PREFIX . "language_manager` "
-                    . "WHERE application = '" . $this->db->escape(DIR_APPLICATION) . "' "
+                    . "WHERE (application = '" . $this->db->escape($this->application) . "' OR application = '" . $this->db->escape(DIR_APPLICATION) . "') "
                     . "AND directory = '" . $this->db->escape($this->directory) . "' "
                     . "AND filename = '" . $this->db->escape($filename) . "'";
             $query = $this->db->query($sql);
-            if ($query->num_rows > 0) {
+            if ($query->num_rows) {
                 foreach ($query->rows as $row) {
-                    $_ = unserialize($row['value']);
+                    if (!empty($row['value']))
+                    {
+                        $_ = unserialize($row['value']);
 
-                    if (is_array($_)) {
-                        $this->data = array_merge($this->data, $_);
+                        if (is_array($_)) {
+                            $this->data = array_merge($this->data, $_);
+                        }
                     }
                 }
+            } else {
+                $sql = "INSERT INTO `" . DB_PREFIX . "language_manager` "
+                    . "SET application = '" . $this->db->escape($this->application) . ", "
+                    . "directory = '" . $this->db->escape($this->directory) . "', "
+                    . "filename = '" . $this->db->escape($filename) . "', "
+                    . "value = ''";
             }
         }
 
