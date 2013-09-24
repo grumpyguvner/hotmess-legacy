@@ -98,12 +98,15 @@ class Language {
                         }
                     }
                 }
-            } else {
-                $sql = "INSERT INTO `" . DB_PREFIX . "language_manager` "
-                    . "SET application = '" . $this->db->escape($this->application) . ", "
-                    . "directory = '" . $this->db->escape($this->directory) . "', "
+            }
+            
+            if ($this->config->get("language_manager_files") && !$is_default)
+            {
+                $sql = "INSERT IGNORE INTO `" . DB_PREFIX . "language_manager_files` "
+                    . "SET application = '" . $this->db->escape($this->application) . "', "
                     . "filename = '" . $this->db->escape($filename) . "', "
-                    . "value = ''";
+                    . "store_id = '" . $this->config->get("config_store_id") . "'";
+                $this->db->query($sql);
             }
         }
 

@@ -12,6 +12,9 @@ class ControllerModuleLanguageManager extends Controller {
         $this->load->model('setting/setting');
 
         if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+            $this->load->model('module/language_manager');
+            $this->model_module_language_manager->createDatabaseTables();
+            
             $this->model_setting_setting->editSetting('language_manager', $this->request->post);
 
             $this->session->data['success'] = $this->language->get('text_success');
@@ -35,6 +38,14 @@ class ControllerModuleLanguageManager extends Controller {
             $this->data['language_manager_status'] = $this->config->get('language_manager_status');
         } else {
             $this->data['language_manager_status'] = 0;
+        }
+
+        if (isset($this->request->post['language_manager_files'])) {
+            $this->data['language_manager_files'] = $this->request->post['language_manager_files'];
+        } elseif ($this->config->get('language_manager_files')) {
+            $this->data['language_manager_files'] = $this->config->get('language_manager_files');
+        } else {
+            $this->data['language_manager_files'] = 0;
         }
 
         if (isset($this->error['warning'])) {
@@ -91,6 +102,11 @@ class ControllerModuleLanguageManager extends Controller {
     public function install() {
         $this->load->model('module/language_manager');
         $this->model_module_language_manager->createDatabaseTables();
+        
+        $sql = "UPDATE `" . DB_PREFIX . "language_manager` "
+                . "SET application = '" . $this->db->escape(str_replace($_SERVER['DOCUMENT_ROOT'], '', DIR_CATALOG)) . "' "
+                . "WHERE application = '" . $this->db->escape(DIR_CATALOG) . "' ";
+        $this->db->query($sql);
 
         $this->load->model('setting/setting');
         $settings = $this->model_setting_setting->getSetting('language_manager');
