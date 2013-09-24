@@ -36,57 +36,74 @@ class Language {
     public function get($key) {
         return (isset($this->data[$key]) ? $this->data[$key] : $key);
     }
+    
+    public function getAllData() {
+        
+        return $this->data;
+    }
 
     public function load($filename) {
         
-        $files = array(DIR_LANGUAGE . $this->default . '/' . $filename . '.php',
-                       DIR_LANGUAGE . $this->directory . '/' . $filename . '.php');
-        
-        foreach ($this->theme as $theme)
+        $is_default = ($filename == $this->directory) ? true : false;
+
+        $directories = array();
+        $directories[] = $this->default;
+        if ($this->default != $this->directory)
         {
-            $files[] = DIR_TEMPLATE . $theme . "/language/" . $this->directory . '/' . $filename . '.php';
+            $directories[] = $this->directory;
         }
-        
-        foreach ($files as $file)
-        {
-            if (file_exists($file)) {
-                $_ = array();
 
-                require($file);
+        foreach ($directories as $directory) {
+            
+            if ($is_default)
+            {
+                $filename = $directory;
+            }
+            
+            $files = array();
+            $files[] = DIR_LANGUAGE . $directory . '/' . $filename . '.php';
 
-                $this->data = array_merge($this->data, $_);
+            foreach ($this->theme as $theme) {
+                $files[] = DIR_TEMPLATE . $theme . "/language/" . $directory . '/' . $filename . '.php';
+            }
+
+            foreach ($files as $file) {
+                if (file_exists($file)) {
+                    $_ = array();
+
+                    require($file);
+
+                    $this->data = array_merge($this->data, $_);
+                }
             }
         }
         
-        if ($this->language_manager)
-        {
-            $sql  = "SELECT value "
-                  . "FROM `".DB_PREFIX."language_manager` "
-                  . "WHERE application = '" . $this->db->escape(DIR_APPLICATION) . "' "
-                  . "AND directory = '" . $this->db->escape($this->directory) . "' "
-                  . "AND filename = '" . $this->db->escape($filename) . "'";
+        if ($this->language_manager) {
+            $sql = "SELECT value "
+                    . "FROM `" . DB_PREFIX . "language_manager` "
+                    . "WHERE application = '" . $this->db->escape(DIR_APPLICATION) . "' "
+                    . "AND directory = '" . $this->db->escape($this->directory) . "' "
+                    . "AND filename = '" . $this->db->escape($filename) . "'";
             $query = $this->db->query($sql);
-            if ($query->num_rows > 0)
-            {
-                foreach ($query->rows as $row)
-                {
+            if ($query->num_rows > 0) {
+                foreach ($query->rows as $row) {
                     $_ = unserialize($row['value']);
 
-                    if (is_array($_))
-                    {
+                    if (is_array($_)) {
                         $this->data = array_merge($this->data, $_);
                     }
                 }
             }
         }
-        
-        if ($this->language_manager_log)
-        {
+
+        if ($this->language_manager_log) {
             $this->request->data['language_manager'] = array('directory' => $this->directory,
-                                                             'filename'  => $filename);
+                'filename' => $filename);
         }
-            
+
         return $this->data;
     }
+
 }
+
 ?>
