@@ -193,6 +193,11 @@ class ModelLocalisationLanguageManager extends Model {
         
         $app_dir = self::getApplicationDir();
         
+        $sql = "UPDATE `" . DB_PREFIX . "language_manager` "
+                . "SET application = '" . $this->db->escape(str_replace($_SERVER['DOCUMENT_ROOT'], '', DIR_CATALOG)) . "' "
+                . "WHERE application = '" . $this->db->escape(DIR_CATALOG) . "' ";
+        $this->db->query($sql);
+        
         $data = array();
 
         $sql = "SELECT value "
@@ -219,12 +224,6 @@ class ModelLocalisationLanguageManager extends Model {
     }
 
     static function getApplicationDir() {
-        
-        $sql = "UPDATE `" . DB_PREFIX . "language_manager` "
-                . "SET application = '" . $this->db->escape(str_replace($_SERVER['DOCUMENT_ROOT'], '', DIR_CATALOG)) . "' "
-                . "WHERE application = '" . $this->db->escape(DIR_CATALOG) . "' ";
-        $this->db->query($sql);
-        
         return str_replace($_SERVER['DOCUMENT_ROOT'], '', DIR_CATALOG);
     }
 
