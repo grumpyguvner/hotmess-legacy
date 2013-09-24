@@ -102,11 +102,6 @@ class ControllerModuleLanguageManager extends Controller {
     public function install() {
         $this->load->model('module/language_manager');
         $this->model_module_language_manager->createDatabaseTables();
-        
-        $sql = "UPDATE `" . DB_PREFIX . "language_manager` "
-                . "SET application = '" . $this->db->escape(str_replace($_SERVER['DOCUMENT_ROOT'], '', DIR_CATALOG)) . "' "
-                . "WHERE application = '" . $this->db->escape(DIR_CATALOG) . "' ";
-        $this->db->query($sql);
 
         $this->load->model('setting/setting');
         $settings = $this->model_setting_setting->getSetting('language_manager');
