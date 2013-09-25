@@ -34,6 +34,24 @@
                                 ?>
                             </select></td>
                     </tr>
+                    <tr>
+                        <td><?php echo $entry_files; ?></td>
+                        <td><select name="language_manager_files">
+                                <?php
+                                if ($language_manager_files) {
+                                    ?>
+                                    <option value="1" selected="selected"><?php echo $text_enabled; ?></option>
+                                    <option value="0"><?php echo $text_disabled; ?></option>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <option value="1"><?php echo $text_enabled; ?></option>
+                                    <option value="0" selected="selected"><?php echo $text_disabled; ?></option>
+                                    <?php
+                                } // end if
+                                ?>
+                            </select></td>
+                    </tr>
                 </table>
             </form>
         </div>

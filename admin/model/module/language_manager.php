@@ -14,6 +14,14 @@ class ModelModuleLanguageManager extends Model {
 		) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
         $this->db->query($sql);
 
+        $sql = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "language_manager_files` (
+                `application` varchar(180) NOT NULL,
+                `filename` varchar(100) NOT NULL,
+                `store_id` int(11) NOT NULL,
+                PRIMARY KEY (`application`,`filename`,`store_id`)
+              ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+        $this->db->query($sql);
+
         $sql = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "language_manager_to_store` (
                 `language_manager_id` int(11) NOT NULL,
                 `store_id` int(11) NOT NULL,
@@ -24,6 +32,9 @@ class ModelModuleLanguageManager extends Model {
 
     public function dropDatabaseTables() {
         $sql = "DROP TABLE IF EXISTS `" . DB_PREFIX . "language_manager_to_store`";
+        $this->db->query($sql);
+
+        $sql = "DROP TABLE IF EXISTS `" . DB_PREFIX . "language_manager_files`";
         $this->db->query($sql);
 
         $sql = "DROP TABLE IF EXISTS `" . DB_PREFIX . "language_manager`";

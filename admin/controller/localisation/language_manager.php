@@ -66,6 +66,12 @@ class ControllerLocalisationLanguageManager extends Controller {
             $page = 1;
         }
 
+        if (isset($this->request->get['show_all'])) {
+            $show_all = $this->request->get['show_all'];
+        } else {
+            $show_all = false;
+        }
+
         $url = '';
 
         if (isset($this->request->get['sort'])) {
@@ -78,6 +84,10 @@ class ControllerLocalisationLanguageManager extends Controller {
 
         if (isset($this->request->get['page'])) {
             $url .= '&page=' . $this->request->get['page'];
+        }
+
+        if (isset($this->request->get['show_all'])) {
+            $url .= '&show_all=' . $this->request->get['show_all'];
         }
 
         $this->data['breadcrumbs'] = array();
@@ -98,6 +108,7 @@ class ControllerLocalisationLanguageManager extends Controller {
 
         $data = array(
             'sort' => $sort,
+            'show_all' => $show_all,
             'order' => $order,
             'start' => ($page - 1) * $this->config->get('config_admin_limit'),
             'limit' => $this->config->get('config_admin_limit')

@@ -31,7 +31,7 @@ class ModelReportSale extends Model {
 				break;
 			default:
 			case 'week':
-				$sql .= " GROUP BY WEEK(tmp.date_added)";
+				$sql .= " GROUP BY WEEK(tmp.date_added, 1)";
 				break;	
 			case 'month':
 				$sql .= " GROUP BY MONTH(tmp.date_added)";
@@ -73,7 +73,7 @@ class ModelReportSale extends Model {
 				break;
 			default:
 			case 'week':
-				$sql = "SELECT COUNT(DISTINCT WEEK(date_added)) AS total FROM `" . DB_PREFIX . "order`";
+				$sql = "SELECT COUNT(DISTINCT WEEK(date_added, 1)) AS total FROM `" . DB_PREFIX . "order`";
 				break;	
 			case 'month':
 				$sql = "SELECT COUNT(DISTINCT MONTH(date_added)) AS total FROM `" . DB_PREFIX . "order`";
@@ -131,7 +131,7 @@ class ModelReportSale extends Model {
 				break;
 			default:
 			case 'week':
-				$sql .= " GROUP BY ot.title, WEEK(o.date_added)";
+				$sql .= " GROUP BY ot.title, WEEK(o.date_added, 1)";
 				break;	
 			case 'month':
 				$sql .= " GROUP BY ot.title, MONTH(o.date_added)";
@@ -187,7 +187,7 @@ class ModelReportSale extends Model {
 				break;
 			default:
 			case 'week':
-				$sql .= " GROUP BY WEEK(o.date_added), ot.title";
+				$sql .= " GROUP BY WEEK(o.date_added, 1), ot.title";
 				break;	
 			case 'month':
 				$sql .= " GROUP BY MONTH(o.date_added), ot.title";
@@ -233,7 +233,7 @@ class ModelReportSale extends Model {
 				break;
 			default:
 			case 'week':
-				$sql .= " GROUP BY ot.title, WEEK(o.date_added)";
+				$sql .= " GROUP BY ot.title, WEEK(o.date_added, 1)";
 				break;	
 			case 'month':
 				$sql .= " GROUP BY ot.title, MONTH(o.date_added)";
@@ -289,7 +289,7 @@ class ModelReportSale extends Model {
 				break;
 			default:
 			case 'week':
-				$sql .= " GROUP BY WEEK(o.date_added), ot.title";
+				$sql .= " GROUP BY WEEK(o.date_added, 1), ot.title";
 				break;	
 			case 'month':
 				$sql .= " GROUP BY MONTH(o.date_added), ot.title";

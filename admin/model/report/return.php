@@ -29,7 +29,7 @@ class ModelReportReturn extends Model {
 				break;
 			default:
 			case 'week':
-				$sql .= " GROUP BY WEEK(r.date_added)";
+				$sql .= " GROUP BY WEEK(r.date_added, 1)";
 				break;	
 			case 'month':
 				$sql .= " GROUP BY MONTH(r.date_added)";
@@ -69,7 +69,7 @@ class ModelReportReturn extends Model {
 				break;
 			default:
 			case 'week':
-				$sql = "SELECT COUNT(DISTINCT WEEK(date_added)) AS total FROM `" . DB_PREFIX . "return`";
+				$sql = "SELECT COUNT(DISTINCT WEEK(date_added, 1)) AS total FROM `" . DB_PREFIX . "return`";
 				break;	
 			case 'month':
 				$sql = "SELECT COUNT(DISTINCT MONTH(date_added)) AS total FROM `" . DB_PREFIX . "return`";
