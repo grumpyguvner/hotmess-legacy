@@ -49,7 +49,7 @@ if(in_array("",$Slide_value_effects)){
 	jQuery(function(){
 		jQuery('#camera_wrap_<?php echo $module; ?>').camera({
 			pagination: true,
-			navigation: false,
+			navigation: true,
 			playPause: false,
 			height: '51,14%',
 			mobileAutoAdvance: true,

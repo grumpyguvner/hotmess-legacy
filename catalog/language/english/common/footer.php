@@ -14,5 +14,5 @@ $_['text_account']      = 'My Account';
 $_['text_order']        = 'Order History';
 $_['text_wishlist']     = 'Wish List';
 $_['text_newsletter']   = 'Newsletter';
-$_['text_powered']      = '<a href="http://bossthemes.com/opencart-themes/topwear.html">%s</a> By <a href="http://bossthemes.com/">BossThemes</a>. &copy; %s Powered By <a href="http://www.opencart.com">OpenCart</a>';
+$_['text_powered']      = 'Site Created by Totally Boundless';
 ?>

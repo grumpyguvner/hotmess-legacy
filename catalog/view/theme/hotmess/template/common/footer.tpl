@@ -82,7 +82,7 @@
                     </div>
 <?php } ?>
                 
-                <div id="newsletter_footer" class="inputContainer" style="float: right;margin-top: 20px;">
+                <div id="newsletter_footer" class="inputContainer" style="float: right;margin-top: 67px;">
                   <div class="button-enter" title="sign up"></div>
                   <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
                 </div>
@@ -90,8 +90,8 @@
                     <div class="media-links">
                         <a href="http://twitter.com/hotmessclothes" target="_blank"><img src="/image/data/FOOTER/Twitter.png" ></a>
                         <a href="http://www.facebook.com/pages/Hotmess/467402680008369" target="_blank"><img src="/image/data/FOOTER/Facebook.png" ></a>
-                        <a href="http://www.youtube.com/channel/UC_0MRGFFNu7z7GByJwXqnQA" target="_blank"><img src="/image/data/FOOTER/youtube.png" ></a>
-                        <a href="http://instagram.com/HOTMESSCLOTHING" target="_blank"><img src="/image/data/FOOTER/instagram.png" ></a>
+                        <a href="http://www.youtube.com/channel/UC_0MRGFFNu7z7GByJwXqnQA" target="_blank"><img src="/image/data/FOOTER/youtubeb.png" ></a>
+                        <a href="http://instagram.com/HOTMESSCLOTHING" target="_blank"><img src="/image/data/FOOTER/instagramb.png" ></a>
                     </div>
                     <div class="youth">
                     <a href="uk-youth-charity"><img src="/image/data/FOOTER/UK-Youth.png" ></a>

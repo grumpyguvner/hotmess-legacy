@@ -23,33 +23,31 @@
 	margin-bottom:12px
 }
 .list_carousel.responsive > div > ul, {height:auto!important}
-.list_carousel.list_carousel.responsive{margin-bottom:30px}
+.list_carousel.list_carousel.responsive{margin-bottom:0px}
 .clearfix {
 	float: none;
 	clear: both;
 }
 .list_carousel.list_carousel_footer .prev
 {
-	background:url("../image/pre_arrow_detail.png") no-repeat scroll 0 0 transparent; 
-	width:25px; 
+	background:url("../image/arrow-left.png") no-repeat scroll 0 0 transparent; 
+	width:36px; 
 	height:35px; 
-	top:62px; 
-	
+	top:130px;
 	position:absolute;
 	text-indent:-9999px
 }
 .list_carousel.list_carousel_footer .next
 {
-	background:url("../image/next_arrow_detail.png") no-repeat scroll 0 0 transparent; 
-	width:9px; 
-	height:15px; 
-	top:62px; 
+	background:url("../image/arrow-right.png") no-repeat scroll 0 0 transparent; 
+	width:36px; 
+	height:35px; 
+	top:130px; 
 	position:absolute;
 	text-indent:-9999px
 }
 
-.list_carousel.list_carousel_footer .next:hover{background:url("../image/next_arrow_detail_hover.png") no-repeat scroll 0 0 transparent; }
-.list_carousel.list_carousel_footer .prev:hover{background:url("../image/pre_arrow_detail_hover.png") no-repeat scroll 0 0 transparent; }
+
 .list_carousel.list_carousel_footer .prev{left:10px;}
 .list_carousel.list_carousel_footer .next{right:10px;}
 .list_carousel.list_carousel_footer .next:hover{right:10px;}
@@ -77,16 +75,7 @@
 	text-indent:-9999px
 	
 }
-.home_filter_content .list_carousel .prev:hover
-{
-	background:url("../image/pre_home_hover.png") no-repeat scroll 0 0 transparent;
-	
- }
-.home_filter_content .list_carousel .next:hover
-{
-	background:url("../image/next_home_hover.png") no-repeat scroll 0 0 transparent; 
-	
-}
+
 .homefilter_tabs{
     margin-bottom: 27px;
     padding: 0 15px 0 0;

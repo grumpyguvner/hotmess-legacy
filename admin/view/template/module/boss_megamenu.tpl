@@ -474,7 +474,7 @@
 		  divclass = divclass == 'even' ? 'odd' : 'even';
 		  html += '<div class="' + divclass + '">';
 		  html += '<input type="radio" name="boss_megamenu_menu[' + opt_menu_row + '][options][' + opt_row + '][opt_category_id]" value="<?php echo $category['category_id']; ?>" />';
-		  html += '<?php echo $category['name']; ?>'
+		  html += <?php echo json_encode($category['name']); ?>;
 		  html += '</div>';
 		<?php } ?>
 		html += '</div>';

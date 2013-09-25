@@ -1,5 +1,4 @@
 <div class="list_carousel list_carousel_footer responsive">
-
 	<ul id="carousel<?php echo $module; ?>">
     <?php foreach ($banners as $banner) { ?>
     <li><div><a href="<?php echo $banner['link']; ?>"><img src="<?php echo $banner['image']; ?>" alt="<?php echo $banner['title']; ?>" title="<?php echo $banner['title']; ?>" /></a></div></li>
@@ -24,11 +23,11 @@ $('#carousel<?php echo $module; ?>').carouFredSel({
 			onTouch : true
 		},
 		items: {
-			width:180,
-			height:103,
+			width:380,
+			height:278,
 			visible: {
 				min: 1,
-				max: 7
+				max: 3
 			}
 		},
 		

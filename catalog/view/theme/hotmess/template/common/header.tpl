@@ -99,35 +99,38 @@ if(!isset($b_Mode_CSS)){
     
 <div class="grid_24 omega alpha">
   <div class="top_header">
-  <div id="welcome">
-    <?php if (!$logged) { ?>
-    <?php echo $text_welcome; ?>
-    <?php } else { ?>
-    <?php echo $text_logged; ?>
-    <?php } ?>
-  </div>
-      <div class="madeuk">MADE IN THE UK</div>
-  <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></div>
+      <div class="madeuk"><span>MADE IN THE UK</span></div>
   
   </div>
   <div class="bottom_header"><div id="headerInputs">
-            <div id="search" class="inputContainer">
-              <div class="button-search" title="<?php echo $text_search; ?>"></div>
-              <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
+            <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></div>
+            <div id="top-inputs">
+                <div id="newsletter" class="inputContainer inputContainerTop">
+                  <div class="button-enter" title="sign up"></div>
+                  <input type="email" name="email" placeholder="enter email for latest news" value="" />
+                </div>
+
+                <div id="search" class="inputContainer">
+                  <div class="button-search" title="<?php echo $text_search; ?>"></div>
+                  <input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
+                </div>
             </div>
-          
-<!--            <div id="newsletter" class="inputContainer">
-              <div class="button-enter" title="sign up"></div>
-              <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
-            </div>-->
       </div>
   <?php echo $cart; ?>
-      
+    
+    <div id="welcome">
+        <?php if (!$logged) { ?>
+        <?php echo $text_welcome; ?>
+        <?php } else { ?>
+        <?php echo $text_logged; ?>
+        <?php } ?>
+    </div>
       
   <?php if ($logo) { ?>
   <div id="logo"><a href="<?php echo $home; ?>" style="display: inline-block;position: relative; top: -20px;"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" /></a></div>
   <?php } ?>
-  
+  <div id="tagline"><?php echo $text_tag; ?></div>
+
    <?php echo $currency; ?>
   <?php echo $language; ?>
   
