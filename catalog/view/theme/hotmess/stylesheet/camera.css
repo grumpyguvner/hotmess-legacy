@@ -1093,7 +1093,8 @@
 	overflow:hidden;
 	position:relative;
 	z-index:0;
-	margin-bottom:6px
+	margin-bottom:6px;
+        clear:both;
 }
 .slide_width_box { width:1180px; margin:0 auto }
 .camera_bar{display:none}

@@ -93,7 +93,7 @@ if(!isset($b_Mode_CSS)){
 <div id="container" class="<?php echo $b_Mode_CSS; ?>">
 
 <div id="inner_container">
-    
+
 <div id="header">
 <div class="container_24">
     
@@ -103,7 +103,7 @@ if(!isset($b_Mode_CSS)){
   
   </div>
   <div class="bottom_header"><div id="headerInputs">
-            <div class="links"><a href="<?php echo $home; ?>"><?php echo $text_home; ?></a><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a><a href="<?php echo $wishlist; ?>" id="wishlist-total"><?php echo $text_wishlist; ?></a></div>
+            <div class="links"><?php echo $blocks[0]['description']; ?></div>
             <div id="top-inputs">
                 <div id="newsletter" class="inputContainer inputContainerTop">
                   <div class="button-enter" title="sign up"></div>
@@ -116,6 +116,7 @@ if(!isset($b_Mode_CSS)){
                 </div>
             </div>
       </div>
+  <div class="text-right-top"><?php echo $blocks[1]['description']; ?></div>
   <?php echo $cart; ?>
     
     <div id="welcome">
@@ -137,8 +138,6 @@ if(!isset($b_Mode_CSS)){
   </div>
 </div>
 </div>
-</div>
-
 <div class="boss_menu">	
 <div class="container_24">		
 	<?php if ($this->config->get('b_General_Menu')) { ?>	
@@ -235,6 +234,18 @@ if(!isset($b_Mode_CSS)){
                         <a href="http://instagram.com/HOTMESSCLOTHING" target="_blank"><img src="/image/data/FOOTER/instagram.png" ></a>
                     </div>
 </div>
+</div>
+<div id="header_placeholder"></div>
+
+<script>
+    var height = $( window ).height();
+
+    if(height > '750')
+    {
+        $('#header').css("position","fixed");
+        $('#header_placeholder').css("display","block");
+    }
+</script>
 <?php 
 if(isset($boss_editorthemes)){
 	echo $boss_editorthemes;

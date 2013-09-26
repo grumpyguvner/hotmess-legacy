@@ -58,7 +58,7 @@ class ControllerExtensionModule extends Controller {
 		$this->data['extensions'] = array();
 						
 		$files = glob(DIR_APPLICATION . 'controller/module/*.php');
-		
+                
 		if ($files) {
 			foreach ($files as $file) {
 				$extension = basename($file, '.php');
@@ -100,6 +100,15 @@ class ControllerExtensionModule extends Controller {
                                 }
 			}
 		}
+                $data = $this->data['extensions'];
+                foreach ($data as $key => $row) {
+                    $name[$key]  = $row['name'];
+                    $action[$key] = $row['action'];
+                }
+
+                array_multisort($name, SORT_ASC, $action, SORT_ASC, $data);
+                
+                $this->data['extensions'] = $data;
 
 		$this->template = 'extension/module.tpl';
 		$this->children = array(

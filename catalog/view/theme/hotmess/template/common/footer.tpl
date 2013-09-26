@@ -7,7 +7,9 @@
         <div class="container_24">
             <div class="footer-column">
                 <?php /*                 * ****************FOOTER SETTINGS******************** */ ?>
-                <?php include "catalog/view/theme/hotmess/template/bossthemes/Boss_footer_setting.php"; ?>
+                <div class="block-about-us">
+                    <div class="block-content"><?php echo $blocks[0]['description']; ?></div>
+                </div>
                 <?php if ($informations) { ?>
                     <div class="columns">
                         <div class="column">
@@ -83,7 +85,7 @@
 <?php } ?>
                 
                 <div id="newsletter_footer" class="inputContainer" style="float: right;margin-top: 67px;">
-                  <div class="button-enter" title="sign up"></div>
+                  <div style="margin-top: 2px;"class="button-enter" title="sign up"></div>
                   <input type="email" name="email" placeholder="enter your email here for the latest" value="" />
                 </div>
                 <div id="social-footer" style="display: inline-block;margin-top: 20px;float: none">
