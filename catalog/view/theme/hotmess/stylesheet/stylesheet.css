@@ -330,10 +330,10 @@ h1.h1margin{margin-top:29px}
 .name{font-weight:700}
 /* header */
 #header {
-	height: 129px;
+	height: 156px;
 	position: relative;
 	z-index: 99;
-	padding:7px 0;
+	padding:7px 0 0;
         background-color: #FFF;
         
 }

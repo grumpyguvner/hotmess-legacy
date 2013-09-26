@@ -40,7 +40,7 @@ if(in_array("",$Slide_value_effects)){
 			if($Slide_value_effect == 'stampede')
 				$effect = $effect."stampede,";
 			if($Slide_value_effect == 'scroll')
-				$effect = $effect."scrollLeft, scrollRight, scrollHorz, scrollBottom, scrollTop";
+				$effect = $effect."scrollLeft";
 		}
 	}
 }
@@ -51,7 +51,7 @@ if(in_array("",$Slide_value_effects)){
 			pagination: true,
 			navigation: true,
 			playPause: false,
-			height: '51,14%',
+			height: '<?php echo $height; ?>px',
 			mobileAutoAdvance: true,
 			thumbnails: false,
 			fx:'<?php echo $effect; ?>',
