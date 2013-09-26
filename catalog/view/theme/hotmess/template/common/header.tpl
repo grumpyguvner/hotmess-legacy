@@ -103,7 +103,7 @@ if(!isset($b_Mode_CSS)){
   
   </div>
   <div class="bottom_header"><div id="headerInputs">
-            <div class="links"><?php echo $blocks[0]['description']; ?></div>
+            <div class="links"><?php if(isset($blocks[0]['description'])) {echo $blocks[0]['description'];} ?></div>
             <div id="top-inputs">
                 <div id="newsletter" class="inputContainer inputContainerTop">
                   <div class="button-enter" title="sign up"></div>
@@ -116,7 +116,7 @@ if(!isset($b_Mode_CSS)){
                 </div>
             </div>
       </div>
-  <div class="text-right-top"><?php echo $blocks[1]['description']; ?></div>
+  <div class="text-right-top"><?php if(isset($blocks[1]['description'])){echo $blocks[1]['description'];} ?></div>
   <?php echo $cart; ?>
     
     <div id="welcome">

@@ -8,7 +8,7 @@
             <div class="footer-column">
                 <?php /*                 * ****************FOOTER SETTINGS******************** */ ?>
                 <div class="block-about-us">
-                    <div class="block-content"><?php echo $blocks[0]['description']; ?></div>
+                    <div class="block-content"><?php if(isset($blocks[0]['description'])){echo $blocks[0]['description'];} ?></div>
                 </div>
                 <?php if ($informations) { ?>
                     <div class="columns">
