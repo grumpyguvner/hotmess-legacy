@@ -573,7 +573,7 @@ h1.h1margin{margin-top:29px}
 .list_carousel_footer{padding:0px 0px;margin-bottom:30px}
 #header .links 
 {
-        width: 400px;
+        width: 450px;
         left: -5px;
 	top: 40px;
         position: absolute;
@@ -2577,7 +2577,7 @@ margin-left: 1.5em;
 #footer .block-about-us .about-des a.read-more{color: #B335CB;}
 #footer .about-des a.read-more:hover{text-decoration:underline; color: #B335CB;}
 #footer .about-des p{overflow:hidden;margin: 0;color: #545454;}
-#footer .about-des {height: auto; background: #fff; box-shadow: none;font-family: 'Conv_AdventPro-Medium';font-size: 14px;color: #545454;
+#footer .about-des {height: auto; width: 282px; background: #fff; box-shadow: none;font-family: 'Conv_AdventPro-Medium';font-size: 14px;color: #545454;
         font-family: "Courier New", Courier, monospace;}
 #footer .about-des h2 {
     color: #5FCBCB;
@@ -2597,8 +2597,9 @@ margin-left: 1.5em;
 }
 #footer .column {
 	float:left;
-	width: 16.5%;
+	width: 190px;;
 	min-height: 100px;
+        margin-right: 5px;
 	
 }
 #footer .column ul {margin-bottom: 14px;}
@@ -2623,7 +2624,27 @@ margin-left: 1.5em;
 	margin-bottom:15px
 
 }
+#footer .top-footer {
+    width: 782px;
+    position: relative;
+    height: 130px;
+}
 
+#footer .middle-footer {
+    width: 782px;
+    position: relative;
+}
+
+#footer .bottom-footer {
+    width: 782px;
+    position: relative;
+}
+#footer .footer-right {
+    margin-left: 30px;
+    width: 800px;
+    float: right;
+    position: relative;
+}
 .footer-column .footer-block-setting
 { 
 	float: left; 
@@ -2790,7 +2811,7 @@ opacity:100;
 .static-home-banner-2 ul li:first-child{padding-left:0}
 .static-home-banner-2{overflow:hidden}
 /********************************** about us *******************************/
-.block-about-us{float:left;margin-right:40px;margin-top:7px}
+.block-about-us{float:left;margin-top:7px}
 
 /***********************************  Grid *********************************/
 /* grid 3 */
