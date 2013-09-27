@@ -3506,8 +3506,9 @@ a.button.cst:hover span.button_fr{background:url(../image/left_button_hover1.png
 }
 .text-right-top{
     position: absolute;
-    left: 779px;
-    top: 0px;
+    right: 0;
+    top: 5px;
     height: 32px;
     overflow: hidden;
+    text-align: right;
 }
