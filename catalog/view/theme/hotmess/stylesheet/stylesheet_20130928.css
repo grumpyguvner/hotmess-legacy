@@ -343,6 +343,16 @@ h1.h1margin{margin-top:29px}
     height: 163px;
 
 }
+@media screen and (min-height: 750px) and (min-width: 1200px) {
+    #header {
+        position: fixed;
+        
+    }
+    #header_placeholder {
+        display: block;
+    }
+}
+
 #tayla-blue {float:right;margin-left: 10px;position: relative;width: 180px; height: 150px;}
 #tayla-blue img {width: 100%;position: absolute;}
 #header #logo {text-align: center; position: absolute; top: 20px; right: 425px;}

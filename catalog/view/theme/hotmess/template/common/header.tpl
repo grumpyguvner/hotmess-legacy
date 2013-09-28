@@ -18,7 +18,7 @@
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/stylesheet_20130927.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/stylesheet_20130928.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_menu_20130927.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/1200.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_add_cart.css" />
@@ -236,16 +236,6 @@ if(!isset($b_Mode_CSS)){
 </div>
 </div>
 <div id="header_placeholder"></div>
-
-<script>
-    var height = $( window ).height();
-
-    if(height > '750')
-    {
-        $('#header').css("position","fixed");
-        $('#header_placeholder').css("display","block");
-    }
-</script>
 <?php 
 if(isset($boss_editorthemes)){
 	echo $boss_editorthemes;
