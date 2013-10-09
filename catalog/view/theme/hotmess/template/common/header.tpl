@@ -18,7 +18,7 @@
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/stylesheet_20130928.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/stylesheet_20131009.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_menu_20130927.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/1200.css" />
 <link rel="stylesheet" type="text/css" href="catalog/view/theme/hotmess/stylesheet/boss_add_cart.css" />
