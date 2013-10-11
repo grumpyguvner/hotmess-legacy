@@ -471,7 +471,29 @@ $('h2.ta-header').click(function() {
 $('#tabs a').tabs();
 
 //--></script>  
-  
+
+<?php
+$html = '<div style="clear: both;"></div>';
+$html .= '<div class="iconline homepage-header" style="padding-left: 0px; clear:both; font-size: 16px;margin-bottom: 10px;">COMPLETE YOUR LOOK WITH...</div>';
+foreach ($upselling_products as $product) {
+     $html .= '<div class="product" style="clear: both;">';
+    if ($product['thumb']) {
+        $html .= '<div class="image" style="float: left;"><a href="'.$product['href'].'"><img width="70" height="86" src="'.$product['thumb'].'" alt="'.$product['name'].'" title="'.$product['name'].'" /></a></div>';
+    }
+    
+    $html .= '<div class="name"><a href="'.$product['href'].'">'.$product['name'].'</a></div>';
+    
+    $html .= '<div class="price">';
+    if (!$product['special']) {
+    $html .= $product['price'];
+    } else {
+    $html .= '<span class="price-old">'.$product['price'].'</span> <span class="price-new">'.$product['special'].'</span>';
+    }
+    $html .= '</div>';
+    $html .= '</div>';
+}
+?>
+
   <script type="text/javascript"><!--
 $('#button-cart').bind('click', function() {
 	$.ajax({
@@ -490,7 +512,7 @@ $('#button-cart').bind('click', function() {
 			}  
 
           if (json['success']) {
-              addProductNotice(json['title'], json['thumb'], json['success'], 'success');
+              addProductNotice(json['title'], json['thumb'], json['success'], 'success', '<?php echo $html; ?>');
               $('#cart_menu span.s_grand_total').html(json['total_sum']);
               $('#cart_menu div.s_cart_holder').html(json['output']);
 			  $('#cart-total').html(json['total']);

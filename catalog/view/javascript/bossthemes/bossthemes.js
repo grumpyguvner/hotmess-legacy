@@ -47,7 +47,7 @@ function boss_addToCompare(product_id) {
 	});
 }
 
-function addProductNotice(title, thumb, text, type) {
+function addProductNotice(title, thumb, text, type, html) {
     if ($.browser.msie && parseInt($.browser.version) < 8) {
 		simpleNotice(title, text, type);
         return false;
@@ -57,7 +57,8 @@ function addProductNotice(title, thumb, text, type) {
         title: title,
         thumb: thumb,
         text:  text,
-        type: type
+        type: type,
+        html: html
         },{
         expires: 4000
         }
@@ -85,6 +86,7 @@ function appendNoticeTemplates() {
                    <div class="boss_text">\
                      #{thumb}\
                      <h3>#{text}</h3>\
+                     #{html}\
                    </div>\
                  </div>\
                  <div id="nothumb-template">\

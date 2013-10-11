@@ -12,6 +12,59 @@ class ControllerProductProduct extends Controller {
 			'href'      => $this->url->link('common/home'),			
 			'separator' => false
 		);
+                
+                if ($this->extensions->isInstalled('upselling', 'module')) {
+                    $this->load->model('catalog/product'); 
+		
+                    $this->load->model('tool/image');
+
+                    $this->data['upselling_products'] = array();
+
+                    $products = explode(',', $this->config->get('upselling_product'));
+
+                    $products = array_slice($products, 0, 5);
+
+                    foreach ($products as $product_id) {
+                            $product_info = $this->model_catalog_product->getProduct($product_id);
+
+                            if ($product_info) {
+                                    if ($product_info['image']) {
+                                            $image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
+                                    } else {
+                                            $image = false;
+                                    }
+
+                                    if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
+                                            $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+                                    } else {
+                                            $price = false;
+                                    }
+
+                                    if ((float)$product_info['special']) {
+                                            $special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+                                    } else {
+                                            $special = false;
+                                    }
+
+                                    if ($this->config->get('config_review_status')) {
+                                            $rating = $product_info['rating'];
+                                    } else {
+                                            $rating = false;
+                                    }
+
+                                    $this->data['upselling_products'][] = array(
+                                            'product_id' => $product_info['product_id'],
+                                            'thumb'   	 => $image,
+                                            'name'    	 => $product_info['name'],
+                                            'price'   	 => $price,
+                                            'special' 	 => $special,
+                                            'rating'     => $rating,
+                                            'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
+                                            'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
+                                    );
+                            }
+                    }
+                }
 		
 		$this->load->model('catalog/category');	
                 
@@ -572,7 +625,7 @@ class ControllerProductProduct extends Controller {
       		$this->data['button_continue'] = $this->language->get('button_continue');
 
       		$this->data['continue'] = $this->url->link('common/home');
-
+                
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
 			} else {
