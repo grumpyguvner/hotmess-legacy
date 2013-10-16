@@ -19,6 +19,8 @@ class ControllerModuleUpselling extends Controller {
 				
 		$this->data['heading_title'] = $this->language->get('heading_title');
 
+		$this->data['text_yes'] = $this->language->get('text_yes');
+		$this->data['text_no'] = $this->language->get('text_no');
 		$this->data['text_enabled'] = $this->language->get('text_enabled');
 		$this->data['text_disabled'] = $this->language->get('text_disabled');
 		$this->data['text_content_top'] = $this->language->get('text_content_top');
@@ -26,6 +28,8 @@ class ControllerModuleUpselling extends Controller {
 		$this->data['text_column_left'] = $this->language->get('text_column_left');
 		$this->data['text_column_right'] = $this->language->get('text_column_right');
 
+		$this->data['entry_only_related'] = $this->language->get('entry_only_related');
+		$this->data['entry_cart_limit'] = $this->language->get('entry_cart_limit');
 		$this->data['entry_product'] = $this->language->get('entry_product');
 		$this->data['entry_limit'] = $this->language->get('entry_limit');
 		$this->data['entry_image'] = $this->language->get('entry_image');
@@ -82,6 +86,18 @@ class ControllerModuleUpselling extends Controller {
 		} else {
 			$this->data['upselling_product'] = $this->config->get('upselling_product');
 		}	
+
+		if (isset($this->request->post['upselling_only_related'])) {
+			$this->data['upselling_only_related'] = $this->request->post['upselling_only_related'];
+		} else {
+			$this->data['upselling_only_related'] = $this->config->get('upselling_only_related');
+		}
+
+		if (isset($this->request->post['entry_cart_limit'])) {
+			$this->data['upselling_cart_limit'] = $this->request->post['upselling_cart_limit'];
+		} else {
+			$this->data['upselling_cart_limit'] = $this->config->get('upselling_cart_limit');
+		}
 				
 		$this->load->model('catalog/product');
 				

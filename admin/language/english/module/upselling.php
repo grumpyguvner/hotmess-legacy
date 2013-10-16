@@ -11,6 +11,8 @@ $_['text_column_left']    = 'Column Left';
 $_['text_column_right']   = 'Column Right';
 
 // Entry
+$_['entry_only_related']  = 'Only upsell related:';
+$_['entry_cart_limit']    = 'Cart pop up limit:';
 $_['entry_product']       = 'Products:<br /><span class="help">(Autocomplete)</span>';
 $_['entry_limit']         = 'Limit:';
 $_['entry_image']         = 'Image (W x H) and Resize Type:';

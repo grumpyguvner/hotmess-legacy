@@ -13,56 +13,54 @@ class ControllerProductProduct extends Controller {
 			'separator' => false
 		);
                 
-                if ($this->extensions->isInstalled('upselling', 'module')) {
-                    $this->load->model('catalog/product'); 
+                if ($this->extensions->isInstalled('upselling', 'module') && $this->config->get('upselling_cart_limit')) {
 		
                     $this->load->model('tool/image');
+                    
+                    $this->load->model('module/upselling');
 
                     $this->data['upselling_products'] = array();
 
-                    $products = explode(',', $this->config->get('upselling_product'));
+                    $upselling_products = $this->model_module_upselling->getUpsellingProducts($product_id);
 
-                    $products = array_slice($products, 0, 5);
+                    foreach ($upselling_products as $key => $product_info) {
 
-                    foreach ($products as $product_id) {
-                            $product_info = $this->model_catalog_product->getProduct($product_id);
+                        if ($product_info['image']) {
+                                $image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
+                        } else {
+                                $image = false;
+                        }
 
-                            if ($product_info) {
-                                    if ($product_info['image']) {
-                                            $image = $this->model_tool_image->resize($product_info['image'], $this->config->get('config_image_cart_width'), $this->config->get('config_image_cart_height'));
-                                    } else {
-                                            $image = false;
-                                    }
+                        if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
+                                $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+                        } else {
+                                $price = false;
+                        }
 
-                                    if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
-                                            $price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
-                                    } else {
-                                            $price = false;
-                                    }
+                        if ((float)$product_info['special']) {
+                                $special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+                        } else {
+                                $special = false;
+                        }
 
-                                    if ((float)$product_info['special']) {
-                                            $special = $this->currency->format($this->tax->calculate($product_info['special'], $product_info['tax_class_id'], $this->config->get('config_tax')));
-                                    } else {
-                                            $special = false;
-                                    }
+                        if ($this->config->get('config_review_status')) {
+                                $rating = $product_info['rating'];
+                        } else {
+                                $rating = false;
+                        }
 
-                                    if ($this->config->get('config_review_status')) {
-                                            $rating = $product_info['rating'];
-                                    } else {
-                                            $rating = false;
-                                    }
-
-                                    $this->data['upselling_products'][] = array(
-                                            'product_id' => $product_info['product_id'],
-                                            'thumb'   	 => $image,
-                                            'name'    	 => $product_info['name'],
-                                            'price'   	 => $price,
-                                            'special' 	 => $special,
-                                            'rating'     => $rating,
-                                            'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
-                                            'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
-                                    );
-                            }
+                        $this->data['upselling_products'][] = array(
+                                'product_id' => $product_info['product_id'],
+                                'thumb'   	 => $image,
+                                'name'    	 => $product_info['name'],
+                                'price'   	 => $price,
+                                'special' 	 => $special,
+                                'rating'     => $rating,
+                                'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
+                                'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id'])
+                        );
+                        
+                        if (($key+1) >= $this->config->get('upselling_cart_limit')) break;
                     }
                 }
 		

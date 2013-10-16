@@ -470,30 +470,32 @@ $('h2.ta-header').click(function() {
 
 $('#tabs a').tabs();
 
-//--></script>  
-
+//--></script>
 <?php
-$html = '<div style="clear: both;"></div>';
-$html .= '<div class="iconline homepage-header" style="padding-left: 0px; clear:both; font-size: 16px;margin-bottom: 10px;">COMPLETE YOUR LOOK WITH...</div>';
-foreach ($upselling_products as $product) {
-     $html .= '<div class="product" style="clear: both;">';
-    if ($product['thumb']) {
-        $html .= '<div class="image" style="float: left;"><a href="'.$product['href'].'"><img width="70" height="86" src="'.$product['thumb'].'" alt="'.$product['name'].'" title="'.$product['name'].'" /></a></div>';
+$html = '';
+if (isset($upselling_products) && $upselling_products)
+{
+    $html = '<div style="clear: both;"></div>';
+    $html .= '<div class="iconline homepage-header" style="padding-left: 0px; clear:both; font-size: 16px;margin-bottom: 10px;">COMPLETE YOUR LOOK WITH...</div>';
+    foreach ($upselling_products as $key => $product) {
+         $html .= '<div class="product" style="clear: both;">';
+        if ($product['thumb']) {
+            $html .= '<div class="image" style="float: left;"><a href="'.$product['href'].'"><img width="70" height="86" src="'.$product['thumb'].'" alt="'.$product['name'].'" title="'.$product['name'].'" /></a></div>';
+        }
+
+        $html .= '<div class="name"><a href="'.$product['href'].'">'.$product['name'].'</a></div>';
+
+        $html .= '<div class="price">';
+        if (!$product['special']) {
+        $html .= $product['price'];
+        } else {
+        $html .= '<span class="price-old">'.$product['price'].'</span> <span class="price-new">'.$product['special'].'</span>';
+        }
+        $html .= '</div>';
+        $html .= '</div>';
     }
-    
-    $html .= '<div class="name"><a href="'.$product['href'].'">'.$product['name'].'</a></div>';
-    
-    $html .= '<div class="price">';
-    if (!$product['special']) {
-    $html .= $product['price'];
-    } else {
-    $html .= '<span class="price-old">'.$product['price'].'</span> <span class="price-new">'.$product['special'].'</span>';
-    }
-    $html .= '</div>';
-    $html .= '</div>';
 }
 ?>
-
   <script type="text/javascript"><!--
 $('#button-cart').bind('click', function() {
 	$.ajax({

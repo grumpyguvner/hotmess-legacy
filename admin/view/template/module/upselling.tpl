@@ -33,6 +33,24 @@
               </div>
               <input type="hidden" name="upselling_product" value="<?php echo $upselling_product; ?>" /></td>
           </tr>
+          <tr>
+              <td><?php echo $entry_only_related; ?></td>
+              <td><?php if ($upselling_only_related) { ?>
+                <input type="radio" name="upselling_only_related" value="1" checked="checked" />
+                <?php echo $text_yes; ?>
+                <input type="radio" name="upselling_only_related" value="0" />
+                <?php echo $text_no; ?>
+                <?php } else { ?>
+                <input type="radio" name="upselling_only_related" value="1" />
+                <?php echo $text_yes; ?>
+                <input type="radio" name="upselling_only_related" value="0" checked="checked" />
+                <?php echo $text_no; ?>
+                <?php } ?></td>
+            </tr>
+          <tr>
+            <td><?php echo $entry_cart_limit; ?></td>
+            <td><input type="text" name="upselling_cart_limit" value="<?php echo $upselling_cart_limit; ?>" size="3" /></td>
+          </tr>
         </table>
         <table id="module" class="list">
           <thead>
