@@ -65,6 +65,10 @@ class ControllerModuleNewsletter extends Controller {
 			'href'      => $this->url->link('module/' . $this->name, 'token=' . $this->session->data['token'], 'SSL'),
       		'separator' => ' :: '
    		);
+                
+                $this->data['tab_modules'] = $this->language->get('tab_modules');
+                $this->data['tab_mailchimp'] = $this->language->get('tab_mailchimp');
+                $this->data['tab_mailcampaign'] = $this->language->get('tab_mailcampaign');
 
 		$this->data['action'] = $this->url->link('module/' . $this->name, 'token=' . $this->session->data['token'], 'SSL');
 
@@ -144,6 +148,12 @@ class ControllerModuleNewsletter extends Controller {
 			$this->data[$this->name . '_mailchimp_send_welcome'] = $this->config->get($this->name . '_mailchimp_send_welcome');
 		}
                 
+                if (isset($this->request->post[$this->name . '_mailchimp_custom_fields'])) {
+			$this->data[$this->name . '_mailchimp_custom_fields'] = $this->request->post[$this->name . '_mailchimp_custom_fields'];
+		} else {
+			$this->data[$this->name . '_mailchimp_custom_fields'] = $this->config->get($this->name . '_mailchimp_custom_fields');
+		}
+                
                         
         $this->data[$this->name . '_mailchimp_lists'] = false;
         
@@ -180,9 +190,11 @@ class ControllerModuleNewsletter extends Controller {
                 
                 if (isset($this->request->post[$this->name . '_mailcampaign_apikey'])) {
 			$this->data[$this->name . '_mailcampaign_apikey'] = $this->request->post[$this->name . '_mailcampaign_apikey'];
-		} else {
+		} elseif ($this->config->get($this->name . '_mailcampaign_apikey')) {
 			$this->data[$this->name . '_mailcampaign_apikey'] = $this->config->get($this->name . '_mailcampaign_apikey');
-		}
+		} else {
+                        $this->data[$this->name . '_mailcampaign_apikey'] = 'c5b9a54763d113e8d24fad6e93e55c7a';
+                }
                 
                 if (isset($this->request->post[$this->name . '_mailcampaign_listid'])) {
 			$this->data[$this->name . '_mailcampaign_listid'] = $this->request->post[$this->name . '_mailcampaign_listid'];
@@ -206,6 +218,12 @@ class ControllerModuleNewsletter extends Controller {
 			$this->data[$this->name . '_mailcampaign_checkout_listid'] = $this->request->post[$this->name . '_mailcampaign_checkout_listid'];
 		} else {
 			$this->data[$this->name . '_mailcampaign_checkout_listid'] = $this->config->get($this->name . '_mailcampaign_checkout_listid');
+		}
+                
+                if (isset($this->request->post[$this->name . '_mailcampaign_custom_fields'])) {
+			$this->data[$this->name . '_mailcampaign_custom_fields'] = $this->request->post[$this->name . '_mailcampaign_custom_fields'];
+		} else {
+			$this->data[$this->name . '_mailcampaign_custom_fields'] = $this->config->get($this->name . '_mailcampaign_custom_fields');
 		}
                 
                 if (isset($this->request->post[$this->name . '_mailcampaign_checkout_optin'])) {

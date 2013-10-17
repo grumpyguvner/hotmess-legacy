@@ -212,6 +212,7 @@
           <td><?php echo $mailchimp_account_lists; ?></td>
           <td>
             <select name="newsletter_mailchimp_account_listid">
+                <option><?php echo $text_none; ?></option>
             <?php
             foreach ($newsletter_mailchimp_lists as $listid => $listname)
             {
@@ -255,6 +256,7 @@
           <td><?php echo $mailchimp_checkout_lists; ?></td>
           <td>
             <select name="newsletter_mailchimp_checkout_listid">
+                <option><?php echo $text_none; ?></option>
             <?php
             foreach ($newsletter_mailchimp_lists as $listid => $listname)
             {
@@ -332,6 +334,10 @@
                 <?php echo $text_no; ?>
                 <?php } ?></td>
         </tr>
+        <tr>
+          <td><?php echo $mailchimp_custom_fields; ?></td>
+          <td><input type="text" name="newsletter_mailchimp_custom_fields" value="<?php echo $newsletter_mailchimp_custom_fields ?>" size="50" /></td>
+        </tr>
       </table>
 	  </div>
         <!----------------- Start tab Campaign ----------------------->
@@ -365,6 +371,7 @@
           <td><?php echo $mailcampaign_client_id; ?></td>
           <td>
             <select name="newsletter_mailcampaign_client_id">
+                <option></option>
             <?php
             foreach ($newsletter_mailcampaign_clients as $ctlistid => $listname)
             {
@@ -419,6 +426,7 @@
           <td><?php echo $mailcampaign_account_lists; ?></td>
           <td>
             <select name="newsletter_mailcampaign_account_listid">
+                <option><?php echo $text_none; ?></option>
             <?php
             foreach ($newsletter_mailcampaign_lists as $listid => $listname)
             {
@@ -462,6 +470,7 @@
           <td><?php echo $mailcampaign_checkout_lists; ?></td>
           <td>
             <select name="newsletter_mailcampaign_checkout_listid">
+                <option><?php echo $text_none; ?></option>
             <?php
             foreach ($newsletter_mailcampaign_lists as $listid => $listname)
             {
@@ -495,6 +504,10 @@
                 <input type="radio" name="newsletter_mailcampaign_checkout_optin" value="0" checked="checked" />
                 <?php echo $text_no; ?>
                 <?php } ?></td>
+        </tr>
+        <tr>
+          <td><?php echo $mailcampaign_custom_fields; ?></td>
+          <td><input type="text" name="newsletter_mailcampaign_custom_fields" value="<?php echo $newsletter_mailcampaign_custom_fields ?>" size="50" /></td>
         </tr>
 <!---------------------------------------- End AV 12/04/2013 --------------------------------------------------->
         
