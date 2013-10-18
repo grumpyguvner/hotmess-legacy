@@ -24,6 +24,9 @@ $_['button_add']       	  = 'Add';
 $_['button_delete']    	  = 'Delete';
 
 // Tab
+$_['tab_modules']         = 'Modules';
+$_['tab_mailchimp']       = 'MailChimp';
+$_['tab_mailcampaign']    = 'MailCampaign';
 $_['tab_email']           = 'Email List';
 
 // Entry
@@ -53,6 +56,7 @@ $_['mailchimp_checkout_lists']  = 'checkout List:';
 $_['mailchimp_double_optin']    = 'Double Opt-in:';
 $_['mailchimp_update_existing'] = 'Update Existing Record:';
 $_['mailchimp_send_welcome']    = 'Send Welcome Email:';
+$_['mailchimp_custom_fields']   = 'Custom fields:';
 
 // Mailcampaign
 $_['mailcampaign_enabled']          = 'Enable MailCampaign:';
@@ -69,6 +73,7 @@ $_['mailcampaign_checkout_lists']   = 'Checkout List:';
 $_['mailcampaign_double_optin']     = 'Double Opt-in:';
 $_['mailcampaign_update_existing']  = 'Update Existing Record:';
 $_['mailcampaign_send_welcome']     = 'Send Welcome Email:';
+$_['mailcampaign_custom_fields']    = 'Custom fields:';
 
 // Error MailChimp
 $_['error_permission']    = 'Warning: You do not have permission to modify this module!';

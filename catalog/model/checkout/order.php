@@ -28,7 +28,7 @@ class ModelCheckoutOrder extends Model {
 		}	
                 
                 $this->load->model('account/newsletter');
-                $this->model_account_newsletter->subscribe($data['email'], $data['firstname'], $data['lastname'], 'checkout');
+                $this->model_account_newsletter->subscribe($data['email'], $data, 'checkout');
 
 		return $order_id;
 	}
