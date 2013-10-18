@@ -9,11 +9,26 @@ require_once(DIR_SYSTEM . 'library/csrest_subscribers.php');
 //-----------------------------------------
 class ModelAccountNewsletter extends Model {
 
-    public function subscribe($email = '', $name = '', $name2 = '', $listType = '') {
+    public function subscribe($email = '', $fields = array(), $listType = '') {
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL))
             return;
-
+        
+        if($this->customer->IsLogged())
+        {
+            $this->load->model('account/customer');
+            $customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+            
+            $fields = array_merge($customer_info,$fields);
+        }
+        
+        if (!isset($fields['firstname'])) $fields['firstname'] = '';
+        if (!isset($fields['lastname'])) $fields['lastname'] = '';
+        if (!isset($fields['language'])) $fields['language'] = $this->session->data['language'];
+        if (!isset($fields['currency'])) $fields['currency'] = $this->currency->getCode();
+        
+        if (!isset($fields['name'])) $fields['name'] = trim($fields['firstname'] . ' ' . $fields['lastname']);
+        
         if ($this->config->get('newsletter_mailcampaign_enabled')) {
             $listID = $this->config->get('newsletter_mailcampaign_listid');
             
@@ -33,9 +48,46 @@ class ModelAccountNewsletter extends Model {
                     break;
             }
             
+            $data = array();
+            
+            $options = explode(',', $this->config->get('newsletter_mailcampaign_custom_fields'));
+            $customFields = array();
+            foreach($options as $option)
+            {
+                $option = explode(':', $option);
+                if (isset($fields[$option[0]]))
+                {
+                    if (isset($option[1]))
+                    {
+                        switch ($option[1])
+                        {
+                            case 'date':
+                                $time = strtotime($fields[$option[0]]);
+                                if($time === false)
+                                {
+                                    $fields[$option[0]] = '';
+                                }
+                                else
+                                {
+                                   $fields[$option[0]] = date('Y/m/d', $time);   
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    
+                    $customFields[] = array(
+                          'Key' => $option[0],
+                          'Value' => $fields[$option[0]]
+                    );
+                }
+            }
+            
             $mailcampaign = new CS_REST_Subscribers($listID, $this->config->get('newsletter_mailcampaign_apikey'));
-            $result = $mailcampaign->add(array('EmailAddress' => $email, 'Name' => $name,
-            'Resubscribe' => true
+            $result = $mailcampaign->add(array('EmailAddress' => $email, 'Name' => $fields['name'],
+                'CustomFields' => $customFields,
+                'Resubscribe' => true
                 ));
 
             if ($result->was_successful()) {
@@ -67,9 +119,44 @@ class ModelAccountNewsletter extends Model {
             }
             
             $mailchimp = new mailchimp($this->config->get('newsletter_mailchimp_apikey'));
-
-            $retval = $mailchimp->listSubscribe($listID, $email, array(), 'html', $this->config->get('newsletter_mailchimp_double_optin'), $this->config->get('newsletter_mailchimp_update_existing'), true, $this->config->get('newsletter_mailchimp_send_welcome'));
-
+            
+            $data = array();
+                    
+            if ($fields['firstname']) $data['FNAME'] = $fields['firstname'];
+            if ($fields['lastname']) $data['LNAME'] = $fields['lastname'];
+            
+            $options = explode(',', $this->config->get('newsletter_mailchimp_custom_fields'));
+            foreach($options as $option)
+            {
+                $option = explode(':', strtolower($option));
+                if (isset($fields[$option[0]]))
+                {
+                    if (isset($option[1]))
+                    {
+                        switch ($option[1])
+                        {
+                            case 'date':
+                                $time = strtotime($fields[$option[0]]);
+                                if($time === false)
+                                {
+                                    $fields[$option[0]] = '';
+                                }
+                                else
+                                {
+                                   $fields[$option[0]] = date('Y/m/d', $time);   
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    
+                    $data[$option[0]] = $fields[$option[0]];
+                }
+            }
+            
+            $retval = $mailchimp->listSubscribe($listID, $email, $data, 'html', $this->config->get('newsletter_mailchimp_double_optin'), $this->config->get('newsletter_mailchimp_update_existing'), true, $this->config->get('newsletter_mailchimp_send_welcome'));
+            
             if ($mailchimp->errorCode) {
                 //echo "Unable to load listSubscribe()!\n";
                 //echo "\tCode=".$api->errorCode."\n";
@@ -90,10 +177,10 @@ class ModelAccountNewsletter extends Model {
             if ($query->row['email'] == $email) {
                 $query = $this->db->query("UPDATE " . DB_PREFIX . "customer SET newsletter = 1 WHERE email = '" . $this->db->escape($email) . "'");
             } else {
-                $query = $this->db->query("INSERT INTO " . DB_PREFIX . "newsletter SET email = '" . $this->db->escape($email) . "', name = '" . $this->db->escape($name) . "', name2 = '" . $this->db->escape($name2) . "'");
+                $query = $this->db->query("INSERT INTO " . DB_PREFIX . "newsletter SET email = '" . $this->db->escape($email) . "', name = '" . $this->db->escape($fields['firstname']) . "', name2 = '" . $this->db->escape($fields['lastname']) . "'");
             }
         } else {
-            $query = $this->db->query("INSERT INTO " . DB_PREFIX . "newsletter SET email = '" . $this->db->escape($email) . "', name = '" . $this->db->escape($name) . "', name2 = '" . $this->db->escape($name2) . "'");
+            $query = $this->db->query("INSERT INTO " . DB_PREFIX . "newsletter SET email = '" . $this->db->escape($email) . "', name = '" . $this->db->escape($fields['firstname']) . "', name2 = '" . $this->db->escape($fields['lastname']) . "'");
         }
 
         $this->language->load('mail/newsletter');
@@ -222,7 +309,7 @@ class ModelAccountNewsletter extends Model {
             if ($flag === false) $flag = 0;
             $mailcampaign = new CS_REST_Subscribers($this->config->get('newsletter_mailcampaign_listid'), $this->config->get('newsletter_mailcampaign_apikey'));
             $retval_campaing = $mailcampaign->get($email);
-            if ($retval_campaing->was_successful()) {
+            if ($retval_campaing->was_successful() && $retval_campaing->response->State != 'Unsubscribed') {
                 $flag += 1;
             }
             
@@ -230,7 +317,7 @@ class ModelAccountNewsletter extends Model {
             {
                 $mailcampaign = new CS_REST_Subscribers($this->config->get('newsletter_mailcampaign_account_listid'), $this->config->get('newsletter_mailcampaign_apikey'));
                 $retval_campaing = $mailcampaign->get($email);
-                if ($retval_campaing->was_successful()) {
+                if ($retval_campaing->was_successful() && $retval_campaing->response->State != 'Unsubscribed') {
                     $flag += 1;
                 }
             }
@@ -239,7 +326,7 @@ class ModelAccountNewsletter extends Model {
             {
                 $mailcampaign = new CS_REST_Subscribers($this->config->get('newsletter_mailcampaign_checkout_listid'), $this->config->get('newsletter_mailcampaign_apikey'));
                 $retval_campaing = $mailcampaign->get($email);
-                if ($retval_campaing->was_successful()) {
+                if ($retval_campaing->was_successful() && $retval_campaing->response->State != 'Unsubscribed') {
                     $flag += 1;
                 }
             }
