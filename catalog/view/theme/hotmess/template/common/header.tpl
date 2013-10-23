@@ -81,6 +81,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <?php /******************THEME FONTS SETTINGS*********************/ ?>
 <?php include "catalog/view/theme/hotmess/template/bossthemes/Boss_font_setting.php"; ?>
 
+<?php if (isset($data_layer)) echo "<script>dataLayer =[" . json_encode($data_layer) . "];</script>"; ?>
 <?php echo $google_analytics; ?>
 </head>
 <body>
