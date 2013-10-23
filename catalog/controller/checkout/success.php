@@ -60,20 +60,55 @@ class ControllerCheckoutSuccess extends Controller {
     		$this->data['text_message'] = sprintf($this->language->get('text_guest'), $this->url->link('information/contact'));
 		}
                 
-                $this->data['order_value'] = 0;
                 
-                if (!empty($this->session->data['last_order_id'])) {
+	
+        $this->data['order_value'] = 0;
+        $data_layer = array();
+        if (!empty($this->session->data['last_order_id'])) {
 
-                    $this->load->model('account/order');
-                    $order_info = $this->model_account_order->getOrder($this->session->data['last_order_id']);
+            $this->load->model('account/order');
+            $order_info = $this->model_account_order->getOrder($this->session->data['last_order_id']);
+            
+            if ($order_info) {
+                $this->data['order_value'] = $order_info['total'];
 
-                    if ($order_info) {
-                        $this->data['order_value'] = $order_info['total'];
+		$data_layer['transactionId'] = $order_info['order_id'];
+		$data_layer['transactionDate'] = date($this->language->get('date_format_short'), strtotime($order_info['date_added']));
+		$data_layer['transactionType'] = 'SALE';
+		$data_layer['transactionCurrency'] = $order_info['currency_code'];
+		$data_layer['transactionTotal'] = $order_info['total'];
+		$data_layer['transactionShippingMethod'] = $order_info['shipping_method'];
+		$data_layer['transactionPaymentType'] = $order_info['payment_method'];
+
+                $products_data = array();
+                
+                $products = $this->model_account_order->getOrderProducts($this->session->data['last_order_id']);
+                foreach ($products as $product) {
+                    $products_data['name'] = $product['name'];
+                    $products_data['sku'] = $product['model'];
+
+                    $options = $this->model_account_order->getOrderOptions($this->session->data['last_order_id'], $product['order_product_id']);
+
+                    foreach ($options as $option) {
+                        if ($option['type'] != 'file') {
+                            $value = $option['value'];
+                        } else {
+                            $value = utf8_substr($option['value'], 0, utf8_strrpos($option['value'], '.'));
+                        }
+
+                        $products_data[$option['name']] = (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value);
                     }
-                    
-                    unset($this->session->data['last_order_id']);
+
+                    $products_data['price'] = $product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0);
+                    $products_data['quantity'] = $product['quantity'];
+                    $data_layer['transactionProducts'][] = $products_data;
                 }
-		
+                
+            }
+            unset($this->session->data['last_order_id']);
+        }
+        $this->setDataLayer($data_layer);
+                
     	$this->data['button_continue'] = $this->language->get('button_continue');
 
     	$this->data['continue'] = $this->url->link('common/home');
