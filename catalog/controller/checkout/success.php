@@ -20,6 +20,10 @@ class ControllerCheckoutSuccess extends Controller {
 			unset($this->session->data['reward']);
 			unset($this->session->data['voucher']);
 			unset($this->session->data['vouchers']);
+            
+                        if ($this->customer->isLogged()) {
+                            $this->db->query("UPDATE " . DB_PREFIX . "customer SET cart = '' WHERE customer_id = '" . (int)$this->customer->isLogged() . "'");
+                        }
 		}	
 									   
 		$this->language->load('checkout/success');
