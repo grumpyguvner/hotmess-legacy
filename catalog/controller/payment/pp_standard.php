@@ -24,6 +24,7 @@ class ControllerPaymentPPStandard extends Controller {
 			$this->data['item_name'] = html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8');				
 			
 			$this->data['products'] = array();
+			$subtotal = 0;
 			
 			foreach ($this->cart->getProducts() as $product) {
 				$option_data = array();
@@ -42,20 +43,23 @@ class ControllerPaymentPPStandard extends Controller {
 						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
 					);
 				}
+                                $producttotal = $this->currency->format($product['price'], $order_info['currency_code'], false, false);
 				
 				$this->data['products'][] = array(
 					'name'     => $product['name'],
 					'model'    => $product['model'],
-					'price'    => $this->currency->format($product['price'], $order_info['currency_code'], false, false),
+					'price'    => $producttotal,
 					'quantity' => $product['quantity'],
 					'option'   => $option_data,
 					'weight'   => $product['weight']
 				);
+                                
+                                $subtotal += $producttotal;
 			}	
 			
 			$this->data['discount_amount_cart'] = 0;
 			
-			$total = $this->currency->format($order_info['total'] - $this->cart->getSubTotal(), $order_info['currency_code'], false, false);
+			$total = $this->currency->format($order_info['total'] - $subtotal, $order_info['currency_code'], false, false);
 
 			if ($total > 0) {
 				$this->data['products'][] = array(
